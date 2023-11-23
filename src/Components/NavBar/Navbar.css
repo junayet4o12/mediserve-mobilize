@@ -1,0 +1,39 @@
+.navlink {
+    border-radius: 4px;
+    transition: background 0.5s ease, border-radius 0.5s ease, color 1s ease;
+    
+}
+
+.navlink:hover {
+    background: #36a3c189 !important  ;
+    border-radius: 10px;
+}
+
+.active { 
+    
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 40px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    background: #36A2C1 !important;
+    border-radius: 4px;
+    font-weight: bold;
+
+    transition: border-radius 0.5s ease;
+}
+
+.active:hover {
+    border-radius: 10px;
+}
+
+.login {
+    border-radius: 5px;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.login:hover {
+    border-radius: 13px;
+    background: #175cbb;
+}
