@@ -17,7 +17,7 @@ const UpcommingCamp = () => {
     })
     console.log(upcommingCamp);
     return (
-        <div className="bg-blue-50">
+        <div className="bg-blue-50 py-10">
             <Title title={'Upcomming Camp'} desc={'Discover Our Upcoming Health Camps'}></Title>
             <div className='flex flex-wrap justify-center items-center gap-10'>
                 {
