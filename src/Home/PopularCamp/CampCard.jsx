@@ -10,6 +10,8 @@ import { Box, Button, CardActionArea, CardActions, TextField } from '@mui/materi
 import './PopularCamp.css'
 import { Link } from 'react-router-dom';
 import PinDropIcon from '@mui/icons-material/PinDrop';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+
 const CampCard = ({ camp }) => {
     const { description, image, _id, campName, campFees, DateAndTime, venueLocation, specializedService, healthcareExpert, targetAudience, participators } = camp
 
@@ -28,17 +30,21 @@ const CampCard = ({ camp }) => {
             <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea>
                     <Box sx={{ position: 'relative', maxHeight: '230px', overflow: 'hidden' }}>
-                        <CardMedia
-                            component="img"
-                            height="140"
-                            image={image}
-                            alt="green iguana"
-                        />
+                        <PhotoProvider >
+                            <PhotoView src={image}>
+                                <CardMedia
+                                    component="img"
+                                    height="140"
+                                    image={image}
+                                    alt="green iguana"
+                                />
+                            </PhotoView>
+                        </PhotoProvider>
                         <Box sx={{ position: 'absolute', width: '100%', bottom: '0px' }}>
                             <Typography sx={{ fontWeight: 'bold', background: '#00000098', color: '#7cdcf7', px: '10px', py: '5px' }}>
-                                {formattedDate}  
+                                {formattedDate}
                                 <Typography variant='p' sx={{ fontWeight: '500', fontSize: '13px', ml: '4px' }}>
-                                     ({startTime} to {endTime})
+                                    ({startTime} to {endTime})
                                 </Typography>
                                 <Typography variant='body2'>
                                     <PinDropIcon style={{ fontSize: '20px' }}></PinDropIcon>{venueLocation?.placeName}
