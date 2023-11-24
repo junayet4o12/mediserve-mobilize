@@ -1,0 +1,193 @@
+[
+    {
+      "campName": "Wellness Boost 2023",
+      "image": "https://i.ibb.co/HhfmyQ0/Well-Ness-Boost.jpg",
+      "campFees": 20,
+      "DateAndTime": {
+        "date": 1673817600000,
+        "startTime": 34200000,
+        "endTime": 57600000
+      },
+      "venueLocation": {
+        "placeName": "Sunrise Health Center",
+        "latitude": 34.0522,
+        "longitude": -118.2437
+      },
+      "specializedService": "Vaccinations",
+      "healthcareExpert": "Dr. Amanda Rodriguez",
+      "targetAudience": "All age groups",
+      "participators": 8
+    },
+    {
+      "campName": "Heart Health Expo",
+      "image": "https://i.ibb.co/ZYLrBp5/kids-Health-Fiesta.jpg",
+      "campFees": 15,
+      "DateAndTime": {
+        "date": 1678375200000,
+        "startTime": 37800000,
+        "endTime": 54000000
+      },
+      "venueLocation": {
+        "placeName": "Riverside Wellness Center",
+        "latitude": 34.0522,
+        "longitude": -118.2507
+      },
+      "specializedService": "Cardiac Screenings",
+      "healthcareExpert": "Cardiologist Dr. James Miller",
+      "targetAudience": "Adults aged 40 and above",
+      "participators": 15
+    },
+    {
+      "campName": "Kids Health Fiesta",
+      "image": "https://i.ibb.co/ZYLrBp5/kids-Health-Fiesta.jpg",
+      "campFees": 15,
+      "DateAndTime": {
+        "date": 1681014000000,
+        "startTime": 46800000,
+        "endTime": 61200000
+      },
+      "venueLocation": {
+        "placeName": "Sunshine Pediatrics Park",
+        "latitude": 34.0522,
+        "longitude": -118.2653
+      },
+      "specializedService": "Pediatric Check-ups",
+      "healthcareExpert": "Pediatrician Dr. Linda Johnson",
+      "targetAudience": "Children aged 1-12 and their parents/guardians",
+      "participators": 10
+    },
+    {
+      "campName": "Senior Wellness Retreat",
+      "image": "https://i.ibb.co/d5ZGBJq/Vision-Wellness-Expo.jpg",
+      "campFees": 15,
+      "DateAndTime": {
+        "date": 1682532000000,
+        "startTime": 39600000,
+        "endTime": 55800000
+      },
+      "venueLocation": {
+        "placeName": "Golden Years Senior Community",
+        "latitude": 34.0522,
+        "longitude": -118.2710
+      },
+      "specializedService": "Geriatric Health Assessments",
+      "healthcareExpert": "Geriatric Specialist Dr. Susan Lee",
+      "targetAudience": "Seniors aged 65 and above",
+      "participators": 7
+    },
+    {
+      "campName": "Dental Care Day",
+      "image": "https://i.ibb.co/w00c0NC/dentel-Careday.jpg",
+      "campFees": 15,
+      "DateAndTime": {
+        "date": 1678772400000,
+        "startTime": 34200000,
+        "endTime": 50400000
+      },
+      "venueLocation": {
+        "placeName": "Smile Haven Dental Clinic",
+        "latitude": 34.0522,
+        "longitude": -118.2750
+      },
+      "specializedService": "Dental Check-ups",
+      "healthcareExpert": "Dentist Dr. Jennifer Roberts",
+      "targetAudience": "All age groups",
+      "participators": 12
+    },
+    {
+      "campName": "Vision Wellness Expo",
+      "image": "https://i.ibb.co/Fh0Fczy/fitness-And-Fun.jpg",
+      "campFees": 20,
+      "DateAndTime": {
+        "date": 1678422000000,
+        "startTime": 36000000,
+        "endTime": 57600000
+      },
+      "venueLocation": {
+        "placeName": "Clear Vision OptiCenter",
+        "latitude": 34.0522,
+        "longitude": -118.2800
+      },
+      "specializedService": "Eye Exams",
+      "healthcareExpert": "Optometrist Dr. Karen Taylor",
+      "targetAudience": "All age groups",
+      "participators": 19
+    },
+    {
+      "campName": "Nutrition Education Fair",
+      "image": "https://i.ibb.co/F48kG6Q/nutration-Education-Fair.jpg",
+      "campFees": 15,
+      "DateAndTime": {
+        "date": 1678998000000,
+        "startTime": 43200000,
+        "endTime": 61200000
+      },
+      "venueLocation": {
+        "placeName": "GreenLife Community Wellness Center",
+        "latitude": 34.0522,
+        "longitude": -118.2850
+      },
+      "specializedService": "Nutritional Assessments",
+      "healthcareExpert": "Nutritionist Dr. Emily Turner",
+      "targetAudience": "All age groups",
+      "participators": 8
+    },
+    {
+      "campName": "Mental Health Awareness Day",
+      "image": "https://i.ibb.co/LS30mnC/mental-Health-Awareness-Day.jpg",
+      "campFees": 15,
+      "DateAndTime": {
+        "date": 1679724400000,
+        "startTime": 41400000,
+        "endTime": 59400000
+      },
+      "venueLocation": {
+        "placeName": "Mindful Living Center",
+        "latitude": 34.0522,
+        "longitude": -118.2900
+      },
+      "specializedService": "Mental Health Screenings",
+      "healthcareExpert": "Psychiatrist Dr. Maria Sanchez",
+      "targetAudience": "All age groups",
+      "participators": 14
+    },
+    {
+      "campName": "Fitness & Fun Run",
+      "image": "https://i.ibb.co/Fh0Fczy/fitness-And-Fun.jpg",
+      "campFees": 15,
+      "DateAndTime": {
+        "date": 1676310000000,
+        "startTime": 28800000,
+        "endTime": 43200000
+      },
+      "venueLocation": {
+        "placeName": "City Park Fitness Hub",
+        "latitude": 34.0522,
+        "longitude": -118.2950
+      },
+      "specializedService": "Fitness Assessments",
+      "healthcareExpert": "Fitness Trainer Lisa Walker",
+      "targetAudience": "All fitness levels and age groups",
+      "participators": 17
+    },
+    {
+      "campName": "Women's Wellness Expo",
+      "image": "https://i.ibb.co/XbkbLcx/Womens-Wellness-Expo.jpg",
+      "campFees": 15,
+      "DateAndTime": {
+        "date": 1679391600000,
+        "startTime": 46800000,
+        "endTime": 64800000
+      },
+      "venueLocation": {
+        "placeName": "Women's Health Oasis",
+        "latitude": 34.0522,
+        "longitude": -118.3000
+      },
+      "specializedService": "Women's Health Screenings",
+      "healthcareExpert": "OB-GYN Dr. Laura Martinez",
+      "targetAudience": "Women of all ages",
+      "participators": 11
+    }
+  ]
+  

@@ -1,0 +1,12 @@
+.detailsbtn {
+    border-radius: 5px ;
+    font-weight: bold !important;
+    padding: 8px !important;
+    background: #175bbb16 !important;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.detailsbtn:hover {
+    border-radius: 8px !important;
+    background: #175bbb42 !important;
+}
