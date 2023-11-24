@@ -6,14 +6,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Box, Button, CardActionArea, CardActions, TextField } from '@mui/material';
-import './PopularCamp.css'
-import { Link } from 'react-router-dom';
+import { Box,  CardActionArea } from '@mui/material';
+// import './PopularCamp.css'
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
-const CampCard = ({ camp }) => {
-    const { description, image, _id, campName, campFees, DateAndTime, venueLocation, specializedService, healthcareExpert, targetAudience, participators } = camp
+const UpcommingCampCard = ({ camp }) => {
+    const { description, image, campName, campFees, DateAndTime, venueLocation,  targetAudience } = camp
 
     const timeForm = (time) => {
         return new Date(time)
@@ -73,21 +72,13 @@ const CampCard = ({ camp }) => {
                         <Typography variant="body2" color="text.secondary">
                             {description.slice(0, 150)}...
                         </Typography>
-                        <Typography variant="h6" color="text.secondary" sx={{ marginTop: '10px', fontWeight: 'bold', color: '#0477bf' }}>
-                            Participators: {participators}
-                        </Typography>
+                        
                     </CardContent>
                 </CardActionArea>
-                <CardActions>
-                    <Link to={`/camp-details/${_id}`}>
-                        <Button className='detailsbtn' size="small" color="primary">
-                            Details
-                        </Button>
-                    </Link>
-                </CardActions>
+               
             </Card>
         </div>
     );
 };
 
-export default CampCard;
+export default UpcommingCampCard;

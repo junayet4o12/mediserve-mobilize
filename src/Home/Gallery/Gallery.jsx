@@ -73,7 +73,7 @@ const Gallery = () => {
     return (
         <div className='bg-blue-50'>
             <Title title={'Our Gallery'} desc={'Healing Moments Gallery'}></Title>
-            <Box sx={{ width: '80%', mx: 'auto', height: 700, overflowY: 'scroll' }}>
+            <Box sx={{ width: '80%', mx: 'auto', height: 500, overflowY: 'scroll' }}>
                 <ImageList variant="masonry" cols={2} gap={8}>
                     {itemData.map((item) => (
                         <ImageListItem key={item.img}>

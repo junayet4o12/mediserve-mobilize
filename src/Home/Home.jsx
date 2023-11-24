@@ -4,6 +4,7 @@ import Banner from "./Banner/Banner";
 import Gallery from "./Gallery/Gallery";
 import PupularCamp from './PopularCamp/PopularCamp'
 import Testimonials from "./Testimonials/Testimonials";
+import UpcommingCamp from "./UpcommingCamp/UpcommingCamp";
 const Home = () => {
     return (
         <div>
@@ -11,6 +12,7 @@ const Home = () => {
             <PupularCamp></PupularCamp>
             <Testimonials></Testimonials>
             <Gallery></Gallery>
+            <UpcommingCamp></UpcommingCamp>
         </div>
     );
 };

@@ -1,0 +1,82 @@
+[
+    {
+        "campName": "Nutrition Education Fair",
+        "image": "https://i.ibb.co/F48kG6Q/nutration-Education-Fair.jpg",
+        "campFees": 15,
+        "DateAndTime": {
+            "date": 1678998000000,
+            "startTime": 43200000,
+            "endTime": 61200000
+        },
+        "venueLocation": {
+            "placeName": "GreenLife Community Wellness Center",
+            "latitude": 34.0522,
+            "longitude": -118.2850
+        },
+        "specializedService": "Nutritional Assessment",
+        "healthcareExpert": "Nutritionist Dr. Emily Turner",
+        "targetAudience": "All age groups",
+        "participators": 8,
+        "description": "Learn about nutrition at the Nutrition Education Fair. Nutritionist Dr. Emily Turner and Chef Alex Martinez provide nutritional assessments, healthy cooking demos, and nutritionist consultations for all age groups."
+    },
+    {
+        "campName": "Mental Health Awareness Day",
+        "image": "https://i.ibb.co/LS30mnC/mental-Health-Awareness-Day.jpg",
+        "campFees": 15,
+        "DateAndTime": {
+            "date": 1679724400000,
+            "startTime": 41400000,
+            "endTime": 59400000
+        },
+        "venueLocation": {
+            "placeName": "Mindful Living Center",
+            "latitude": 34.0522,
+            "longitude": -118.2900
+        },
+        "specializedService": "Mental Health Screenings",
+        "healthcareExpert": "Psychiatrist Dr. Maria Sanchez",
+        "targetAudience": "All age groups",
+        "participators": 14,
+        "description": "Raise awareness about mental health at the Mental Health Awareness Day. Join Psychiatrist Dr. Maria Sanchez and Licensed Counselor John Thompson for mental health screenings, counseling sessions, and mindfulness workshops."
+    },
+    {
+        "campName": "Fitness & Fun Run",
+        "image": "https://i.ibb.co/Fh0Fczy/fitness-And-Fun.jpg",
+        "campFees": 15,
+        "DateAndTime": {
+            "date": 1676310000000,
+            "startTime": 28800000,
+            "endTime": 43200000
+        },
+        "venueLocation": {
+            "placeName": "City Park Fitness Hub",
+            "latitude": 34.0522,
+            "longitude": -118.2950
+        },
+        "specializedService": "Fitness Assessment",
+        "healthcareExpert": "Fitness Trainer Lisa Walker",
+        "targetAudience": "All fitness levels and age groups",
+        "participators": 17,
+        "description": "Get active and have fun at the Fitness & Fun Run. Fitness Trainer Lisa Walker and Nutritionist Sarah Turner provide fitness assessments, group exercise classes, and healthy snack stations for all fitness levels and age groups."
+    },
+    {
+        "campName": "Women's Wellness Expo",
+        "image": "https://i.ibb.co/XbkbLcx/Womens-Wellness-Expo.jpg",
+        "campFees": 15,
+        "DateAndTime": {
+            "date": 1679391600000,
+            "startTime": 46800000,
+            "endTime": 64800000
+        },
+        "venueLocation": {
+            "placeName": "Women's Health Oasis",
+            "latitude": 34.0522,
+            "longitude": -118.3000
+        },
+        "specializedService": "Women's Health Screenings",
+        "healthcareExpert": "OB-GYN Dr. Laura Martinez",
+        "targetAudience": "Women of all ages",
+        "participators": 11,
+        "description": "Celebrate women's health at the Women's Wellness Expo. OB-GYN Dr. Laura Martinez and Women's Health Nurse Practitioner Sarah Adams provide women's health screenings, gynecological consultations, and wellness seminars for women of all ages."
+    }
+]
