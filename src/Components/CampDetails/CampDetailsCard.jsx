@@ -13,11 +13,13 @@ import Typography from '@mui/material/Typography';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import WhereToVoteIcon from '@mui/icons-material/WhereToVote';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Box, Button, Modal } from '@mui/material';
 import ModeStandbyIcon from '@mui/icons-material/ModeStandby';
 import './CampDetails.css'
 import RegistrationModal from './RegistrationModal';
+import { AuthContext } from '../../firebase/authProvider/AuthProviders';
+import Swal from 'sweetalert2';
 const ExpandMore = styled((props) => {
     const { ...other } = props;
     return <IconButton {...other} />;
@@ -29,11 +31,22 @@ const ExpandMore = styled((props) => {
     }),
 }));
 const CampDetailsCard = ({ camp }) => {
-    const { _id,description, image, campName, campFees, DateAndTime, venueLocation, targetAudience, benefits, specializedService } = camp
+    const { user } = useContext(AuthContext)
+    const { _id, description, image, campName, campFees, DateAndTime, venueLocation, targetAudience, benefits, specializedService } = camp
 
     const [expanded, setExpanded] = useState(false);
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () => {
+        if (!user) {
+            return Swal.fire({
+                title: 'Error!',
+                text: 'Please Log in First',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        }
+        setOpen(true)
+    };
     const handleClose = () => {
         setOpen(false)
         console.log('hello');
@@ -44,7 +57,7 @@ const CampDetailsCard = ({ camp }) => {
     const timeForm = (time) => {
         return new Date(time)
     }
-    
+
     // + 31536000000
     const formattedDate = timeForm(DateAndTime?.date).toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' });
 

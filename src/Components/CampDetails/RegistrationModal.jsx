@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
 import { Box, Button, Modal } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../firebase/authProvider/AuthProviders";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 // import React from 'react';
 
 const RegistrationModal = ({ camp, id, handleClose, open }) => {
+    const { user } = useContext(AuthContext);
+    const axiosPublic = useAxiosPublic()
     const [openchild, setopenchild] = useState(false)
     const [writtenname, setwrittenName] = useState('')
     const [writtenage, setwrittenage] = useState('')
@@ -25,11 +29,11 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-       
+
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
-        
+
     };
     const dhaka = ["dhaka", "faridpur", "gazipur", "gopalganj", "kishoreganj", "madaripur", "manikganj", "narayanganj", "narsingdi", "rajbari", "shariatpur", "tangail"];
 
@@ -106,7 +110,14 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
     }
 
     const handleSubmit = (e) => {
-
+        if (!user) {
+            return Swal.fire({
+                title: 'Error!',
+                text: 'Please Log in First',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        }
         e.preventDefault()
         seterror('')
         const form = e.target;
@@ -157,6 +168,8 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
                 campvenueLocation: camp?.venueLocation,
                 campImage: camp?.image
             },
+            registerEmail: user?.email,
+            userName: user?.displayName
 
 
 
@@ -166,28 +179,45 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
 
     }
     const handleConfirm = () => {
-        console.log(registerInformation);
+        // console.log(registerInformation);
         setopenchild(false)
-        handleClose()
-        setSelectedGender('')
-        setfever('')
-        setheadeche('')
-        setweak('')
-        setdevision('')
-        setdistricts([])
-        setselecteddistricts('')
-        setwrittenName('')
-        setwrittenage('')
-        setwrittencontactnum('')
-        setwrittenemergencynum('')
+        axiosPublic.post('/registrationcamps', registerInformation)
+
+            .then(res => {
+                console.log(res.data);
+                if (res?.data?.insertedId) {
+                    axiosPublic.put(`/camps/${id}`)
+                    .then(res=> {
+                        console.log(res?.data);
+                        if(res?.data?.modifiedCount>0){
+                            handleClose()
+                            setSelectedGender('')
+                            setfever('')
+                            setheadeche('')
+                            setweak('')
+                            setdevision('')
+                            setdistricts([])
+                            setselecteddistricts('')
+                            setwrittenName('')
+                            setwrittenage('')
+                            setwrittencontactnum('')
+                            setwrittenemergencynum('')
         
-        Swal.fire({
-            icon: "success",
-            title: "Successfully Registered !!",
-            showConfirmButton: false,
-            timer: 1500
-        });
-        
+                            Swal.fire({
+                                icon: "success",
+                                title: "Successfully Registered !!",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    })
+                   
+                }
+            })
+            .catch(err => console.log(err))
+
+
+
     }
     return (
         <div >

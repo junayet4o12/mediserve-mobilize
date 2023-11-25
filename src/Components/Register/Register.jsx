@@ -25,16 +25,11 @@ const Register = () => {
     const { createUser } = useContext(AuthContext)
     const loginwithgoogle = useGoogleLogin()
     const [showpass, setshowpass] = useState(true);
-    const [passvalue, setpassvalue] = useState(null)
     const imgHostingKey = import.meta.env.VITE_IMG_HOSTING_KEY;
     const imgHostingApi = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
-    const handlepassvalue = (e) => {
-        e.preventDefault()
-        setpassvalue(e.target.value);
-        console.log(e.target.value);
-    }
+    
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const onSubmit = async (data) => {
         console.log(data)
@@ -85,9 +80,9 @@ const Register = () => {
         loginwithgoogle()
     }
     return (
-        <div>
+        <div className="bg-blue-50">
             <Helmet>
-                <title>Bistro Boss | Register</title>
+                <title>Mediserve Mobilize | Register</title>
             </Helmet>
             <div className="py-7 px-7 flex  overflow-hidden">
                 <motion.div
@@ -105,48 +100,63 @@ const Register = () => {
 
                     <div className="mx-auto w-[100%] p-5  pb-10 text-black  ">
                         <h2 className="text-3xl font-bold uppercase  text-center mb-6 text-gray-600 ">Register</h2>
-                        <div className="flex flex-col justify-center items-center gap-9 text-sm font-medium">
-                            <div className="relative w-full sm:w-[450px]">
-                                <input name="name" {...register("name", { required: true })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " type="text" placeholder="Name" />
-                                {errors.name && <span className='text-red-500'>Name is required</span>}
-                                <p className='text-xl absolute top-3.5 left-3 '><MdDriveFileRenameOutline></MdDriveFileRenameOutline></p>
-                            </div>
-                            <div className="relative w-full sm:w-[450px]">
-                                <input name="image" {...register("image", { required: true })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " type="file" placeholder="Image" />
-                                {errors.image && <span className='text-red-500'>Image is required</span>}
-                                <p className='text-xl absolute top-3.5 left-3 '><MdOutlineInsertPhoto></MdOutlineInsertPhoto ></p>
-                            </div>
-                            <div className="relative w-full sm:w-[450px]">
-                                <input required name="email" {...register("email", { required: true })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " type="email" placeholder="email" />
-                                {errors.email && <span className='text-red-500'>Email is required</span>}
-                                <p className='text-xl absolute top-3.5 left-3 '><HiOutlineMail></HiOutlineMail></p>
-                            </div>
-                            <div className="relative w-full sm:w-[450px]">
-                                <input
-                                    onChange={handlepassvalue}
-                                    type={showpass ? 'password' : 'text'} name="password" {...register("password", {
-                                        required: true,
-                                        minLength: 8,
-                                        maxLength: 20,
-                                        pattern: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/
-                                    })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " placeholder="password" />
-                                <p className='text-xl absolute top-3 left-3 '><RiLockPasswordLine></RiLockPasswordLine></p>
-                                <p onClick={() => (setshowpass(!showpass))} className={`absolute top-2 right-0 mr-2 cursor-pointer text-lg  p-1`}>{showpass ? <AiOutlineEye></AiOutlineEye> : <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</p>
-                                {errors?.password?.type === 'required' && <span className='text-red-500'>Password invalid</span>}
-                                {errors?.password?.type === 'minLength' && <span className='text-red-500'>Password must be minimum 8 charecters</span>}
-                                {errors?.password?.type === 'maxLength' && <span className='text-red-500'>Password must be maximum 20 charecters</span>}
-                                {errors?.password?.type === 'pattern' && <span className='text-red-500'>Password must contain at least one digit, one lowercase letter, and one uppercase letter.</span>}
+                        <div className="flex flex-col justify-center items-center gap-5 text-sm font-medium">
 
-                                <div>
+                            <div>
+                                <p className="px-2 pb-1 text-sm">Write your name</p>
+                                <div className="relative w-full sm:w-[450px]">
 
+                                    <input name="name" {...register("name", { required: true })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " type="text" placeholder="Name" />
+                                    {errors.name && <span className='text-red-500'>Name is required</span>}
+                                    <p className='text-xl absolute top-3.5 left-3 '><MdDriveFileRenameOutline></MdDriveFileRenameOutline></p>
                                 </div>
-                                <div className='flex justify-between p-2 gap-3'>
-                                    <p className='text-sm font-medium'>Already have an Account? <br /> <Link to='/login'><span className='font-bold Register text-gray-700 hover:text-gray-900 cursor-pointer flex gap-1 hover:underline items-center'><GiArchiveRegister></GiArchiveRegister>Log in</span></Link></p>
+                            </div>
+                            <div>
+                                <p className="px-2 pb-1 text-sm">Choose your profile pic</p>
+                                <div className="relative w-full sm:w-[450px]">
+                                    <input name="image" {...register("image", { required: true })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " type="file" placeholder="Image" />
+                                    {errors.image && <span className='text-red-500'>Image is required</span>}
+                                    <p className='text-xl absolute top-3.5 left-3 '><MdOutlineInsertPhoto></MdOutlineInsertPhoto ></p>
+                                </div>
+                            </div>
+                            <div>
+                                <p className="px-2 pb-1 text-sm">Write your email</p>
+                                <div className="relative w-full sm:w-[450px]">
+                                    <input required name="email" {...register("email", { required: true })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " type="email" placeholder="email" />
+                                    {errors.email && <span className='text-red-500'>Email is required</span>}
+                                    <p className='text-xl absolute top-3.5 left-3 '><HiOutlineMail></HiOutlineMail></p>
+                                </div>
+                            </div>
 
+                            <div>
+                                <p className="px-2 pb-1 text-sm">Give a unique pass</p>
+                                <div className="relative w-full sm:w-[450px]">
+                                    <input
+                                        
+                                        type={showpass ? 'password' : 'text'} name="password" {...register("password", {
+                                            required: true,
+                                            minLength: 8,
+                                            maxLength: 20,
+                                            pattern: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/
+                                        })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " placeholder="password" />
+                                    <p className='text-xl absolute top-3 left-3 '><RiLockPasswordLine></RiLockPasswordLine></p>
+                                    <p onClick={() => (setshowpass(!showpass))} className={`absolute top-2 right-0 mr-2 cursor-pointer text-lg  p-1`}>{showpass ? <AiOutlineEye></AiOutlineEye> : <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</p>
+                                    {errors?.password?.type === 'required' && <span className='text-red-500'>Password invalid</span>}
+                                    {errors?.password?.type === 'minLength' && <span className='text-red-500'>Password must be minimum 8 charecters</span>}
+                                    {errors?.password?.type === 'maxLength' && <span className='text-red-500'>Password must be maximum 20 charecters</span>}
+                                    {errors?.password?.type === 'pattern' && <span className='text-red-500'>Password must contain at least one digit, one lowercase letter, and one uppercase letter.</span>}
+
+                                    <div>
+
+                                    </div>
+                                    <div className='flex justify-between p-2 gap-3'>
+                                        <p className='text-sm font-medium'>Already have an Account? <br /> <Link to='/login'><span className='font-bold Register text-gray-700 hover:text-gray-900 cursor-pointer flex gap-1 hover:underline items-center'><GiArchiveRegister></GiArchiveRegister>Log in</span></Link></p>
+
+                                    </div>
                                 </div>
                             </div>
                             <div className='w-full flex flex-col  justify-center items-center gap-2'>
-                                <button type='submit' className='btn bg-gradient-to-r  w-full  sm:w-[450px]  text-white font-bold rounded-lg border-none bg-[#D1A054B2] hover:bg-[#d19f54ea]'><MdLogin></MdLogin> Register</button>
+                                <button type='submit' className='btn bg-gradient-to-r  w-full  sm:w-[450px]  text-white font-bold rounded-lg border-none bg-[#36A2C1] hover:bg-[#29859e]'><MdLogin></MdLogin> Register</button>
                                 <p>Or</p>
                                 <p
                                     onClick={handlegooglelogin}

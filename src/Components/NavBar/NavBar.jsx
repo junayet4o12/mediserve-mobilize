@@ -10,7 +10,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import { useContext, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css'
 import logo from '../../assets/LOGO.png'
 import { AuthContext } from '../../firebase/authProvider/AuthProviders';
@@ -105,7 +105,9 @@ const NavBar = () => {
                         <Box sx={{ flexGrow: 0 }}>
 
                             {
-                                !user ? <Button className='login' variant="contained" sx={{ background: '#36a3c1', color: 'white', fontWeight: 'bold', padding: '10px', mx: '10px', px: '20px' }}>Login</Button> :
+                                !user ? <Link to={'/login'}>
+                                    <Button className='login' variant="contained" sx={{ background: '#36a3c1', color: 'white', fontWeight: 'bold', padding: '10px', mx: '10px', px: '20px' }}>Login</Button>
+                                </Link> :
                                     <>
 
                                         <Tooltip title="Open settings">
