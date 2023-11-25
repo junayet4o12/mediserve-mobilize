@@ -6,6 +6,7 @@ import Home from '../Home/Home'
 import CampDetails from "../Components/CampDetails/CampDetails";
 import Register from "../Components/Register/Register";
 import LogIn from "../Components/LogIn/LogIn";
+import AvailableCamps from "../Components/AvailableCamps/AvailableCamps";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -26,6 +27,10 @@ const MyRouts = createBrowserRouter([
             {
                 path: '/login',
                 element: <LogIn></LogIn>
+            },
+            {
+                path: '/availablecamps',
+                element: <AvailableCamps></AvailableCamps>
             }
         ]
     },

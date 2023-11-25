@@ -1,0 +1,30 @@
+.availablejoinbtn {
+    border-radius: 3px ;
+    font-size: 13px;
+    font-weight: bold !important;
+    padding: 5px !important;
+    background: #175bbb16 !important;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.availablejoinbtn:hover {
+    border-radius: 7px !important;
+    background: #175bbb42 !important;
+}
+.availabledetailsbtn {
+    border-radius: 3px ;
+    font-size: 13px;
+    font-weight: bold !important;
+    padding: 5px !important;
+    color: #ffffff !important;
+    background: #5992e2 !important;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.availabledetailsbtn:hover {
+    border-radius: 7px !important;
+    background: #3f84e4 !important;
+}
+
+
+  
