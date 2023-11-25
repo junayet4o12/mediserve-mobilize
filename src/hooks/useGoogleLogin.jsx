@@ -16,7 +16,9 @@ const useGoogleLogin = () => {
                 console.log(res.user);
                 const userInfo = {
                     email: res?.user?.email,
-                    name: res?.user?.displayName
+                    name: res?.user?.displayName,
+                    contactNumber: '',
+                    age: '',
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {

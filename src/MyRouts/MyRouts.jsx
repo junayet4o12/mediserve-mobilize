@@ -7,6 +7,10 @@ import CampDetails from "../Components/CampDetails/CampDetails";
 import Register from "../Components/Register/Register";
 import LogIn from "../Components/LogIn/LogIn";
 import AvailableCamps from "../Components/AvailableCamps/AvailableCamps";
+// import { Dashboard } from "@mui/icons-material";
+import PrivateRouts from "../Components/Routs/PrivateRouts";
+import DashBoard from "../DashBoard/DashBoard";
+import OrganizerProfile from "../DashBoard/Organizer/OrganizerProfile";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -31,6 +35,17 @@ const MyRouts = createBrowserRouter([
             {
                 path: '/availablecamps',
                 element: <AvailableCamps></AvailableCamps>
+            },
+            // dashboard started 
+            {
+                path: '/dashboard',
+                element: <PrivateRouts><DashBoard></DashBoard></PrivateRouts>,
+                children: [
+                   {
+                     path: 'organizer-profile',
+                     element: <OrganizerProfile></OrganizerProfile>
+                   } 
+                ]
             }
         ]
     },

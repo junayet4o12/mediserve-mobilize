@@ -56,7 +56,11 @@ const Register = () => {
                         console.log('user progile info updated');
                         const userInfo = {
                             name: data.name,
-                            email: data.email
+                            email: data.email,
+                            contactNumber: '',
+                            age: '',
+                            
+
                         }
                         axiosPublic.post('/users', userInfo)
                             .then(res => {

@@ -1,0 +1,9 @@
+.profileUpdatebtn {
+    font-weight: bold !important;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.profileUpdatebtn:hover {
+    border-radius: 10px !important;
+    background: #175bbbe4 !important;
+}
