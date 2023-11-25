@@ -29,21 +29,19 @@ const AuthProviders = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
-            // if (currentUser) {
-            //     // get token and store users 
-            //     const userInfo = { email: currentUser?.email }
-            //     axiosPublic.post('/jwt', userInfo)
-            //         .then(res => {
-            //             console.log(res?.data);
-            //             if (res?.data) {
-            //                 localStorage.setItem('access-token', res?.data?.token)
-            //             }
-            //         })
-            // }
-            // else {
-            //     // do something
-            //     localStorage.removeItem('access-token')
-            // }
+            if (currentUser) {
+                const userInfo = { email: currentUser?.email }
+                axiosPublic.post('/jwt', userInfo)
+                    .then(res => {
+                        console.log(res?.data);
+                        if (res?.data) {
+                            localStorage.setItem('token', res?.data?.token)
+                        }
+                    })
+            }
+            else {
+                localStorage.removeItem('token')
+            }
             setloading(false);
         })
         return () => {

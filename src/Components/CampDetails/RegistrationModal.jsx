@@ -4,12 +4,13 @@ import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../firebase/authProvider/AuthProviders";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 // import React from 'react';
 
 const RegistrationModal = ({ camp, id, handleClose, open }) => {
     const { user } = useContext(AuthContext);
-    const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
     const [openchild, setopenchild] = useState(false)
     const [writtenname, setwrittenName] = useState('')
     const [writtenage, setwrittenage] = useState('')
@@ -181,12 +182,12 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
     const handleConfirm = () => {
         // console.log(registerInformation);
         setopenchild(false)
-        axiosPublic.post('/registrationcamps', registerInformation)
+        axiosSecure.post('/registrationcamps', registerInformation)
 
             .then(res => {
                 console.log(res.data);
                 if (res?.data?.insertedId) {
-                    axiosPublic.put(`/camps/${id}`)
+                    axiosSecure.put(`/camps/${id}`)
                     .then(res=> {
                         console.log(res?.data);
                         if(res?.data?.modifiedCount>0){
