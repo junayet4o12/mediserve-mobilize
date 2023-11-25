@@ -15,16 +15,19 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../firebase/authProvider/AuthProviders";
 import useGoogleLogin from "../../hooks/useGoogleLogin";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
+// import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { auth } from "../../firebase/firebaseconfig";
 import registerimg from '../../assets/register.svg'
-import { MdDriveFileRenameOutline,MdOutlineInsertPhoto  } from "react-icons/md";
+import { MdDriveFileRenameOutline, MdOutlineInsertPhoto } from "react-icons/md";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import axios from "axios";
 const Register = () => {
     const { createUser } = useContext(AuthContext)
     const loginwithgoogle = useGoogleLogin()
     const [showpass, setshowpass] = useState(true);
     const [passvalue, setpassvalue] = useState(null)
-
+    const imgHostingKey = import.meta.env.VITE_IMG_HOSTING_KEY;
+    const imgHostingApi = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
     const handlepassvalue = (e) => {
@@ -33,14 +36,25 @@ const Register = () => {
         console.log(e.target.value);
     }
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log(data)
+        const image = { image: data?.image[0] }
+        // console.log(image);
+        const formData = new FormData()
+        formData.append('image', image)
+        console.log(image);
+        const res = await axios.post(imgHostingApi, image, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        })
+        const imgurl = res?.data?.data?.display_url
         createUser(data.email, data.password)
             .then(res => {
                 console.log(res.user);
                 updateProfile(auth.currentUser, {
                     displayName: data.name,
-                    photoURL: data.photourl
+                    photoURL: imgurl
 
                 })
                     .then(() => {
@@ -98,8 +112,8 @@ const Register = () => {
                                 <p className='text-xl absolute top-3.5 left-3 '><MdDriveFileRenameOutline></MdDriveFileRenameOutline></p>
                             </div>
                             <div className="relative w-full sm:w-[450px]">
-                                <input name="photourl" {...register("photourl", { required: true })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " type="file" placeholder="Photo Url" />
-                                {errors.photourl && <span className='text-red-500'>PhotoUrl is required</span>}
+                                <input name="image" {...register("image", { required: true })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " type="file" placeholder="Image" />
+                                {errors.image && <span className='text-red-500'>Image is required</span>}
                                 <p className='text-xl absolute top-3.5 left-3 '><MdOutlineInsertPhoto></MdOutlineInsertPhoto ></p>
                             </div>
                             <div className="relative w-full sm:w-[450px]">

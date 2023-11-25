@@ -37,3 +37,12 @@
     border-radius: 13px;
     background: #175cbb;
 }
+.logout {
+    border-radius: 5px;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.logout:hover {
+    border-radius: 13px;
+    background: #9e122e !important;
+}
