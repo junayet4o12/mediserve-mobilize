@@ -62,12 +62,12 @@ const NavBar = () => {
             <AppBar sx={{ background: '#ffffff63', color: 'black' }} position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                    <Box sx={{display:{ sm: 'none', md: 'block' }, mr: '30px'}}>
+                    <Box className="hidden md:block" sx={{ mr: '30px'}}>
                             <img className='w-16' src={logo} alt="" />
                         </Box>
                         
 
-                        <Box sx={{  display: { xs: 'flex', md: 'none' }, mr: '30px' }}>
+                        <Box className="block md:hidden" sx={{   mr: '30px' }}>
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -92,18 +92,16 @@ const NavBar = () => {
                                 }}
                                 open={Boolean(anchorElNav)}
                                 onClose={handleCloseNavMenu}
-                                sx={{
-                                    display: { xs: 'block', md: 'none' },
-                                }}
+                                className="block md:hidden"
                             >
                                 {navli}
                             </Menu>
                         </Box>
 
-                        <Box sx={{display:{ sx: 'block', md: 'none'}, mr: 'auto'}}>
+                        <Box className="block md:hidden" sx={{ mr: 'auto'}}>
                             <img className='w-16' src={logo} alt="" />
                         </Box>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex',   }, gap: '10px' }}>
+                        <Box className="hidden md:flex" sx={{ flexGrow: 1,  gap: '10px' }}>
 
                             {navli}
 

@@ -1,0 +1,20 @@
+.joinbtn {
+    border-radius: 3px ;
+    font-weight: bold !important;
+    padding: 8px !important;
+    background: #175bbb16 !important;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.joinbtn:hover {
+    border-radius: 10px !important;
+    background: #175bbb42 !important;
+}
+
+
+  .bg{
+    border-radius: 10px;
+    overflow: hidden;
+    font-weight: bold;
+   
+  }

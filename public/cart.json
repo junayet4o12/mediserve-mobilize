@@ -1,193 +1,272 @@
 [
-    {
-      "campName": "Wellness Boost 2023",
-      "image": "https://i.ibb.co/HhfmyQ0/Well-Ness-Boost.jpg",
-      "campFees": 20,
-      "DateAndTime": {
-        "date": 1673817600000,
-        "startTime": 34200000,
-        "endTime": 57600000
-      },
-      "venueLocation": {
-        "placeName": "Sunrise Health Center",
-        "latitude": 34.0522,
-        "longitude": -118.2437
-      },
-      "specializedService": "Vaccinations",
-      "healthcareExpert": "Dr. Amanda Rodriguez",
-      "targetAudience": "All age groups",
-      "participators": 8
+  {
+    "campName": "Heart Health Expo",
+    "description": "Prioritize your heart health at the Heart Health Expo. Join Cardiologist Dr. James Miller and Nurse Practitioner Emily Harris for cardiac screenings, blood pressure checks, and a heart-healthy cooking demo.",
+    "image": "https://i.ibb.co/MsZ1F4K/Heart-Health.jpg",
+    "campFees": 15,
+    "DateAndTime": {
+      "date": 1678375200000,
+      "startTime": 37800000,
+      "endTime": 54000000
     },
-    {
-      "campName": "Heart Health Expo",
-      "image": "https://i.ibb.co/ZYLrBp5/kids-Health-Fiesta.jpg",
-      "campFees": 15,
-      "DateAndTime": {
-        "date": 1678375200000,
-        "startTime": 37800000,
-        "endTime": 54000000
-      },
-      "venueLocation": {
-        "placeName": "Riverside Wellness Center",
-        "latitude": 34.0522,
-        "longitude": -118.2507
-      },
-      "specializedService": "Cardiac Screenings",
-      "healthcareExpert": "Cardiologist Dr. James Miller",
-      "targetAudience": "Adults aged 40 and above",
-      "participators": 15
+    "venueLocation": {
+      "placeName": "Riverside Wellness Center",
+      "latitude": 34.0522,
+      "longitude": -118.2507
     },
-    {
-      "campName": "Kids Health Fiesta",
-      "image": "https://i.ibb.co/ZYLrBp5/kids-Health-Fiesta.jpg",
-      "campFees": 15,
-      "DateAndTime": {
-        "date": 1681014000000,
-        "startTime": 46800000,
-        "endTime": 61200000
-      },
-      "venueLocation": {
-        "placeName": "Sunshine Pediatrics Park",
-        "latitude": 34.0522,
-        "longitude": -118.2653
-      },
-      "specializedService": "Pediatric Check-ups",
-      "healthcareExpert": "Pediatrician Dr. Linda Johnson",
-      "targetAudience": "Children aged 1-12 and their parents/guardians",
-      "participators": 10
+    "specializedService": "Cardiac Screenings",
+    "healthcareExpert": "Cardiologist Dr. James Miller",
+    "targetAudience": "Adults aged 40 and above",
+    "participators": 15,
+    "benefits": [
+      "Early detection of heart-related issues",
+      "Blood pressure monitoring",
+      "Heart-healthy cooking tips",
+      "Expert guidance from healthcare professionals",
+      "Promotion of heart-conscious lifestyle"
+    ]
+  },
+  {
+    "campName": "Senior Wellness Retreat",
+    "description": "Seniors, join us for a day of wellness at the Senior Wellness Retreat. Receive geriatric health assessments, mobility aid consultations, and attend social wellness seminars led by experts like Dr. Susan Lee and Brian Turner.",
+    "image": "https://i.ibb.co/xXtVJk2/Senior-Wellness-Expo.jpg",
+    "campFees": 15,
+    "DateAndTime": {
+      "date": 1682532000000,
+      "startTime": 39600000,
+      "endTime": 55800000
     },
-    {
-      "campName": "Senior Wellness Retreat",
-      "image": "https://i.ibb.co/d5ZGBJq/Vision-Wellness-Expo.jpg",
-      "campFees": 15,
-      "DateAndTime": {
-        "date": 1682532000000,
-        "startTime": 39600000,
-        "endTime": 55800000
-      },
-      "venueLocation": {
-        "placeName": "Golden Years Senior Community",
-        "latitude": 34.0522,
-        "longitude": -118.2710
-      },
-      "specializedService": "Geriatric Health Assessments",
-      "healthcareExpert": "Geriatric Specialist Dr. Susan Lee",
-      "targetAudience": "Seniors aged 65 and above",
-      "participators": 7
+    "venueLocation": {
+      "placeName": "Golden Years Senior Community",
+      "latitude": 34.0522,
+      "longitude": -118.271
     },
-    {
-      "campName": "Dental Care Day",
-      "image": "https://i.ibb.co/w00c0NC/dentel-Careday.jpg",
-      "campFees": 15,
-      "DateAndTime": {
-        "date": 1678772400000,
-        "startTime": 34200000,
-        "endTime": 50400000
-      },
-      "venueLocation": {
-        "placeName": "Smile Haven Dental Clinic",
-        "latitude": 34.0522,
-        "longitude": -118.2750
-      },
-      "specializedService": "Dental Check-ups",
-      "healthcareExpert": "Dentist Dr. Jennifer Roberts",
-      "targetAudience": "All age groups",
-      "participators": 12
+    "specializedService": "Geriatric Health Assessments",
+    "healthcareExpert": "Geriatric Specialist Dr. Susan Lee",
+    "targetAudience": "Seniors aged 65 and above",
+    "participators": 7,
+    "benefits": [
+      "Comprehensive geriatric health assessments",
+      "Mobility aid consultations for improved independence",
+      "Social wellness seminars promoting a supportive community",
+      "Personalized advice from geriatric healthcare professionals",
+      "Enhanced overall well-being for seniors"
+    ]
+  },
+  {
+    "campName": "Vision Wellness Expo",
+    "description": "Experience a day of vision wellness at the Vision Wellness Expo. Optometrist Dr. Karen Taylor and Optician Mark Simmons offer eye exams, eyeglass fittings, and vision health seminars for all age groups.",
+    "image": "https://i.ibb.co/d5ZGBJq/Vision-Wellness-Expo.jpg",
+    "campFees": 20,
+    "DateAndTime": {
+      "date": 1678422000000,
+      "startTime": 36000000,
+      "endTime": 57600000
     },
-    {
-      "campName": "Vision Wellness Expo",
-      "image": "https://i.ibb.co/Fh0Fczy/fitness-And-Fun.jpg",
-      "campFees": 20,
-      "DateAndTime": {
-        "date": 1678422000000,
-        "startTime": 36000000,
-        "endTime": 57600000
-      },
-      "venueLocation": {
-        "placeName": "Clear Vision OptiCenter",
-        "latitude": 34.0522,
-        "longitude": -118.2800
-      },
-      "specializedService": "Eye Exams",
-      "healthcareExpert": "Optometrist Dr. Karen Taylor",
-      "targetAudience": "All age groups",
-      "participators": 19
+    "venueLocation": {
+      "placeName": "Clear Vision OptiCenter",
+      "latitude": 34.0522,
+      "longitude": -118.28
     },
-    {
-      "campName": "Nutrition Education Fair",
-      "image": "https://i.ibb.co/F48kG6Q/nutration-Education-Fair.jpg",
-      "campFees": 15,
-      "DateAndTime": {
-        "date": 1678998000000,
-        "startTime": 43200000,
-        "endTime": 61200000
-      },
-      "venueLocation": {
-        "placeName": "GreenLife Community Wellness Center",
-        "latitude": 34.0522,
-        "longitude": -118.2850
-      },
-      "specializedService": "Nutritional Assessments",
-      "healthcareExpert": "Nutritionist Dr. Emily Turner",
-      "targetAudience": "All age groups",
-      "participators": 8
+    "specializedService": "Eye Exams",
+    "healthcareExpert": "Optometrist Dr. Karen Taylor",
+    "targetAudience": "All age groups",
+    "participators": 19,
+    "benefits": [
+      "Comprehensive eye exams for early detection of vision issues",
+      "Eyeglass fittings for improved visual comfort",
+      "Insightful vision health seminars",
+      "Expert advice on maintaining optimal eye health",
+      "Promotion of overall visual well-being"
+    ]
+  },
+  {
+    "campName": "Wellness Boost 2023",
+    "description": "Join us for a day of holistic wellness at the Wellness Boost 2023 camp. Receive vaccinations, health screenings, and nutritional counseling from experts like Dr. Amanda Rodriguez, Nurse Michael Carter, and Nutritionist Sarah Turner.",
+    "image": "https://i.ibb.co/HhfmyQ0/Well-Ness-Boost.jpg",
+    "campFees": 20,
+    "DateAndTime": {
+      "date": 1673817600000,
+      "startTime": 34200000,
+      "endTime": 57600000
     },
-    {
-      "campName": "Mental Health Awareness Day",
-      "image": "https://i.ibb.co/LS30mnC/mental-Health-Awareness-Day.jpg",
-      "campFees": 15,
-      "DateAndTime": {
-        "date": 1679724400000,
-        "startTime": 41400000,
-        "endTime": 59400000
-      },
-      "venueLocation": {
-        "placeName": "Mindful Living Center",
-        "latitude": 34.0522,
-        "longitude": -118.2900
-      },
-      "specializedService": "Mental Health Screenings",
-      "healthcareExpert": "Psychiatrist Dr. Maria Sanchez",
-      "targetAudience": "All age groups",
-      "participators": 14
+    "venueLocation": {
+      "placeName": "Sunrise Health Center",
+      "latitude": 34.0522,
+      "longitude": -118.2437
     },
-    {
-      "campName": "Fitness & Fun Run",
-      "image": "https://i.ibb.co/Fh0Fczy/fitness-And-Fun.jpg",
-      "campFees": 15,
-      "DateAndTime": {
-        "date": 1676310000000,
-        "startTime": 28800000,
-        "endTime": 43200000
-      },
-      "venueLocation": {
-        "placeName": "City Park Fitness Hub",
-        "latitude": 34.0522,
-        "longitude": -118.2950
-      },
-      "specializedService": "Fitness Assessments",
-      "healthcareExpert": "Fitness Trainer Lisa Walker",
-      "targetAudience": "All fitness levels and age groups",
-      "participators": 17
+    "specializedService": "Vaccinations",
+    "healthcareExpert": "Dr. Amanda Rodriguez",
+    "targetAudience": "All age groups",
+    "participators": 8,
+    "benefits": [
+      "Access to essential vaccinations for disease prevention",
+      "Comprehensive health screenings for early detection",
+      "Personalized nutritional counseling for a healthier lifestyle",
+      "Expert advice from healthcare professionals",
+      "Promotion of overall well-being through a holistic approach"
+    ]
+  },
+  {
+    "campName": "Nutrition Education Fair",
+    "description": "Learn about nutrition at the Nutrition Education Fair. Nutritionist Dr. Emily Turner and Chef Alex Martinez provide nutritional assessments, healthy cooking demos, and nutritionist consultations for all age groups.",
+    "image": "https://i.ibb.co/F48kG6Q/nutration-Education-Fair.jpg",
+    "campFees": 15,
+    "DateAndTime": {
+      "date": 1678998000000,
+      "startTime": 43200000,
+      "endTime": 61200000
     },
-    {
-      "campName": "Women's Wellness Expo",
-      "image": "https://i.ibb.co/XbkbLcx/Womens-Wellness-Expo.jpg",
-      "campFees": 15,
-      "DateAndTime": {
-        "date": 1679391600000,
-        "startTime": 46800000,
-        "endTime": 64800000
-      },
-      "venueLocation": {
-        "placeName": "Women's Health Oasis",
-        "latitude": 34.0522,
-        "longitude": -118.3000
-      },
-      "specializedService": "Women's Health Screenings",
-      "healthcareExpert": "OB-GYN Dr. Laura Martinez",
-      "targetAudience": "Women of all ages",
-      "participators": 11
-    }
-  ]
-  
+    "venueLocation": {
+      "placeName": "GreenLife Community Wellness Center",
+      "latitude": 34.0522,
+      "longitude": -118.285
+    },
+    "specializedService": "Nutritional Assessments",
+    "healthcareExpert": "Nutritionist Dr. Emily Turner",
+    "targetAudience": "All age groups",
+    "participators": 8,
+    "benefits": [
+      "Comprehensive nutritional assessments for personalized insights",
+      "Healthy cooking demonstrations for practical nutrition tips",
+      "One-on-one nutritionist consultations for personalized advice",
+      "Expert guidance for maintaining a balanced diet",
+      "Promotion of overall health through nutritional education"
+    ]
+  },
+  {
+    "campName": "Mental Health Awareness Day",
+    "description": "Raise awareness about mental health at the Mental Health Awareness Day. Join Psychiatrist Dr. Maria Sanchez and Licensed Counselor John Thompson for mental health screenings, counseling sessions, and mindfulness workshops.",
+    "image": "https://i.ibb.co/LS30mnC/mental-Health-Awareness-Day.jpg",
+    "campFees": 15,
+    "DateAndTime": {
+      "date": 1679724400000,
+      "startTime": 41400000,
+      "endTime": 59400000
+    },
+    "venueLocation": {
+      "placeName": "Mindful Living Center",
+      "latitude": 34.0522,
+      "longitude": -118.29
+    },
+    "specializedService": "Mental Health Screenings",
+    "healthcareExpert": "Psychiatrist Dr. Maria Sanchez",
+    "targetAudience": "All age groups",
+    "participators": 14,
+    "benefits": [
+      "Mental health screenings for early detection and intervention",
+      "Counseling sessions with licensed professionals",
+      "Mindfulness workshops for stress reduction",
+      "Expert advice on maintaining mental well-being",
+      "Promotion of mental health awareness and destigmatization"
+    ]
+  },
+  {
+    "campName": "Women's Wellness Expo",
+    "description": "Celebrate women's health at the Women's Wellness Expo. OB-GYN Dr. Laura Martinez and Women's Health Nurse Practitioner Sarah Adams provide women's health screenings, gynecological consultations, and wellness seminars for women of all ages.",
+    "image": "https://i.ibb.co/XbkbLcx/Womens-Wellness-Expo.jpg",
+    "campFees": 15,
+    "DateAndTime": {
+      "date": 1679391600000,
+      "startTime": 46800000,
+      "endTime": 64800000
+    },
+    "venueLocation": {
+      "placeName": "Women's Health Oasis",
+      "latitude": 34.0522,
+      "longitude": -118.3
+    },
+    "specializedService": "Women's Health Screenings",
+    "healthcareExpert": "OB-GYN Dr. Laura Martinez",
+    "targetAudience": "Women of all ages",
+    "participators": 11,
+    "benefits": [
+      "Comprehensive women's health screenings for early detection",
+      "Gynecological consultations with experienced professionals",
+      "Empowering wellness seminars for women of all ages",
+      "Expert guidance on women's health issues",
+      "Promotion of overall well-being for women"
+    ]
+  },
+  {
+    "campName": "Kids Health Fiesta",
+    "description": "Bring your children for a fun and informative day at the Kids Health Fiesta. Pediatrician Dr. Linda Johnson and Dental Hygienist Mark Anderson will provide pediatric check-ups, immunizations, and dental screenings.",
+    "image": "https://i.ibb.co/ZYLrBp5/kids-Health-Fiesta.jpg",
+    "campFees": 15,
+    "DateAndTime": {
+      "date": 1681014000000,
+      "startTime": 46800000,
+      "endTime": 61200000
+    },
+    "venueLocation": {
+      "placeName": "Sunshine Pediatrics Park",
+      "latitude": 34.0522,
+      "longitude": -118.2653
+    },
+    "specializedService": "Pediatric Check-ups",
+    "healthcareExpert": "Pediatrician Dr. Linda Johnson",
+    "targetAudience": "Children aged 1-12 and their parents/guardians",
+    "participators": 10,
+    "benefits": [
+      "Pediatric check-ups for children's health assessment",
+      "Immunizations for disease prevention",
+      "Dental screenings for oral health awareness",
+      "Expert advice for parents on child healthcare",
+      "Promotion of a healthy lifestyle for children"
+    ]
+  },
+  {
+    "campName": "Dental Care Day",
+    "description": "Ensure your dental health at Dental Care Day. Dentist Dr. Jennifer Roberts and Dental Hygienist Laura Adams offer dental check-ups, oral hygiene workshops, and free toothbrush kits for all age groups.",
+    "image": "https://i.ibb.co/w00c0NC/dentel-Careday.jpg",
+    "campFees": 15,
+    "DateAndTime": {
+      "date": 1678772400000,
+      "startTime": 34200000,
+      "endTime": 50400000
+    },
+    "venueLocation": {
+      "placeName": "Smile Haven Dental Clinic",
+      "latitude": 34.0522,
+      "longitude": -118.275
+    },
+    "specializedService": "Dental Check-ups",
+    "healthcareExpert": "Dentist Dr. Jennifer Roberts",
+    "targetAudience": "All age groups",
+    "participators": 12,
+    "benefits": [
+      "Comprehensive dental check-ups for oral health",
+      "Oral hygiene workshops for preventive care",
+      "Free toothbrush kits for attendees",
+      "Expert advice on maintaining good oral health",
+      "Promotion of overall dental well-being"
+    ]
+  },
+  {
+    "campName": "Fitness & Fun Run",
+    "description": "Get active and have fun at the Fitness & Fun Run. Fitness Trainer Lisa Walker and Nutritionist Sarah Turner provide fitness assessments, group exercise classes, and healthy snack stations for all fitness levels and age groups.",
+    "image": "https://i.ibb.co/Fh0Fczy/fitness-And-Fun.jpg",
+    "campFees": 15,
+    "DateAndTime": {
+      "date": 1676310000000,
+      "startTime": 28800000,
+      "endTime": 43200000
+    },
+    "venueLocation": {
+      "placeName": "City Park Fitness Hub",
+      "latitude": 34.0522,
+      "longitude": -118.295
+    },
+    "specializedService": "Fitness Assessments",
+    "healthcareExpert": "Fitness Trainer Lisa Walker",
+    "targetAudience": "All fitness levels and age groups",
+    "participators": 17,
+    "benefits": [
+      "Personalized Fitness Assessments",
+      "Engaging Group Exercise Classes",
+      "Nutritional Guidance by Sarah Turner",
+      "Healthy Snack Stations",
+      "Fun and Inclusive Environment"
+    ]
+  }
+]
