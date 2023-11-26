@@ -17,14 +17,15 @@
     "specializedService": "Cardiac Screenings",
     "healthcareExpert": "Cardiologist Dr. James Miller",
     "targetAudience": "Adults aged 40 and above",
-    "participators": 15,
+    "participators": 0,
     "benefits": [
       "Early detection of heart-related issues",
       "Blood pressure monitoring",
       "Heart-healthy cooking tips",
       "Expert guidance from healthcare professionals",
       "Promotion of heart-conscious lifestyle"
-    ]
+    ],
+    "organizerEmail": "muhammadjunayetmaruf@gmail.com"
   },
   {
     "campName": "Senior Wellness Retreat",
@@ -44,14 +45,15 @@
     "specializedService": "Geriatric Health Assessments",
     "healthcareExpert": "Geriatric Specialist Dr. Susan Lee",
     "targetAudience": "Seniors aged 65 and above",
-    "participators": 7,
+    "participators": 0,
     "benefits": [
       "Comprehensive geriatric health assessments",
       "Mobility aid consultations for improved independence",
       "Social wellness seminars promoting a supportive community",
       "Personalized advice from geriatric healthcare professionals",
       "Enhanced overall well-being for seniors"
-    ]
+    ],
+    "organizerEmail": "muhammadjunayetmaruf@gmail.com"
   },
   {
     "campName": "Vision Wellness Expo",
@@ -71,14 +73,15 @@
     "specializedService": "Eye Exams",
     "healthcareExpert": "Optometrist Dr. Karen Taylor",
     "targetAudience": "All age groups",
-    "participators": 19,
+    "participators": 0,
     "benefits": [
       "Comprehensive eye exams for early detection of vision issues",
       "Eyeglass fittings for improved visual comfort",
       "Insightful vision health seminars",
       "Expert advice on maintaining optimal eye health",
       "Promotion of overall visual well-being"
-    ]
+    ],
+    "organizerEmail": "muhammadjunayetmaruf@gmail.com"
   },
   {
     "campName": "Wellness Boost 2023",
@@ -98,14 +101,15 @@
     "specializedService": "Vaccinations",
     "healthcareExpert": "Dr. Amanda Rodriguez",
     "targetAudience": "All age groups",
-    "participators": 8,
+    "participators": 0,
     "benefits": [
       "Access to essential vaccinations for disease prevention",
       "Comprehensive health screenings for early detection",
       "Personalized nutritional counseling for a healthier lifestyle",
       "Expert advice from healthcare professionals",
       "Promotion of overall well-being through a holistic approach"
-    ]
+    ],
+    "organizerEmail": "muhammadjunayetmaruf@gmail.com"
   },
   {
     "campName": "Nutrition Education Fair",
@@ -125,14 +129,15 @@
     "specializedService": "Nutritional Assessments",
     "healthcareExpert": "Nutritionist Dr. Emily Turner",
     "targetAudience": "All age groups",
-    "participators": 8,
+    "participators": 1,
     "benefits": [
       "Comprehensive nutritional assessments for personalized insights",
       "Healthy cooking demonstrations for practical nutrition tips",
       "One-on-one nutritionist consultations for personalized advice",
       "Expert guidance for maintaining a balanced diet",
       "Promotion of overall health through nutritional education"
-    ]
+    ],
+    "organizerEmail": "junayet@yahoo.com"
   },
   {
     "campName": "Mental Health Awareness Day",
@@ -152,14 +157,15 @@
     "specializedService": "Mental Health Screenings",
     "healthcareExpert": "Psychiatrist Dr. Maria Sanchez",
     "targetAudience": "All age groups",
-    "participators": 14,
+    "participators": 0,
     "benefits": [
       "Mental health screenings for early detection and intervention",
       "Counseling sessions with licensed professionals",
       "Mindfulness workshops for stress reduction",
       "Expert advice on maintaining mental well-being",
       "Promotion of mental health awareness and destigmatization"
-    ]
+    ],
+    "organizerEmail": "junayet@yahoo.com"
   },
   {
     "campName": "Women's Wellness Expo",
@@ -179,14 +185,15 @@
     "specializedService": "Women's Health Screenings",
     "healthcareExpert": "OB-GYN Dr. Laura Martinez",
     "targetAudience": "Women of all ages",
-    "participators": 11,
+    "participators": 0,
     "benefits": [
       "Comprehensive women's health screenings for early detection",
       "Gynecological consultations with experienced professionals",
       "Empowering wellness seminars for women of all ages",
       "Expert guidance on women's health issues",
       "Promotion of overall well-being for women"
-    ]
+    ],
+    "organizerEmail": "junayet@yahoo.com"
   },
   {
     "campName": "Kids Health Fiesta",
@@ -206,14 +213,15 @@
     "specializedService": "Pediatric Check-ups",
     "healthcareExpert": "Pediatrician Dr. Linda Johnson",
     "targetAudience": "Children aged 1-12 and their parents/guardians",
-    "participators": 10,
+    "participators": 0,
     "benefits": [
       "Pediatric check-ups for children's health assessment",
       "Immunizations for disease prevention",
       "Dental screenings for oral health awareness",
       "Expert advice for parents on child healthcare",
       "Promotion of a healthy lifestyle for children"
-    ]
+    ],
+    "organizerEmail": "junayet@yahoo.com"
   },
   {
     "campName": "Dental Care Day",
@@ -233,14 +241,15 @@
     "specializedService": "Dental Check-ups",
     "healthcareExpert": "Dentist Dr. Jennifer Roberts",
     "targetAudience": "All age groups",
-    "participators": 12,
+    "participators": 0,
     "benefits": [
       "Comprehensive dental check-ups for oral health",
       "Oral hygiene workshops for preventive care",
       "Free toothbrush kits for attendees",
       "Expert advice on maintaining good oral health",
       "Promotion of overall dental well-being"
-    ]
+    ],
+    "organizerEmail": "jihad@gmail.com"
   },
   {
     "campName": "Fitness & Fun Run",
@@ -260,13 +269,14 @@
     "specializedService": "Fitness Assessments",
     "healthcareExpert": "Fitness Trainer Lisa Walker",
     "targetAudience": "All fitness levels and age groups",
-    "participators": 17,
+    "participators": 1,
     "benefits": [
       "Personalized Fitness Assessments",
       "Engaging Group Exercise Classes",
       "Nutritional Guidance by Sarah Turner",
       "Healthy Snack Stations",
       "Fun and Inclusive Environment"
-    ]
+    ],
+    "organizerEmail": "jihad@gmail.com"
   }
 ]

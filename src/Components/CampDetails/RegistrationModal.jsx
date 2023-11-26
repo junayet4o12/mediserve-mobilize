@@ -167,10 +167,12 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
                 campHealthcareExpert: camp?.healthcareExpert,
                 campTargetAudience: camp?.targetAudience,
                 campvenueLocation: camp?.venueLocation,
-                campImage: camp?.image
+                campImage: camp?.image,
+                organizerEmail: camp?.organizerEmail
             },
             registerEmail: user?.email,
-            userName: user?.displayName
+            userName: user?.displayName,
+            
 
 
 

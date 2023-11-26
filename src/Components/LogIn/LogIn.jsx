@@ -22,7 +22,6 @@ const LogIn = () => {
     const [showpass, setshowpass] = useState(true);
     const navigate = useNavigate();
     const location = useLocation();
-    const axiosPublic = useAxiosPublic();
     // data.email, data.password
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const onSubmit = async (data) => {
@@ -50,13 +49,17 @@ const LogIn = () => {
               `
                     }
                 });
-                navigate(location?.state?.from?.pathname || '/', { replace: true })
+                navigate( '/', { replace: true })
             })
             .catch(err => console.log(err))
 
     }
     const handlegooglelogin = () => {
-        loginwithgoogle()
+        
+        loginwithgoogle(location?.state?.from?.pathname)
+            .then(() => {
+                
+            })
     }
     return (
         <div className="bg-blue-50">

@@ -10,7 +10,9 @@ const useGoogleLogin = () => {
     const navigate = useNavigate()
     const { user, googleLogIn } = useContext(AuthContext)
     const axiosPublic = useAxiosPublic();
-    const handlegooglelogin = () => {
+    console.log(location?.state?.from?.pathname);
+    const handlegooglelogin = (loc) => {
+        
         googleLogIn()
             .then(res => {
                 console.log(res.user);
@@ -40,7 +42,7 @@ const useGoogleLogin = () => {
                       `
                             }
                         });
-                        navigate(location?.state?.from?.pathname || '/', { replace: true })
+                        navigate(loc || '/', { replace: true })
                     })
 
 
