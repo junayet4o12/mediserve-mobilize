@@ -1,0 +1,20 @@
+.updatebtn {
+    border-radius: 3px ;
+    font-weight: bold !important;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.updatebtn:hover {
+    border-radius: 10px !important;
+    background: #11df7f !important;
+}
+.deletebtn {
+    border-radius: 3px ;
+    font-weight: bold !important;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.deletebtn:hover {
+    border-radius: 10px !important;
+    background: #bb2717 !important;
+}

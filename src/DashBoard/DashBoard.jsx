@@ -7,9 +7,9 @@ import RateReviewSharpIcon from '@mui/icons-material/RateReviewSharp';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import MenuIcon from '@mui/icons-material/Menu';
 import { FaUsersGear } from "react-icons/fa6";
-import { FaThList } from "react-icons/fa";
 import { FaBook } from "react-icons/fa6";
 import { MdOutlineAddBusiness } from "react-icons/md";
+import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
 const DashBoard = () => {
     const organizer = true
     return (
@@ -26,7 +26,7 @@ const DashBoard = () => {
                                 <NavLink to={'/dashboard/add-a-camp'}> < MdOutlineAddBusiness></MdOutlineAddBusiness> Add Camps</NavLink>
                             </li>
                             <li>
-                                <NavLink to={'/dashboard/manageitems'}> <FaThList></FaThList> Manage Items</NavLink>
+                                <NavLink to={'/dashboard/manage-camps'}><ManageHistoryIcon></ManageHistoryIcon> Manage Camps</NavLink>
                             </li>
                             <li>
                                 <NavLink to={'/dashboard/managebookings'}> <FaBook></FaBook> Manage Bookings</NavLink>
