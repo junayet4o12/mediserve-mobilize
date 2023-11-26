@@ -7,23 +7,23 @@ import RateReviewSharpIcon from '@mui/icons-material/RateReviewSharp';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import MenuIcon from '@mui/icons-material/Menu';
 import { FaUsersGear } from "react-icons/fa6";
-import { FaUtensils } from "react-icons/fa";
 import { FaThList } from "react-icons/fa";
 import { FaBook } from "react-icons/fa6";
+import { MdOutlineAddBusiness } from "react-icons/md";
 const DashBoard = () => {
     const organizer = true
     return (
-        <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 gap-4 bg-blue-50">
+        <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 sm:gap-4 bg-blue-50 relative">
             {/* dashboard sidebar */}
             <div className="w-full min-h-screen bg-blue-500 col-span-2 sm:col-span-1">
-                <ul className="menu text-white font-medium">
+                <ul className="menu text-white font-medium sticky top-20">
                     {
                         organizer ? <>
                             <li>
                                 <NavLink to={'/dashboard/organizer-profile'}> <AddHomeRounded></AddHomeRounded> Organizer Profile</NavLink>
                             </li>
                             <li>
-                                <NavLink to={'/dashboard/additems'}> < FaUtensils></FaUtensils> Add Items</NavLink>
+                                <NavLink to={'/dashboard/add-a-camp'}> < MdOutlineAddBusiness></MdOutlineAddBusiness> Add Camps</NavLink>
                             </li>
                             <li>
                                 <NavLink to={'/dashboard/manageitems'}> <FaThList></FaThList> Manage Items</NavLink>
@@ -72,7 +72,7 @@ const DashBoard = () => {
                 </ul>
             </div>
             {/* dashboard content  */}
-            <div className="col-span-3 sm:col-span-2 md:col-span-3 p-4">
+            <div className="col-span-3 sm:col-span-2 md:col-span-3 py-4 p-1 sm:p-4">
                 <Outlet></Outlet>
             </div>
         </div>

@@ -11,6 +11,7 @@ import AvailableCamps from "../Components/AvailableCamps/AvailableCamps";
 import PrivateRouts from "../Components/Routs/PrivateRouts";
 import DashBoard from "../DashBoard/DashBoard";
 import OrganizerProfile from "../DashBoard/Organizer/OrganizerProfile";
+import AddACamps from "../DashBoard/Organizer/AddCamps/AddACamps";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -44,6 +45,10 @@ const MyRouts = createBrowserRouter([
                    {
                      path: 'organizer-profile',
                      element: <OrganizerProfile></OrganizerProfile>
+                   },
+                   {
+                    path: 'add-a-camp',
+                    element: <AddACamps></AddACamps>
                    } 
                 ]
             }
