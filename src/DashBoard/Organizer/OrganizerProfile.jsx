@@ -1,6 +1,6 @@
 // import React from 'react';
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../firebase/authProvider/AuthProviders";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -8,10 +8,14 @@ import Title from '../../Components/Title/Title'
 import './Organizer.css'
 import AllCard from "./AllCard";
 import OrganizersFeedback from "./OrganizersFeedback";
+import UpdateProfile from "./UpdateProfile";
 const OrganizerProfile = () => {
     const { user } = useContext(AuthContext)
     const axiosSecure = useAxiosSecure();
-    const { data: organizerProfile = {} } = useQuery({
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    const { data: organizerProfile = {}, refetch } = useQuery({
         queryKey: ['organizerProfile', user],
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/${user?.email}`)
@@ -27,7 +31,7 @@ const OrganizerProfile = () => {
                 <div className=" max-w-[350px] text-xl  md:text-2xl font-medium">
                     <h2 className="text-2xl font-bold  pt-3 text-black"> {organizerProfile?.name} </h2>
                     <h2 className="  pt-3  text-black"> Age: {organizerProfile?.age || 'Not Given!'} </h2>
-                    <h2 className="  pt-3  text-black"> Country: {organizerProfile?.Country || 'Not Given!'} </h2>
+                    <h2 className="  pt-3  text-black"> Country: {organizerProfile?.country || 'Not Given!'} </h2>
                 </div>
             </div>
             <div className="bg-blue-100 p-5 my-7 max-w-[500px]">
@@ -36,7 +40,7 @@ const OrganizerProfile = () => {
                 <h2 className="text-base sm:text-xl font-medium pt-3"><span className="underline font-bold">Contact No.:</span> {organizerProfile?.contactNumber || 'Not Given!'} </h2>
             </div>
             <div>
-                <button className="btn btn-neutral bg-blue-400 border-none rounded-sm profileUpdatebtn">Update Profile</button>
+                <button onClick={handleOpen} className="btn btn-neutral bg-blue-400 border-none rounded-sm profileUpdatebtn">Update Profile</button>
             </div>
 
             <div>
@@ -45,6 +49,9 @@ const OrganizerProfile = () => {
                 </div>
                 <div>
                    <OrganizersFeedback></OrganizersFeedback>
+                </div>
+                <div>
+                    <UpdateProfile handleClose={handleClose} open={open} organizerProfile={organizerProfile} refetch={refetch}></UpdateProfile>
                 </div>
             </div>
         </div>

@@ -7,3 +7,12 @@
     border-radius: 10px !important;
     background: #175bbbe4 !important;
 }
+.closebtn {
+    font-weight: bold !important;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.closebtn:hover {
+    border-radius: 10px !important;
+    background: rgb(187, 23, 48)
+}
