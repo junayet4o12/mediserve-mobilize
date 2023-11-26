@@ -109,10 +109,10 @@ const AddACamps = () => {
         <div className='bg-cover bg-no-repeat  bg-center ' style={{ background: `url(${campbg})` }}>
             <div className='w-full   bg-[#00000069] py-10'>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className=' p-1 sm:p-4 sm:w-[80%] mx-auto bg-[#ffffffa2] rounded-t-lg'>
+                    <div className=' p-1 sm:p-4 md:w-[80%] mx-auto bg-[#ffffffa2] rounded-t-lg'>
                         <Title title={'Add Camp'} desc={'Add A Camp You Want'}></Title>
                     </div>
-                    <div className='grid grid-cols-1: md:grid-cols-2 gap-x-7 gap-y-5 p-1 sm:p-4 sm:w-[80%] mx-auto bg-[#ffffffa2] mb-10 rounded-b-lg'>
+                    <div className='grid grid-cols-1: md:grid-cols-2 gap-x-7 gap-y-5 p-1 sm:p-4 md:w-[80%] mx-auto bg-[#ffffffa2] mb-10 rounded-b-lg'>
                         <div>
                             <TextField
                                 {...register("campName", { required: true })}

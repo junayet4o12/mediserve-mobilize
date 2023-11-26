@@ -17,6 +17,7 @@ const OrganizerProfile = () => {
     const handleClose = () => setOpen(false);
     const { data: organizerProfile = {}, refetch } = useQuery({
         queryKey: ['organizerProfile', user],
+        enabled: !!user?.email && !!localStorage.getItem('token'),
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/${user?.email}`)
             return res?.data
