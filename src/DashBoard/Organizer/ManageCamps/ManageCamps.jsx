@@ -9,7 +9,7 @@ import ManageCampTable from "./ManageCampTable";
 const ManageCamps = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    const { data: yourcamps = {}, isLoading } = useQuery({
+    const { data: yourcamps = {}, isLoading, refetch } = useQuery({
         queryKey: ['youradddedcamps', user],
         enabled: !!user?.email && !!localStorage.getItem('token'),
         queryFn: async () => {
@@ -26,7 +26,7 @@ const ManageCamps = () => {
     return (
         <div className="bg-blue-50"> 
             <Title title={'Manage Camps'} desc={'Manage Camps Add by You'}></Title>
-           <ManageCampTable yourcamps={yourcamps}></ManageCampTable>
+           <ManageCampTable refetch={refetch} yourcamps={yourcamps}></ManageCampTable>
         </div>
     );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // import React from 'react';
 
 import DataTable from "react-data-table-component";
@@ -5,12 +6,40 @@ import { GrUpdate } from "react-icons/gr";
 import { RiChatDeleteFill } from "react-icons/ri";
 import './ManageCamps.css'
 import { Link } from "react-router-dom";
-const ManageCampTable = ({ yourcamps }) => {
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+const ManageCampTable = ({ yourcamps,refetch }) => {
+    const axiosSecure = useAxiosSecure()
     const timeForm = (time) => {
         return new Date(time)
     }
     const handleDelete = (id) => {
         console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/delete-camp/${id}`)
+                    .then(res => {
+                        console.log(res?.data)
+                        if (res?.data?.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Camp has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+            }
+        });
     }
 
     // + 31536000000
@@ -54,10 +83,10 @@ const ManageCampTable = ({ yourcamps }) => {
         {
             name: 'Action',
             cell: row => <div className="flex  gap-2 ">
-                <Link to={`/update-camp/${row?._id}`}>
+                <Link to={`/dashboard/update-camp/${row?._id}`}>
                     <button title="Update Camp" className="btn btn-neutral bg-blue-400 border-none text-white text-lg font-bold updatebtn"><GrUpdate></GrUpdate></button>
                 </Link>
-                <button onClick={()=>handleDelete(row?._id)} title="Delete Camp" className="btn btn-neutral bg-black border-none text-white text-lg font-bold deletebtn"><RiChatDeleteFill></RiChatDeleteFill></button>
+                <button onClick={() => handleDelete(row?._id)} title="Delete Camp" className="btn btn-neutral bg-black border-none text-white text-lg font-bold deletebtn"><RiChatDeleteFill></RiChatDeleteFill></button>
             </div>
         },
     ]

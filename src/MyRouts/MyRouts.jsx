@@ -13,6 +13,7 @@ import DashBoard from "../DashBoard/DashBoard";
 import OrganizerProfile from "../DashBoard/Organizer/OrganizerProfile";
 import AddACamps from "../DashBoard/Organizer/AddCamps/AddACamps";
 import ManageCamps from "../DashBoard/Organizer/ManageCamps/ManageCamps";
+import UpdateCamp from "../DashBoard/Organizer/ManageCamps/UpdateCamp";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -54,6 +55,10 @@ const MyRouts = createBrowserRouter([
                    {
                     path: 'manage-camps',
                     element: <ManageCamps></ManageCamps>
+                   },
+                   {
+                    path: '/dashboard/update-camp/:campId',
+                    element: <UpdateCamp></UpdateCamp>
                    } 
                 ]
             }
