@@ -9,8 +9,10 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import './PayCamp.css'
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../../../Components/Loading";
 
-const PayCampCard = ({ handleClose, open, camp, refetch }) => {
+const PayCampCard = ({ handleClose, open,camp,  refetch }) => {
     console.log(camp?.campInfo?.campFee);
     const { user } = useAuth()
     const [error, seterror] = useState('');
@@ -19,6 +21,9 @@ const PayCampCard = ({ handleClose, open, camp, refetch }) => {
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
     const [clientSecret, setclientSecret] = useState('')
+    
+    
+   
     const price = camp?.campInfo?.campFee;
     useEffect(() => {
         if (price > 0) {
@@ -30,6 +35,7 @@ const PayCampCard = ({ handleClose, open, camp, refetch }) => {
         }
 
     }, [price])
+   
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!stripe || !elements) {
@@ -86,9 +92,8 @@ const PayCampCard = ({ handleClose, open, camp, refetch }) => {
                     handleClose()
                     Swal.fire({
                         icon: "success",
-                        title: ` $${price} Payment Successfully Completed!!`,
-                        showConfirmButton: false,
-                        timer: 1500
+                        title: ` $${price} Payment Successfully Completed and your transactionId  is ${paymentIntent?.id}`,
+                        showConfirmButton: true,
                       });
                       refetch()
                  }
@@ -109,7 +114,7 @@ const PayCampCard = ({ handleClose, open, camp, refetch }) => {
             >
 
                 <div className="bg-white py-7 px-5 rounded-lg w-[95%] sm:w-[80%] md:w-[70%] lg:w-[60%]">
-                    <h2 className="font-semibold text-lg pb-3 px-3 text-center">Please Pay By Card</h2>
+                    <h2 className="font-semibold text-lg pb-3 px-3 text-center">Please  Pay ${price} By Card</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="bg-gray-100 p-3 rounded shadow-md border border-gray-300">
                             <CardElement

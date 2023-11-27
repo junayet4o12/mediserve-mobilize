@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import { GrUpdate } from "react-icons/gr";
 import { RiChatDeleteFill } from "react-icons/ri";
 import DataTable from "react-data-table-component";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const ManageRegistgeredCampTable = () => {
     const { user } = useAuth();
@@ -23,8 +25,62 @@ const ManageRegistgeredCampTable = () => {
     const timeForm = (time) => {
         return new Date(time)
     }
-    const handleDelete = (id) => {
-        console.log(id);
+    const handleDelete = (row) => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log(row);
+                axiosSecure.put(`/campedit/${row?.campInfo?.campId}`, { registerid: row?._id, transactionId: row?.transactionId })
+                    .then(res => {
+                        console.log(res?.data);
+                        if (res?.data?.decParticipants?.modifiedCount > 0 && res?.data?.deleteRegister?.deletedCount > 0 && res?.data?.deletePayment?.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+            }
+        });
+    }
+    const handleconfirm = (camp) => {
+        Swal.fire({
+            title: "Do You Want to Confirm?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Confirm!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log(camp);
+                axiosSecure.put(`/updateRegistrationcamp/${camp?._id}`)
+                    .then(res => {
+                        console.log(res?.data);
+                        if (res?.data?.modifiedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                icon: "success",
+                                title: "Your work has been saved",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    })
+            }
+        });
+
     }
     const columns = [
 
@@ -56,15 +112,19 @@ const ManageRegistgeredCampTable = () => {
         },
         {
             name: 'Confirmation Status',
-            selector: row => <p className="font-medium">{row?.confirmationStatus || 'Pending'}</p>
+            selector: row => <div>
+                {
+                    row?.confirmationStatus === 'confirmed' ? <p className="font-bold">Confirmed</p> : <button onClick={() => handleconfirm(row)} disabled={!(row?.paymentStatus === 'paid')} className="font-medium btn btn-neutral">{row?.confirmationStatus || 'Not Paid'}</button>
+                }
+            </div>
         },
 
 
         {
             name: 'Action',
             cell: row => <div className="flex  gap-2 ">
-                
-            {row?.confirmationStatus ?  <button onClick={() => handleDelete(row?._id)} title="Delete Camp" className="btn btn-neutral bg-black border-none text-white text-lg font-bold deletebtn"><RiChatDeleteFill></RiChatDeleteFill></button> : ''}
+
+                {row?.confirmationStatus ? <button onClick={() => handleDelete(row)} title="Delete Camp" className="btn btn-neutral bg-black border-none text-white text-lg font-bold deletebtn"><RiChatDeleteFill></RiChatDeleteFill></button> : ''}
             </div>
         },
     ]
