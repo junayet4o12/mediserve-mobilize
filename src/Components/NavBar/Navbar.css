@@ -9,7 +9,7 @@
     border-radius: 10px;
 }
 
-.active { 
+.navactive .active { 
     
     margin-top: auto;
     margin-bottom: auto;
@@ -24,7 +24,7 @@
     transition: border-radius 0.5s ease;
 }
 
-.active:hover {
+.navactive .active:hover {
     border-radius: 10px;
 }
 

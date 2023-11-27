@@ -31,22 +31,22 @@ const NavBar = () => {
     }
 
     const navli = <>
-        <NavLink to={'/'}>
+        <NavLink  to={'/'}>
             <Button className='navlink' sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold' }}>
                 Home
             </Button>
         </NavLink>
-        <NavLink to={'/availablecamps'}>
+        <NavLink  to={'/availablecamps'}>
             <Button className='navlink' sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold' }}>
                 Available Camps
             </Button>
         </NavLink>
-        <NavLink to={'/dashboard'}>
+        <NavLink  to={'/dashboard'}>
             <Button className='navlink' sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold' }}>
                 Dashboard
             </Button>
         </NavLink>
-        <NavLink to={'/contactus'}>
+        <NavLink  to={'/contactus'}>
             <Button className='navlink' sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold' }}>
                 Contact Us
             </Button>
@@ -87,7 +87,7 @@ const NavBar = () => {
                                 }}
                                 open={Boolean(anchorElNav)}
                                 onClose={handleCloseNavMenu}
-                                className="block md:hidden"
+                                className="block md:hidden navactive"
                             >
                                 {navli}
                             </Menu>
@@ -96,7 +96,7 @@ const NavBar = () => {
                         <Box className="block md:hidden" sx={{ mr: 'auto' }}>
                             <img className='w-16' src={logo} alt="" />
                         </Box>
-                        <Box className="hidden md:flex" sx={{ flexGrow: 1, gap: '10px' }}>
+                        <Box className="hidden md:flex navactive" sx={{ flexGrow: 1, gap: '10px' }}>
 
                             {navli}
 

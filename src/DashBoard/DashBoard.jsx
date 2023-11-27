@@ -10,6 +10,7 @@ import { FaUsersGear } from "react-icons/fa6";
 import { FaBook } from "react-icons/fa6";
 import { MdOutlineAddBusiness } from "react-icons/md";
 import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
+import { GiArchiveRegister } from "react-icons/gi";
 const DashBoard = () => {
     const organizer = true
     return (
@@ -29,7 +30,7 @@ const DashBoard = () => {
                                 <NavLink to={'/dashboard/manage-camps'}><ManageHistoryIcon></ManageHistoryIcon> Manage Camps</NavLink>
                             </li>
                             <li>
-                                <NavLink to={'/dashboard/managebookings'}> <FaBook></FaBook> Manage Bookings</NavLink>
+                                <NavLink to={'/dashboard/manage-registered-camps'}> <GiArchiveRegister></GiArchiveRegister> Manage Registered Camp</NavLink>
                             </li>
                             <li>
                                 <NavLink to={'/dashboard/allusers'}> <FaUsersGear></FaUsersGear> All Users</NavLink>
@@ -56,19 +57,7 @@ const DashBoard = () => {
                             </li>
                         </>
                     }
-                    <div className="divider"></div>
-                    <li>
-                        <NavLink to={'/'}> <HomeOutlined></HomeOutlined> Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={'/ourmenu'}> <MenuIcon></MenuIcon> Menu</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={'/ourshop/soup'}> <ShopSharp></ShopSharp> Shop</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={'/contact'}> <ContactMail></ContactMail> Contact</NavLink>
-                    </li>
+                    
                 </ul>
             </div>
             {/* dashboard content  */}

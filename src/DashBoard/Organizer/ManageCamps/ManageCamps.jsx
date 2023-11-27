@@ -5,6 +5,7 @@ import Title from "../../../Components/Title/Title";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import ManageCampTable from "./ManageCampTable";
+import Loading from "../../../Components/Loading";
 
 const ManageCamps = () => {
     const { user } = useAuth();
@@ -20,7 +21,7 @@ const ManageCamps = () => {
     
 
     if (isLoading ) {
-        return <p>loading</p>
+        return <Loading></Loading>
     }
     
     return (

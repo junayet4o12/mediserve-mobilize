@@ -63,10 +63,7 @@ const ManageCampTable = ({ yourcamps,refetch }) => {
             name: 'Target Audience',
             selector: row => <p className="font-medium">{row?.targetAudience}</p>
         },
-        {
-            name: 'Location',
-            selector: row => <p className="font-medium">{row?.venueLocation?.placeName}</p>
-        },
+       
         {
             name: 'Specialized Service',
             selector: row => <p className="font-medium">{row?.specializedService}</p>
@@ -76,10 +73,7 @@ const ManageCampTable = ({ yourcamps,refetch }) => {
             selector: row => <p className="font-medium">{row?.healthcareExpert}</p>
         },
 
-        {
-            name: 'Participators',
-            selector: row => <p className="font-medium">{row?.participators}</p>
-        },
+        
         {
             name: 'Action',
             cell: row => <div className="flex  gap-2 ">

@@ -21,7 +21,7 @@ const UpdateCamp = () => {
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const axiosSecure = useAxiosSecure();
     const { data: singleCamp = [], isLoading } = useQuery({
-        queryKey: ['singlecampupdatedetails', user],
+        queryKey: [`singlecampupdatedetails${campId}`, user],
         
         enabled: !!user?.email && !!localStorage.getItem('token'),
         queryFn: async () => {

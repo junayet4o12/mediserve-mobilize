@@ -168,7 +168,8 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
                 campTargetAudience: camp?.targetAudience,
                 campvenueLocation: camp?.venueLocation,
                 campImage: camp?.image,
-                organizerEmail: camp?.organizerEmail
+                organizerEmail: camp?.organizerEmail,
+                DateAndTime: camp?.DateAndTime
             },
             registerEmail: user?.email,
             userName: user?.displayName,
