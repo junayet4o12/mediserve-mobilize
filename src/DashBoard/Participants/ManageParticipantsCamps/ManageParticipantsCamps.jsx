@@ -6,14 +6,20 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loading from "../../../Components/Loading";
 import Title from "../../../Components/Title/Title";
 import DataTable from "react-data-table-component";
-import { FaCcAmazonPay } from "react-icons/fa";
-import { MdCancel } from "react-icons/md";
 import './ManageParticipantsCamps.css'
 import Swal from "sweetalert2";
+import PayCampCard from "./PayCampCard";
+import { useState } from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(import.meta.env.VITE_payment_gateway_method);
 const ManageParticipantsCamps = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    const { data: yourRegisterdCamps = [], isLoading } = useQuery({
+    const [open, setOpen] = useState(false);
+    const [camp, setcamp] = useState({})
+    const { data: yourRegisterdCamps = [], isLoading, refetch } = useQuery({
         queryKey: ['manageyourregisteredcamps', user],
         enabled: !!user?.email && !!localStorage.getItem('token'),
         queryFn: async () => {
@@ -21,7 +27,6 @@ const ManageParticipantsCamps = () => {
             return res?.data
         }
     })
-    console.log(yourRegisterdCamps, user?.email);
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -45,6 +50,7 @@ const ManageParticipantsCamps = () => {
                                 .then(res => {
                                     console.log(res?.data);
                                     if (res?.data?.modifiedCount > 0) {
+                                        refetch()
                                         Swal.fire({
                                             title: "Deleted!",
                                             text: "Your Registered Camp has been deleted.",
@@ -57,6 +63,17 @@ const ManageParticipantsCamps = () => {
 
             }
         });
+    }
+    const handleOpen = () => {
+        
+        setOpen(true)
+    };
+    const handleClose = () => {
+        setOpen(false)
+    };
+    const handlePay = (campdetails)=> {
+        setcamp(campdetails)
+        handleOpen()
     }
     const timeForm = (time) => {
         return new Date(time)
@@ -97,7 +114,7 @@ const ManageParticipantsCamps = () => {
             cell: row => <div className=" ">
 
                 {
-                    row?.paymentStatus ? <p className="font-bold ">Already Paid</p> : <button disabled={row?.paymentStatus} className=" text-base font-bold btn  border-none  bg-[#4CAF50] text-white   paybtn" title="Pay for camps">Pay</button>
+                    row?.paymentStatus ? <p className="font-bold ">Already Paid</p> : <button onClick={()=>handlePay(row)} disabled={row?.paymentStatus} className=" text-base font-bold btn  border-none  bg-[#4CAF50] text-white    paybtn" title="Pay for camps">Pay</button>
                 }
             </div>
         },
@@ -151,6 +168,11 @@ const ManageParticipantsCamps = () => {
                     }}
                 />
             </div>
+
+            <Elements stripe={stripePromise}>
+            <PayCampCard handleClose={handleClose} open={open} camp= {camp}  refetch={refetch}></PayCampCard>
+            </Elements>
+
         </div>
     );
 };

@@ -20,6 +20,7 @@ import './CampDetails.css'
 import RegistrationModal from './RegistrationModal';
 import { AuthContext } from '../../firebase/authProvider/AuthProviders';
 import Swal from 'sweetalert2';
+import useOrganizers from '../../hooks/useOrganizers';
 const ExpandMore = styled((props) => {
     const { ...other } = props;
     return <IconButton {...other} />;
@@ -32,6 +33,7 @@ const ExpandMore = styled((props) => {
 }));
 const CampDetailsCard = ({ camp }) => {
     const { user } = useContext(AuthContext)
+    const [isOrganizer] = useOrganizers()
     const { _id, description, image, campName, campFees, DateAndTime, venueLocation, targetAudience, benefits, specializedService } = camp
 
     const [expanded, setExpanded] = useState(false);
@@ -49,7 +51,6 @@ const CampDetailsCard = ({ camp }) => {
     };
     const handleClose = () => {
         setOpen(false)
-        console.log('hello');
     };
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -106,7 +107,8 @@ const CampDetailsCard = ({ camp }) => {
                 </CardContent>
 
                 <CardActions disableSpacing>
-                    <Button onClick={handleOpen} className='joinbtn'>Join Camp</Button>
+                    
+                    <Button disabled={isOrganizer} onClick={handleOpen} className='joinbtn'>Join Camp</Button>
                     <ExpandMore
                         expand={expanded}
                         onClick={handleExpandClick}

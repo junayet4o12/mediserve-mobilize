@@ -56,7 +56,7 @@ const DashBoard = () => {
                                 <NavLink to={'/dashboard/participant-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span> Participant Profile</NavLink>
                             </li>
                             <li>
-                                <NavLink to={'/dashboard/registered-camps'}> <FaRegIdCard></FaRegIdCard> Manage registered Camp</NavLink>
+                                <NavLink to={'/dashboard/registered-camps'}> <FaRegIdCard></FaRegIdCard> Manage your registered Camp</NavLink>
                             </li>
                             <li>
                                 <NavLink to={'/dashboard/payment'}> <PaymentOutlined></PaymentOutlined> Payment</NavLink>

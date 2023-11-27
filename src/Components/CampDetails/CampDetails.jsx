@@ -6,10 +6,12 @@ import { useQuery } from "@tanstack/react-query";
 import Title from "../Title/Title";
 import CampDetailsCard from "./CampDetailsCard";
 import CampCalender from "./CampCalender";
+import Loading from "../Loading";
 
 const CampDetails = () => {
     const { campId } = useParams()
     const axiosPublic = useAxiosPublic();
+    
     const { data: singleCamp = [], isLoading } = useQuery({
         queryKey: ['singlecampdetails'],
         queryFn: async () => {
@@ -18,9 +20,10 @@ const CampDetails = () => {
         }
     })
     console.log(singleCamp);
-    if (isLoading) {
-        return <div>Loading</div>
+    if (isLoading ) {
+        return <Loading></Loading>
     }
+    
     return (
         <div className="bg-blue-50 py-10 px-5">
             <Title title={'Camp Details'} desc={` Camp details of the ${singleCamp?.campName}`}></Title>

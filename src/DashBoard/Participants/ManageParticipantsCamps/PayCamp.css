@@ -1,0 +1,18 @@
+.pay {
+    border-radius: 5px;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.pay:hover {
+    border-radius: 13px;
+    background: #25aa66 !important;
+}
+.clg {
+    border-radius: 5px;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.clg:hover {
+    border-radius: 13px;
+    background: #cb1d45 !important;
+}

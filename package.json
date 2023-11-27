@@ -15,6 +15,8 @@
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
     "@mui/styled-engine-sc": "^6.0.0-alpha.6",
+    "@stripe/react-stripe-js": "^2.4.0",
+    "@stripe/stripe-js": "^2.2.0",
     "@tanstack/react-query": "^5.8.4",
     "@types/mapbox-gl": "^2.7.19",
     "axios": "^1.6.2",
@@ -37,6 +39,7 @@
     "react-text-transition": "^3.1.0",
     "react-type-animation": "^3.2.0",
     "sort-by": "^1.2.0",
+    "stripe": "^14.5.0",
     "styled-components": "^6.1.1",
     "sweetalert2": "^11.10.1",
     "swiper": "^11.0.5"
