@@ -1,57 +1,54 @@
 // import React from 'react';
-import DataTable from "react-data-table-component";
 
-import { useContext } from "react";
-import { AuthContext } from "../../firebase/authProvider/AuthProviders";
+import DataTable from "react-data-table-component";
+import Title from "../../../Components/Title/Title";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-import Title from "../../Components/Title/Title";
-import Loading from '../../Components/Loading'
-const AllCard = () => {
-    const { user } = useContext(AuthContext);
+import Loading from "../../../Components/Loading";
+import useAuth from "../../../hooks/useAuth";
+
+const ParticipantRegisteredTable = ({ profile }) => {
+    const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
-    const { data: yourcamps = {}, isLoading } = useQuery({
-        queryKey: ['yourcamps', user],
+    const { data: yourRegisterdCamps = [], isLoading } = useQuery({
+        queryKey: ['yourregisteredcamps', user],
         enabled: !!user?.email && !!localStorage.getItem('token'),
         queryFn: async () => {
-            const res = await axiosSecure.get(`/campsbyemail/${user?.email}`)
+            const res = await axiosSecure.get(`/singleregisteredcamp/${user?.email}`)
             return res?.data
         }
     })
-    
+    console.log(yourRegisterdCamps, user?.email);
 
     if (isLoading ) {
         return <Loading></Loading>
     }
-    console.log(yourcamps);
     const columns = [
 
         {
             name: 'Camp Image',
-            selector: row => <img className="max-w-[120px] max-h-[120px] rounded-lg m-2" src={row?.image} alt="" />
+            selector: row => <img className="max-w-[120px] max-h-[120px] rounded-lg m-2" src={row?.campInfo?.campImage} alt="" />
         },
         {
             name: 'Camp Name',
-            selector: row => <p className="font-medium">{row?.campName}</p>
+            selector: row => <p className="font-medium">{row?.campInfo?.campName}</p>
         },
         {
-            name: 'Target Audience',
-            selector: row => <p className="font-medium">{row?.targetAudience}</p>
+            name: 'Specialized Service',
+            selector: row => <p className="font-medium">{row?.campInfo?.campSpecializedService}</p>
         },
         {
-            name: 'Participators',
-            selector: row => <p className="font-medium">{row?.participators}</p>
+            name: 'Camp Fees',
+            selector: row => <p className="font-medium">${row?.campInfo?.campFee}</p>
         },
     ]
-    
-    // console.log(users);
     return (
         <div>
             <div className="mt-10">
-                <Title title={'Camps'} desc={'Added by you'}></Title>
+                <Title title={'Camps'} desc={'Attended by you'}></Title>
                 <DataTable
                     columns={columns}
-                    data={yourcamps}
+                    data={ yourRegisterdCamps}
                     selectableRowsHighlight
                     highlightOnHover
 
@@ -89,4 +86,4 @@ const AllCard = () => {
     );
 };
 
-export default AllCard;
+export default ParticipantRegisteredTable;

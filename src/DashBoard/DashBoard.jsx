@@ -2,12 +2,10 @@
 
 import { NavLink, Outlet } from "react-router-dom";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { AddHomeRounded, CalendarMonth, ContactMail, HomeOutlined, PaymentOutlined, ShopSharp } from "@mui/icons-material";
+import { AddHomeRounded, CalendarMonth, PaymentOutlined } from "@mui/icons-material";
 import RateReviewSharpIcon from '@mui/icons-material/RateReviewSharp';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import MenuIcon from '@mui/icons-material/Menu';
-import { FaUsersGear } from "react-icons/fa6";
-import { FaBook } from "react-icons/fa6";
+
 import { MdOutlineAddBusiness } from "react-icons/md";
 import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
 import { GiArchiveRegister } from "react-icons/gi";
@@ -49,13 +47,11 @@ const DashBoard = () => {
                             <li>
                                 <NavLink to={'/dashboard/manage-registered-camps'}> <GiArchiveRegister></GiArchiveRegister> Manage Registered Camp</NavLink>
                             </li>
-                            <li>
-                                <NavLink to={'/dashboard/allusers'}> <FaUsersGear></FaUsersGear> All Users</NavLink>
-                            </li>
+                           
 
                         </> : <>
                             <li>
-                                <NavLink to={'/dashboard/usershome'}> <AddHomeRounded></AddHomeRounded> User Home</NavLink>
+                                <NavLink to={'/dashboard/participant-profile'}> <AddHomeRounded></AddHomeRounded> Participant Profile</NavLink>
                             </li>
                             <li>
                                 <NavLink to={'/dashboard/paymenthistory'}> <CalendarMonth></CalendarMonth> Payment History</NavLink>

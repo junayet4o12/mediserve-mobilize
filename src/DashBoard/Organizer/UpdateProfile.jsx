@@ -8,13 +8,13 @@ import { updateProfile } from "firebase/auth";
 import { auth } from "../../firebase/firebaseconfig";
 import Swal from "sweetalert2";
 
-const UpdateProfile = ({ handleClose, open, organizerProfile, refetch }) => {
+const UpdateProfile = ({ handleClose, open,  profile, refetch }) => {
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const axiosSecure = useAxiosSecure()
 
     const onSubmit = (data) => {
         const name = data?.name;
-        const email = organizerProfile?.email;
+        const email = profile?.email;
         const contactNumber = data?.contactNumber;
         const age = data?.age;
         const country = data?.country;
@@ -33,7 +33,7 @@ const UpdateProfile = ({ handleClose, open, organizerProfile, refetch }) => {
         })
             .then(() => {
                 console.log('user progile info updated');
-                axiosSecure.put(`/users/${organizerProfile?._id}`, prfileData)
+                axiosSecure.put(`/users/${profile?._id}`, prfileData)
                     .then(res => {
                         if (res?.data?.modifiedCount>0) {
                             Swal.fire({
@@ -70,7 +70,7 @@ return (
                         id="standard-required"
                         label="Your Name"
                         type="text"
-                        defaultValue={organizerProfile?.name}
+                        defaultValue={profile?.name}
                         variant="standard"
                     />
                     {errors.name && <span className='text-red-500 text-sm font-bold'>Name is required</span>}
@@ -80,7 +80,7 @@ return (
                     id="standard-required"
                     label="Your Email"
                     disabled
-                    defaultValue={organizerProfile?.email}
+                    defaultValue={profile?.email}
                     variant="standard"
                 />
                 <div>
@@ -90,7 +90,7 @@ return (
                         id="standard-required"
                         label="Your Age"
                         type="number"
-                        defaultValue={organizerProfile?.age}
+                        defaultValue={profile?.age}
                         variant="standard"
                     />
                     {errors.age && <span className='text-red-500 text-sm font-bold'>Age is required</span>}
@@ -101,7 +101,7 @@ return (
                         sx={{ width: '100%' }}
                         id="standard-required"
                         label="Your Country"
-                        defaultValue={organizerProfile?.country}
+                        defaultValue={profile?.country}
                         variant="standard"
                     />
                     {errors.country && <span className='text-red-500 text-sm font-bold'>Country is required</span>}
@@ -116,7 +116,7 @@ return (
                         id="standard-required"
                         label="Your Contact Number"
                         type="number"
-                        defaultValue={organizerProfile?.contactNumber}
+                        defaultValue={profile?.contactNumber}
                         variant="standard"
                         sx={{ width: '100%' }}
                     />

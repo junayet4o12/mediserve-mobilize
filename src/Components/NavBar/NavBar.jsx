@@ -54,7 +54,7 @@ const NavBar = () => {
     </>
     return (
         <div >
-            <AppBar sx={{ background: '#ffffff63', color: 'black' }} position="static">
+            <AppBar sx={{ background: '#fff', color: 'black' }} position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <Box className="hidden md:block" sx={{ mr: '30px' }}>

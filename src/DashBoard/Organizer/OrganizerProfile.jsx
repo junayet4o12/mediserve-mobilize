@@ -19,7 +19,7 @@ const OrganizerProfile = () => {
         queryKey: ['organizerProfile', user],
         enabled: !!user?.email && !!localStorage.getItem('token'),
         queryFn: async () => {
-            const res = await axiosSecure.get(`/users/${user?.email}`)
+            const res = await axiosSecure.get(`/organizers/${user?.email}`)
             return res?.data
         }
     })
@@ -52,7 +52,7 @@ const OrganizerProfile = () => {
                    <OrganizersFeedback></OrganizersFeedback>
                 </div>
                 <div>
-                    <UpdateProfile handleClose={handleClose} open={open} organizerProfile={organizerProfile} refetch={refetch}></UpdateProfile>
+                    <UpdateProfile handleClose={handleClose} open={open} profile={organizerProfile} refetch={refetch}></UpdateProfile>
                 </div>
             </div>
         </div>
