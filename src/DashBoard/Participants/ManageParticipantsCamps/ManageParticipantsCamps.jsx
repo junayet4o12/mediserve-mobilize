@@ -65,13 +65,13 @@ const ManageParticipantsCamps = () => {
         });
     }
     const handleOpen = () => {
-        
+
         setOpen(true)
     };
     const handleClose = () => {
         setOpen(false)
     };
-    const handlePay = (campdetails)=> {
+    const handlePay = (campdetails) => {
         setcamp(campdetails)
         handleOpen()
     }
@@ -103,7 +103,7 @@ const ManageParticipantsCamps = () => {
         },
         {
             name: 'Payment Status',
-            selector: row => <p className="font-medium">{row?.paymentStatus || 'Unpaid'}</p>
+            selector: row => <p className="font-medium">{row?.paymentStatus === 'paid' ? 'Paid' : 'Unpaid'}</p>
         },
         {
             name: 'Confirmation Status',
@@ -112,10 +112,9 @@ const ManageParticipantsCamps = () => {
         {
             name: 'Pay',
             cell: row => <div className=" ">
-
-                {
-                    row?.paymentStatus ? <p className="font-bold ">Already Paid</p> : <button onClick={()=>handlePay(row)} disabled={row?.paymentStatus} className=" text-base font-bold btn  border-none  bg-[#4CAF50] text-white    paybtn" title="Pay for camps">Pay</button>
-                }
+                <button onClick={() => handlePay(row)} disabled={row?.paymentStatus === 'paid'} className=" text-base font-bold btn  border-none  bg-[#4CAF50] text-white    paybtn" title="Pay for camps">{
+                    row?.paymentStatus === 'paid' ? 'Paid' : 'Pay'
+                }</button>
             </div>
         },
         {
@@ -123,7 +122,7 @@ const ManageParticipantsCamps = () => {
             cell: row => <div className="flex  gap-4 justify-center items-center ">
 
 
-                <button onClick={() => handleDelete(row?._id, row?.campInfo?.campId)} disabled={row?.paymentStatus} className=" text-base font-bold btn   bg-[#bc0f0f]   cancelbtn shadow-none text-white" title="Cancel Registration ">Cancel</button>
+                <button onClick={() => handleDelete(row?._id, row?.campInfo?.campId)} disabled={row?.paymentStatus === 'paid'} className=" text-base font-bold btn   bg-[#bc0f0f]   cancelbtn shadow-none text-white" title="Cancel Registration ">Cancel</button>
 
             </div>
         }
@@ -170,7 +169,7 @@ const ManageParticipantsCamps = () => {
             </div>
 
             <Elements stripe={stripePromise}>
-            <PayCampCard handleClose={handleClose} open={open} camp= {camp}  refetch={refetch}></PayCampCard>
+                <PayCampCard handleClose={handleClose} open={open} camp={camp} refetch={refetch}></PayCampCard>
             </Elements>
 
         </div>

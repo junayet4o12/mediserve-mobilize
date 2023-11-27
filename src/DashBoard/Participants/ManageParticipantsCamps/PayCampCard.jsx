@@ -79,18 +79,19 @@ const PayCampCard = ({ handleClose, open, camp, refetch }) => {
                     },
                     transactionId: paymentIntent?.id
                 }
-                console.log(payment);
-                //  const res =  await axiosSecure.post('/payments', payment)
-                //  console.log(res?.data);
-                //  refetch()
-                //  if(res?.data?.paymentResult?.insertedId && res?.data?.deleteResult?.deletedCount>0){
-                //     Swal.fire({
-                //         icon: "success",
-                //         title: ` $${price} Payment Successfully Completed!!`,
-                //         showConfirmButton: false,
-                //         timer: 1500
-                //       });
-                //  }
+                console.log(camp?.campInfo?.campId);
+                 const res =  await axiosSecure.post(`/payments/${camp?._id}`, payment)
+                 console.log(res?.data);
+                 if(res?.data?.payment?.insertedId && res?.data?.updateCamp?.modifiedCount>0){
+                    handleClose()
+                    Swal.fire({
+                        icon: "success",
+                        title: ` $${price} Payment Successfully Completed!!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                      refetch()
+                 }
             }
         }
     }
