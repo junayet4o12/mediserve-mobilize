@@ -38,7 +38,7 @@ const DashBoard = () => {
                     {
                         isOrganizer ? <>
                             <li>
-                                <NavLink to={'/dashboard/organizer-profile'}> <AddHomeRounded></AddHomeRounded> Organizer Profile</NavLink>
+                                <NavLink to={'/dashboard/organizer-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span>Organizer Profile</NavLink>
                             </li>
                             <li>
                                 <NavLink to={'/dashboard/add-a-camp'}> < MdOutlineAddBusiness></MdOutlineAddBusiness> Add Camps</NavLink>
@@ -53,7 +53,7 @@ const DashBoard = () => {
 
                         </> : <>
                             <li>
-                                <NavLink to={'/dashboard/participant-profile'}> <ImProfile></ImProfile> Participant Profile</NavLink>
+                                <NavLink to={'/dashboard/participant-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span> Participant Profile</NavLink>
                             </li>
                             <li>
                                 <NavLink to={'/dashboard/registered-camps'}> <FaRegIdCard></FaRegIdCard> Manage registered Camp</NavLink>

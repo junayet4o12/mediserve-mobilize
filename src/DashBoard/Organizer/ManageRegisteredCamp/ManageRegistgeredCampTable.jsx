@@ -48,7 +48,7 @@ const ManageRegistgeredCampTable = () => {
 
         {
             name: 'Camp Fees',
-            selector: row => <p className="font-medium">{row?.campInfo?.campFee}</p>
+            selector: row => <p className="font-medium">${row?.campInfo?.campFee}</p>
         },
         {
             name: 'Payment Status',

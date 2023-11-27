@@ -37,11 +37,24 @@ const ManageParticipantsCamps = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log('registered Camp Id', id1, 'campid', id2);
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your Registered Camp has been deleted.",
-                    icon: "success"
-                });
+                axiosSecure.delete(`/deleteregisteredcamp/${id1}`)
+                    .then(res => {
+                        console.log(res?.data);
+                        if (res?.data?.deletedCount > 0) {
+                            axiosSecure.put(`/campsdec/${id2}`)
+                                .then(res => {
+                                    console.log(res?.data);
+                                    if (res?.data?.modifiedCount > 0) {
+                                        Swal.fire({
+                                            title: "Deleted!",
+                                            text: "Your Registered Camp has been deleted.",
+                                            icon: "success"
+                                        });
+                                    }
+                                })
+                        }
+                    })
+
             }
         });
     }
