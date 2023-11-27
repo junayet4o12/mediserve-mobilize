@@ -2,13 +2,15 @@
 
 import { NavLink, Outlet } from "react-router-dom";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { AddHomeRounded, CalendarMonth, PaymentOutlined } from "@mui/icons-material";
+import { AddHomeRounded,  PaymentOutlined } from "@mui/icons-material";
 import RateReviewSharpIcon from '@mui/icons-material/RateReviewSharp';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
 import { MdOutlineAddBusiness } from "react-icons/md";
 import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
 import { GiArchiveRegister } from "react-icons/gi";
+import { ImProfile } from "react-icons/im";
+import { FaRegIdCard } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -51,10 +53,10 @@ const DashBoard = () => {
 
                         </> : <>
                             <li>
-                                <NavLink to={'/dashboard/participant-profile'}> <AddHomeRounded></AddHomeRounded> Participant Profile</NavLink>
+                                <NavLink to={'/dashboard/participant-profile'}> <ImProfile></ImProfile> Participant Profile</NavLink>
                             </li>
                             <li>
-                                <NavLink to={'/dashboard/paymenthistory'}> <CalendarMonth></CalendarMonth> Payment History</NavLink>
+                                <NavLink to={'/dashboard/registered-camps'}> <FaRegIdCard></FaRegIdCard> Manage registered Camp</NavLink>
                             </li>
                             <li>
                                 <NavLink to={'/dashboard/payment'}> <PaymentOutlined></PaymentOutlined> Payment</NavLink>

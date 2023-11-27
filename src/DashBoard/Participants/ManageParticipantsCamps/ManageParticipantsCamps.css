@@ -1,0 +1,16 @@
+.paybtn {
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.paybtn:hover {
+    border-radius: 13px;
+    background: #0e8835 !important;
+}
+.cancelbtn {
+    transition: background 1s ease  , border-radius 0.5s ease !important;
+}
+
+.cancelbtn:hover {
+    border-radius: 15px;
+    background: black !important;
+}

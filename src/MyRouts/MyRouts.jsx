@@ -17,6 +17,7 @@ import UpdateCamp from "../DashBoard/Organizer/ManageCamps/UpdateCamp";
 import ManageRegisteredCamp from "../DashBoard/Organizer/ManageRegisteredCamp/ManageRegisteredCamp";
 import OrganizerRouts from "../Components/Routs/OrganizerRouts";
 import ParticipantsProfile from "../DashBoard/Participants/ParticipantsProfile/ParticipantsProfile";
+import ManageParticipantsCamps from "../DashBoard/Participants/ManageParticipantsCamps/ManageParticipantsCamps";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -74,6 +75,10 @@ const MyRouts = createBrowserRouter([
                    {
                     path: 'participant-profile',
                     element: <ParticipantsProfile></ParticipantsProfile>
+                   },
+                   {
+                    path: 'registered-camps',
+                    element:<ManageParticipantsCamps></ManageParticipantsCamps>
                    }
                    // participant routs end
                 ]
