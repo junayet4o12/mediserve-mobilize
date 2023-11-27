@@ -21,6 +21,8 @@ import { AuthContext } from '../../firebase/authProvider/AuthProviders';
 import RegistrationModal from '../CampDetails/RegistrationModal';
 import { Link } from 'react-router-dom';
 import './AvailableCamps.css'
+import useOrganizers from '../../hooks/useOrganizers';
+
 const ExpandMore = styled((props) => {
     const { ...other } = props;
     return <IconButton {...other} />;
@@ -33,6 +35,7 @@ const ExpandMore = styled((props) => {
 }));
 const AvailableCampsCard = ({ camp }) => {
     const { user } = useContext(AuthContext)
+    const [isOrganizer] = useOrganizers()
     const { _id, description, image, campName, campFees, DateAndTime, venueLocation, targetAudience, benefits, specializedService } = camp
 
     const [expanded, setExpanded] = useState(false);
@@ -109,7 +112,7 @@ const AvailableCampsCard = ({ camp }) => {
                 </CardContent>
 
                 <CardActions disableSpacing>
-                    <Button sx={{mr:'10px'}} onClick={handleOpen} className='availablejoinbtn'>Join Camp</Button>
+                    <Button sx={{mr:'10px'}} disabled={isOrganizer} onClick={handleOpen} className='availablejoinbtn'>Join Camp</Button>
                     <Link to={`/camp-details/${camp?._id}`}>
                         <Button onClick={handleOpen} className='availabledetailsbtn'>Details</Button>
                     </Link>
