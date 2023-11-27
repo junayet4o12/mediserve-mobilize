@@ -1,0 +1,38 @@
+[
+    {
+        "email": "muhammadjunayetmaruf@gmail.com",
+        "name": "Muhammad Junayet Alam",
+        "contactNumber": "01632884012",
+        "age": "20",
+        "country": "Bangladesh",
+        "organizerRole": true
+    },
+    {
+        "name": "Junayet",
+        "email": "junayet@yahoo.com",
+        "contactNumber": "",
+        "age": "",
+        "organizerRole": true
+    },
+    {
+        "name": "Jihad",
+        "email": "jihad@gmail.com",
+        "contactNumber": "",
+        "age": "",
+        "organizerRole": true
+    },
+    {
+        "name": "saikat khan",
+        "email": "saikat@gmail.com",
+        "contactNumber": "01616161644",
+        "age": "25",
+        "country": "bangladesh",
+        "organizerRole": true
+    },
+    {
+        "email": "maruf558090@gmail.com",
+        "name": "Maruf Alom me too",
+        "contactNumber": "",
+        "age": ""
+    }
+]

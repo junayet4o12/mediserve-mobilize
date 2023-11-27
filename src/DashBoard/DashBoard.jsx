@@ -11,15 +11,32 @@ import { FaBook } from "react-icons/fa6";
 import { MdOutlineAddBusiness } from "react-icons/md";
 import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
 import { GiArchiveRegister } from "react-icons/gi";
+import useAuth from "../hooks/useAuth";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../Components/Loading";
 const DashBoard = () => {
-    const organizer = true
+    const { user } = useAuth();
+    const axiosSecure = useAxiosSecure()
+    const { data: organiserdata = {}, isLoading } = useQuery({
+        queryKey: ['organizersData', user],
+        enabled: !!user?.email && !!localStorage.getItem('token'),
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/users/${user?.email}`)
+            return res?.data
+        }
+    })
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+  const   isOrganizer = organiserdata?.organizerRole
     return (
         <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 sm:gap-4 bg-blue-50 relative">
             {/* dashboard sidebar */}
             <div className="w-full min-h-screen bg-blue-500 col-span-2 sm:col-span-1">
                 <ul className="menu text-white font-medium sticky top-20">
                     {
-                        organizer ? <>
+                        isOrganizer ? <>
                             <li>
                                 <NavLink to={'/dashboard/organizer-profile'}> <AddHomeRounded></AddHomeRounded> Organizer Profile</NavLink>
                             </li>
@@ -57,7 +74,7 @@ const DashBoard = () => {
                             </li>
                         </>
                     }
-                    
+
                 </ul>
             </div>
             {/* dashboard content  */}
