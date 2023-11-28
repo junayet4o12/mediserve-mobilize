@@ -21,6 +21,7 @@ import ManageParticipantsCamps from "../DashBoard/Participants/ManageParticipant
 import PaymentHistory from "../DashBoard/Participants/PaymentHistory/PaymentHistory";
 import Feedback from "../DashBoard/Participants/Feedback/Feedback";
 import ProfessionalsProfile from "../DashBoard/Professionals/ProfessionalsProfile/ProfessionalsProfile";
+import ProfessionalRouts from "../Components/Routs/ProfessionalRouts";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -96,7 +97,7 @@ const MyRouts = createBrowserRouter([
                     // Professionals  routs start
                     {
                         path: 'professional-profile',
-                        element: <ProfessionalsProfile></ProfessionalsProfile>
+                        element: <ProfessionalRouts><ProfessionalsProfile></ProfessionalsProfile></ProfessionalRouts>
                     }
                     // Professionals  routs end
 

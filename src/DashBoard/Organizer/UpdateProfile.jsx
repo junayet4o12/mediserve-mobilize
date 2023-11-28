@@ -38,7 +38,7 @@ const UpdateProfile = ({ handleClose, open,  profile, refetch }) => {
                         if (res?.data?.modifiedCount>0) {
                             Swal.fire({
                                 icon: "success",
-                                title: "User Created Successfully",
+                                title: "Profile Updated Successfully",
                                 showConfirmButton: false,
                                 timer: 1500
                             });
