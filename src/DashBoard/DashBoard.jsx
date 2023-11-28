@@ -28,44 +28,56 @@ const DashBoard = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-  const   isOrganizer = organiserdata?.organizerRole
+    const isOrganizer = organiserdata?.organizerRole
+    const isProfessional = true;
     return (
         <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 sm:gap-4 bg-blue-50 relative">
             {/* dashboard sidebar */}
             <div className="w-full min-h-screen bg-blue-500 col-span-2 sm:col-span-1">
                 <ul className="menu text-white font-medium sticky top-20">
                     {
-                        isOrganizer ? <>
-                            <li>
-                                <NavLink to={'/dashboard/organizer-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span>Organizer Profile</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/dashboard/add-a-camp'}> < MdOutlineAddBusiness></MdOutlineAddBusiness> Add Camps</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/dashboard/manage-camps'}><ManageHistoryIcon></ManageHistoryIcon> Manage Camps</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/dashboard/manage-registered-camps'}> <GiArchiveRegister></GiArchiveRegister> Manage Registered Camp</NavLink>
-                            </li>
-                           
+                        isOrganizer ?
+                            <>
+                                {
+                                    isProfessional ? <>
+                                        <li>
+                                            <NavLink to={'/dashboard/professional-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span>professional Profile</NavLink>
+                                        </li>
+                                    </> : <>
+                                        <li>
+                                            <NavLink to={'/dashboard/organizer-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span>Organizer Profile</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to={'/dashboard/add-a-camp'}> < MdOutlineAddBusiness></MdOutlineAddBusiness> Add Camps</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to={'/dashboard/manage-camps'}><ManageHistoryIcon></ManageHistoryIcon> Manage Camps</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to={'/dashboard/manage-registered-camps'}> <GiArchiveRegister></GiArchiveRegister> Manage Registered Camp</NavLink>
+                                        </li>
 
-                        </> : <>
-                            <li>
-                                <NavLink to={'/dashboard/participant-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span> Participant Profile</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/dashboard/registered-camps'}> <FaRegIdCard></FaRegIdCard> Manage your registered Camp</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/dashboard/payment-history'}> <FaHistory></FaHistory>Payment History</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/dashboard/feedback-and-ratings'}> <VscFeedback></VscFeedback>Give Feedback</NavLink>
-                            </li>
-                           
-                           
-                        </>
+
+                                    </>
+                                }
+                            </>
+                            :
+                            <>
+                                <li>
+                                    <NavLink to={'/dashboard/participant-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span> Participant Profile</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={'/dashboard/registered-camps'}> <FaRegIdCard></FaRegIdCard> Manage your registered Camp</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={'/dashboard/payment-history'}> <FaHistory></FaHistory>Payment History</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={'/dashboard/feedback-and-ratings'}> <VscFeedback></VscFeedback>Give Feedback</NavLink>
+                                </li>
+
+
+                            </>
                     }
 
                 </ul>

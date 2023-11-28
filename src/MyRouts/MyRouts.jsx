@@ -20,6 +20,7 @@ import ParticipantsProfile from "../DashBoard/Participants/ParticipantsProfile/P
 import ManageParticipantsCamps from "../DashBoard/Participants/ManageParticipantsCamps/ManageParticipantsCamps";
 import PaymentHistory from "../DashBoard/Participants/PaymentHistory/PaymentHistory";
 import Feedback from "../DashBoard/Participants/Feedback/Feedback";
+import ProfessionalsProfile from "../DashBoard/Professionals/ProfessionalsProfile/ProfessionalsProfile";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -51,46 +52,55 @@ const MyRouts = createBrowserRouter([
                 element: <PrivateRouts><DashBoard></DashBoard></PrivateRouts>,
                 children: [
                     // organizer routs Start 
-                   {
-                     path: 'organizer-profile',
-                     element: <OrganizerRouts><OrganizerProfile></OrganizerProfile></OrganizerRouts>
-                   },
-                   {
-                    path: 'add-a-camp',
-                    element: <OrganizerRouts><AddACamps></AddACamps></OrganizerRouts>
-                   },
-                   {
-                    path: 'manage-camps',
-                    element: <OrganizerRouts><ManageCamps></ManageCamps></OrganizerRouts>
-                   },
-                   {
-                    path: '/dashboard/update-camp/:campId',
-                    element: <OrganizerRouts><UpdateCamp></UpdateCamp></OrganizerRouts>
-                   },
-                   {
-                    path: 'manage-registered-camps',
-                    element: <OrganizerRouts><ManageRegisteredCamp></ManageRegisteredCamp></OrganizerRouts>
-                   } 
-                   // organizer routs end
-                   ,
-                   // participant routs Start 
-                   {
-                    path: 'participant-profile',
-                    element: <ParticipantsProfile></ParticipantsProfile>
-                   },
-                   {
-                    path: 'registered-camps',
-                    element:<ManageParticipantsCamps></ManageParticipantsCamps>
-                   },
-                   {
-                    path: 'payment-history',
-                    element: <PaymentHistory></PaymentHistory>
-                   },
-                   {
-                    path: 'feedback-and-ratings',
-                    element: <Feedback></Feedback>
-                   }
-                   // participant routs end
+                    {
+                        path: 'organizer-profile',
+                        element: <OrganizerRouts><OrganizerProfile></OrganizerProfile></OrganizerRouts>
+                    },
+                    {
+                        path: 'add-a-camp',
+                        element: <OrganizerRouts><AddACamps></AddACamps></OrganizerRouts>
+                    },
+                    {
+                        path: 'manage-camps',
+                        element: <OrganizerRouts><ManageCamps></ManageCamps></OrganizerRouts>
+                    },
+                    {
+                        path: '/dashboard/update-camp/:campId',
+                        element: <OrganizerRouts><UpdateCamp></UpdateCamp></OrganizerRouts>
+                    },
+                    {
+                        path: 'manage-registered-camps',
+                        element: <OrganizerRouts><ManageRegisteredCamp></ManageRegisteredCamp></OrganizerRouts>
+                    }
+                    // organizer routs end
+                    ,
+                    // participant routs Start 
+                    {
+                        path: 'participant-profile',
+                        element: <ParticipantsProfile></ParticipantsProfile>
+                    },
+                    {
+                        path: 'registered-camps',
+                        element: <ManageParticipantsCamps></ManageParticipantsCamps>
+                    },
+                    {
+                        path: 'payment-history',
+                        element: <PaymentHistory></PaymentHistory>
+                    },
+                    {
+                        path: 'feedback-and-ratings',
+                        element: <Feedback></Feedback>
+                    },
+                    // participant routs end
+
+                    // Professionals  routs start
+                    {
+                        path: 'professional-profile',
+                        element: <ProfessionalsProfile></ProfessionalsProfile>
+                    }
+                    // Professionals  routs end
+
+
                 ]
             }
         ]
