@@ -1,0 +1,51 @@
+
+.homebtn {
+    background: #188bbc;
+    color: white;
+    font-weight: bold;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+}
+
+.homebtn:hover {
+    border-radius: 13px;
+    background: #303aae;
+}
+
+.backbtn {
+    background: #89e1e1;
+    color: black;
+    font-weight: bold;
+    transition: background 1s ease, border-radius 0.5s ease !important;
+
+}
+
+.backbtn:hover {
+    border-radius: 13px;
+    background: #7aaace;
+}
+
+
+.part1 {
+    animation: rotateAnimation3 13s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes rotateAnimation3 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+  
+    75% {
+      transform: rotate(5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }

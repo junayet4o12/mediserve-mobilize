@@ -22,10 +22,12 @@ import PaymentHistory from "../DashBoard/Participants/PaymentHistory/PaymentHist
 import Feedback from "../DashBoard/Participants/Feedback/Feedback";
 import ProfessionalsProfile from "../DashBoard/Professionals/ProfessionalsProfile/ProfessionalsProfile";
 import ProfessionalRouts from "../Components/Routs/ProfessionalRouts";
+import Error from "../Components/Four0Four/Error";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
