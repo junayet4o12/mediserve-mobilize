@@ -2,10 +2,8 @@
 
 import { NavLink, Outlet } from "react-router-dom";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import {   PaymentOutlined } from "@mui/icons-material";
-import RateReviewSharpIcon from '@mui/icons-material/RateReviewSharp';
-import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
+import { VscFeedback } from "react-icons/vsc";
 import { MdOutlineAddBusiness } from "react-icons/md";
 import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
 import { GiArchiveRegister } from "react-icons/gi";
@@ -61,6 +59,9 @@ const DashBoard = () => {
                             </li>
                             <li>
                                 <NavLink to={'/dashboard/payment-history'}> <FaHistory></FaHistory>Payment History</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={'/dashboard/feedback-and-ratings'}> <VscFeedback></VscFeedback>Give Feedback</NavLink>
                             </li>
                            
                            

@@ -75,7 +75,7 @@ const Testimonials = () => {
                 >
                     {
                         testimonials.map(item => <SwiperSlide key={item._id}>
-                            <Card sx={{ maxWidth: 345, height: '330px', mx: 'auto', color: '#36A2C1', boxShadow: '0px 0px 15px 7px #00000056' }}>
+                            <Card sx={{ maxWidth: 345, height: '520px', mx: 'auto', color: '#36A2C1', boxShadow: '0px 0px 15px 7px #00000056' }}>
                                 <Box >
                                     <img className="w-24 h-24 rounded-full mx-auto mt-5 bg-blue-300" src={item?.image} alt="" />
                                     <Typography variant="body2" sx={{fontWeight:'bold', fontSize: '18px', textAlign: 'center', p: '5px'}}>
@@ -90,7 +90,7 @@ const Testimonials = () => {
                                 </Box>
 
                                 <CardContent>
-                                    <Typography variant="body2" color="text.secondary" sx={{textAlign: 'justify'}} >
+                                    <Typography variant="body2" color="text.secondary" sx={{textAlign: 'justify', height: '70px', overflow: 'hidden'}} >
                                         {item?.feedback}
                                     </Typography>
                                 </CardContent>
@@ -101,6 +101,9 @@ const Testimonials = () => {
                                         emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
                                         readOnly />
                                 </Typography>
+                                <div className="overflow-hidden">
+                                    <img className="w-full h-full object-cover" src={item?.reviewimg} alt="" />
+                                </div>
                             </Card>
                         </SwiperSlide>)
                     }

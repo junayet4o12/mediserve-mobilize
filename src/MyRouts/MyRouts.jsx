@@ -19,6 +19,7 @@ import OrganizerRouts from "../Components/Routs/OrganizerRouts";
 import ParticipantsProfile from "../DashBoard/Participants/ParticipantsProfile/ParticipantsProfile";
 import ManageParticipantsCamps from "../DashBoard/Participants/ManageParticipantsCamps/ManageParticipantsCamps";
 import PaymentHistory from "../DashBoard/Participants/PaymentHistory/PaymentHistory";
+import Feedback from "../DashBoard/Participants/Feedback/Feedback";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -84,6 +85,10 @@ const MyRouts = createBrowserRouter([
                    {
                     path: 'payment-history',
                     element: <PaymentHistory></PaymentHistory>
+                   },
+                   {
+                    path: 'feedback-and-ratings',
+                    element: <Feedback></Feedback>
                    }
                    // participant routs end
                 ]

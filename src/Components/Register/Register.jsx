@@ -35,8 +35,7 @@ const Register = () => {
         console.log(data)
         const image = { image: data?.image[0] }
         // console.log(image);
-        const formData = new FormData()
-        formData.append('image', image)
+        
         console.log(image);
         const res = await axios.post(imgHostingApi, image, {
             headers: {
