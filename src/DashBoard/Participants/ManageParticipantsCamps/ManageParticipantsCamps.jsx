@@ -12,6 +12,7 @@ import PayCampCard from "./PayCampCard";
 import { useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { Helmet } from "react-helmet-async";
 
 const stripePromise = loadStripe(import.meta.env.VITE_payment_gateway_method);
 const ManageParticipantsCamps = () => {
@@ -129,6 +130,9 @@ const ManageParticipantsCamps = () => {
     ]
     return (
         <div>
+            <Helmet>
+                <title>Mediserve Mobilize | Manage Participant Camp</title>
+            </Helmet>
             <div className="mt-10">
                 <Title title={'Manage Camps'} desc={'Registered By You'}></Title>
                 <DataTable

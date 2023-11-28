@@ -7,6 +7,7 @@ import Title from "../Title/Title";
 import CampDetailsCard from "./CampDetailsCard";
 import CampCalender from "./CampCalender";
 import Loading from "../Loading";
+import { Helmet } from "react-helmet-async";
 
 const CampDetails = () => {
     const { campId } = useParams()
@@ -26,6 +27,9 @@ const CampDetails = () => {
     
     return (
         <div className="bg-blue-50 py-10 px-5">
+            <Helmet>
+                <title>Mediserve Mobilize |  Camp Details</title>
+            </Helmet>
             <Title title={'Camp Details'} desc={` Camp details of the ${singleCamp?.campName}`}></Title>
 
             <div>

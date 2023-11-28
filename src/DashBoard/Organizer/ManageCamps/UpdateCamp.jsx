@@ -12,6 +12,7 @@ import axios from "axios";
 import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import campbg from '../../../assets/addCamp.jpg'
 import Title from "../../../Components/Title/Title";
+import { Helmet } from "react-helmet-async";
 const UpdateCamp = () => {
     const { campId } = useParams();
     const { user } = useAuth()
@@ -142,6 +143,9 @@ const UpdateCamp = () => {
     return (
         <div className='bg-cover bg-no-repeat  bg-center ' style={{ background: `url(${campbg})` }}>
             <div className='w-full   bg-[#00000069] py-10'>
+            <Helmet>
+                <title>Mediserve Mobilize |  Update Camp</title>
+            </Helmet>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className=' p-1 sm:p-4 md:w-[80%] mx-auto bg-[#ffffffa2] rounded-t-lg'>
                         <Title title={'Update Camp'} desc={'Update Camp You Want'}></Title>

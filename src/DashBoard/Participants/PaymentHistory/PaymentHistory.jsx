@@ -6,6 +6,7 @@ import Loading from "../../../Components/Loading";
 import Title from "../../../Components/Title/Title";
 import DataTable from "react-data-table-component";
 import useAuth from "../../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const PaymentHistory = () => {
     const { user } = useAuth();
@@ -72,6 +73,9 @@ const PaymentHistory = () => {
     ]
     return (
         <div>
+            <Helmet>
+                <title>Mediserve Mobilize | Payment History</title>
+            </Helmet>
             <Title title={'Payment History'} desc={'See Your Payments History'}></Title>
             <div>
                 <DataTable

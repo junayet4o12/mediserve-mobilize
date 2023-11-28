@@ -15,6 +15,8 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Components/Loading";
 import useProfessional from "../hooks/useProfessional";
+import { Helmet } from "react-helmet-async";
+import DashBoardSearch from "./DashBoardSearch/DashBoardSearch";
 const DashBoard = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure()
@@ -35,6 +37,9 @@ const DashBoard = () => {
     return (
         <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 sm:gap-4 bg-blue-50 relative">
             {/* dashboard sidebar */}
+            <Helmet>
+                <title>Mediserve Mobilize |  Dashboard</title>
+            </Helmet>
             <div className="w-full min-h-screen bg-blue-500 col-span-2 sm:col-span-1">
                 <ul className="menu text-white font-medium sticky top-20">
                     {
@@ -86,6 +91,7 @@ const DashBoard = () => {
             </div>
             {/* dashboard content  */}
             <div className="col-span-3 sm:col-span-2 md:col-span-3 py-4 p-1 sm:p-4">
+                <DashBoardSearch></DashBoardSearch>
                 <Outlet></Outlet>
             </div>
         </div>

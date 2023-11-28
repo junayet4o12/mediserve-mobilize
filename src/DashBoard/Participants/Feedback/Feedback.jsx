@@ -8,6 +8,7 @@ import Loading from "../../../Components/Loading";
 import DataTable from "react-data-table-component";
 import { useState } from "react";
 import FeedbackModal from "./FeedbackModal";
+import { Helmet } from "react-helmet-async";
 
 const Feedback = () => {
     const [camp, setcamp] = useState({})
@@ -82,6 +83,9 @@ const Feedback = () => {
     ]
     return (
         <div>
+            <Helmet>
+                <title>Mediserve Mobilize | Feedback</title>
+            </Helmet>
             <Title title={'Feedback'} desc={'Give feedback to your paid camp'}></Title>
             <div>
                 <DataTable

@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import Title from "../../../Components/Title/Title";
 import UpdateProfile from "../../Organizer/UpdateProfile";
 import ParticipantRegisteredTable from "./ParticipantRegisteredTable";
+import { Helmet } from "react-helmet-async";
 
 const ParticipantsProfile = () => {
     const { user } = useAuth()
@@ -26,6 +27,9 @@ const ParticipantsProfile = () => {
     console.log(userProfile);
     return (
         <div>
+            <Helmet>
+                <title>Mediserve Mobilize | Participant Profile</title>
+            </Helmet>
             <Title title={'Participant Profile'} desc={'Your Profile as Participant'}></Title>
             <div className="flex gap-y-5 gap-x-10 flex-wrap">
                 <img className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] object-cover overflow-hidden rounded-full shadow-xl" src={user?.photoURL} alt="" />

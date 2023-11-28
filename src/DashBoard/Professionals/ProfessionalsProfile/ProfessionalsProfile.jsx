@@ -7,6 +7,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import UpdateProfile from "../../Organizer/UpdateProfile";
 import { useState } from "react";
 import ProfessionalsProfileUpdate from "./ProfessionalsProfileUpdate";
+import { Helmet } from "react-helmet-async";
 
 const ProfessionalsProfile = () => {
     const { user } = useAuth()
@@ -24,6 +25,9 @@ const ProfessionalsProfile = () => {
     const handleClose = () => setOpen(false);
     return (
         <div>
+            <Helmet>
+                <title>Mediserve Mobilize | Professional Profile</title>
+            </Helmet>
             <Title title={'Professional Profile'} desc={'Your Profile as a Professional'}></Title>
             <div className="flex gap-y-5 gap-x-10 flex-wrap">
                 <img className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] object-cover overflow-hidden rounded-full shadow-xl" src={user?.photoURL} alt="" />

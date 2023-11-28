@@ -9,6 +9,7 @@ import './Organizer.css'
 import AllCard from "./AllCard";
 import OrganizersFeedback from "./OrganizersFeedback";
 import UpdateProfile from "./UpdateProfile";
+import { Helmet } from "react-helmet-async";
 const OrganizerProfile = () => {
     const { user } = useContext(AuthContext)
     const axiosSecure = useAxiosSecure();
@@ -26,6 +27,9 @@ const OrganizerProfile = () => {
     console.log(organizerProfile);
     return (
         <div>
+            <Helmet>
+                <title>Mediserve Mobilize |  Organizer Profile</title>
+            </Helmet>
             <Title title={'Organizer Profile'} desc={'Your Profile as Organizer'}></Title>
             <div className="flex gap-y-5 gap-x-10 flex-wrap">
                 <img className="w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] object-cover overflow-hidden rounded-full shadow-xl" src={user?.photoURL} alt="" />

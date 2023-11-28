@@ -9,6 +9,7 @@ import axios from 'axios';
 import useAuth from '../../../hooks/useAuth'
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 const AddACamps = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
@@ -108,6 +109,9 @@ const AddACamps = () => {
     return (
         <div className='bg-cover bg-no-repeat  bg-center ' style={{ background: `url(${campbg})` }}>
             <div className='w-full   bg-[#00000069] py-10'>
+            <Helmet>
+                <title>Mediserve Mobilize |  Add Camp</title>
+            </Helmet>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className=' p-1 sm:p-4 md:w-[80%] mx-auto bg-[#ffffffa2] rounded-t-lg'>
                         <Title title={'Add Camp'} desc={'Add A Camp You Want'}></Title>
