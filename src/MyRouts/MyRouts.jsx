@@ -24,6 +24,7 @@ import ProfessionalsProfile from "../DashBoard/Professionals/ProfessionalsProfil
 import ProfessionalRouts from "../Components/Routs/ProfessionalRouts";
 import Error from "../Components/Four0Four/Error";
 import AddUpcomingCamp from "../DashBoard/Organizer/AddUpcommingCamp/AddUpcomingCamp";
+import UpcomingCampDetails from '../Home/UpcommingCamp/UpcomingCampDetails'
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -40,7 +41,7 @@ const MyRouts = createBrowserRouter([
             },
             {
                 path: '/upcoming-camp-details/:campId',
-                element: <CampDetails></CampDetails>
+                element: <UpcomingCampDetails></UpcomingCampDetails>
             },
             {
                 path: '/register',

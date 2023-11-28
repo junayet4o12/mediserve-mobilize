@@ -61,6 +61,7 @@ const AddUpcomingCamp = () => {
                     specializedService: data?.specializedService,
                     healthcareExpert: data?.healthcareExpert,
                     targetAudience: data?.targetAudience,
+                    participators: 0,
                     benefits: [
                         data?.benefits1,
                         data?.benefits2 || 'Not Given',

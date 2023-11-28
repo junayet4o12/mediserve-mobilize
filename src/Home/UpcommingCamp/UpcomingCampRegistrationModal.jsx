@@ -1,15 +1,12 @@
 /* eslint-disable react/prop-types */
-import { Box, Button, Modal } from "@mui/material";
-import { useContext, useState } from "react";
-import Swal from "sweetalert2";
-import { AuthContext } from "../../firebase/authProvider/AuthProviders";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
-
 // import React from 'react';
-
-const RegistrationModal = ({ camp, id, handleClose, open }) => {
-    const { user } = useContext(AuthContext);
+import { Box, Button, Modal } from "@mui/material";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+const UpcomingCampRegistrationModal = ({ camp, id, handleClose, open }) => {
+    const { user } = useAuth();
     const axiosSecure = useAxiosSecure()
     const [openchild, setopenchild] = useState(false)
     const [writtenname, setwrittenName] = useState('')
@@ -111,6 +108,7 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault()
         if (!user) {
             return Swal.fire({
                 title: 'Error!',
@@ -119,7 +117,7 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
                 confirmButtonText: 'Ok'
             })
         }
-        e.preventDefault()
+        
         seterror('')
         const form = e.target;
         const gender = selectedGender;
@@ -173,10 +171,6 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
             },
             registerEmail: user?.email,
             userName: user?.displayName,
-            
-
-
-
         }
         setregisterInformation(Information)
         setopenchild(true)
@@ -185,37 +179,33 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
     const handleConfirm = () => {
         // console.log(registerInformation);
         setopenchild(false)
-        axiosSecure.post('/registrationcamps', registerInformation)
+        axiosSecure.post('/participantlist', registerInformation)
 
             .then(res => {
                 console.log(res.data);
                 if (res?.data?.insertedId) {
-                    axiosSecure.put(`/camps/${id}`)
-                    .then(res=> {
-                        console.log(res?.data);
-                        if(res?.data?.modifiedCount>0){
-                            handleClose()
-                            setSelectedGender('')
-                            setfever('')
-                            setheadeche('')
-                            setweak('')
-                            setdevision('')
-                            setdistricts([])
-                            setselecteddistricts('')
-                            setwrittenName('')
-                            setwrittenage('')
-                            setwrittencontactnum('')
-                            setwrittenemergencynum('')
-        
-                            Swal.fire({
-                                icon: "success",
-                                title: "Successfully Registered !!",
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }
-                    })
-                   
+
+                    console.log(res?.data);
+
+                    handleClose()
+                    setSelectedGender('')
+                    setfever('')
+                    setheadeche('')
+                    setweak('')
+                    setdevision('')
+                    setdistricts([])
+                    setselecteddistricts('')
+                    setwrittenName('')
+                    setwrittenage('')
+                    setwrittencontactnum('')
+                    setwrittenemergencynum('')
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Successfully Registered !!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
             })
             .catch(err => console.log(err))
@@ -224,7 +214,7 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
 
     }
     return (
-        <div >
+        <div>
             <Modal
                 sx={{ display: 'flex' }}
                 keepMounted
@@ -473,8 +463,8 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
                         <p className="text-base font-medium mb-4" id="child-modal-description">
                             You can check your infromation twice
                         </p>
-                        <Button sx={{ background: 'blue', color: 'white', mr: '10px', p: '10px', fontWeight: 'bold', mb: '10px' }} onClick={handleConfirm}>Confirm !!</Button>
-                        <Button onClick={() => setopenchild(false)} sx={{ background: 'red', color: 'white', mr: '10px', p: '10px', fontWeight: 'bold', mb: '10px' }} >Check info</Button>
+                        <Button className="login" sx={{ background: 'blue', color: 'white', mr: '10px', p: '10px', fontWeight: 'bold', mb: '10px', '&:hover': { background: '#003366' }, }} onClick={handleConfirm}>Confirm !!</Button>
+                        <Button className="login" onClick={() => setopenchild(false)} sx={{ background: 'red', color: 'white', mr: '10px', p: '10px', fontWeight: 'bold', mb: '10px', '&:hover': { background: '#E53E3E' }, }} >Check info</Button>
                     </div>
                 </Box>
             </Modal>
@@ -482,4 +472,4 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
     );
 };
 
-export default RegistrationModal;
+export default UpcomingCampRegistrationModal;

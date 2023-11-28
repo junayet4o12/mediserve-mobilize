@@ -6,19 +6,19 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "../../Components/Loading";
 import { Helmet } from "react-helmet-async";
 import Title from "../../Components/Title/Title";
-import CampDetailsCard from "../../Components/CampDetails/CampDetailsCard";
 import CampCalender from "../../Components/CampDetails/CampCalender";
+import UpcomingCampDetailsCard from "./UpcomingCampDetailsCard";
 
 
 
-const CampDetails = () => {
+const UpcomingCampDetails = () => {
     const { campId } = useParams()
     const axiosPublic = useAxiosPublic();
     
     const { data: singleCamp = [], isLoading } = useQuery({
-        queryKey: ['singlecampdetails'],
+        queryKey: ['singleupcomingcampdetails'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/camps/${campId}`)
+            const res = await axiosPublic.get(`/upcommingcamps/${campId}`)
             return res?.data
         }
     })
@@ -36,7 +36,8 @@ const CampDetails = () => {
 
             <div>
                 <div className="flex justify-center  gap-10 flex-wrap">
-                    <CampDetailsCard camp={singleCamp}></CampDetailsCard>
+                    {/* <CampDetailsCard camp={singleCamp}></CampDetailsCard> */}
+                    <UpcomingCampDetailsCard camp={singleCamp}></UpcomingCampDetailsCard>
                     <CampCalender date={singleCamp?.DateAndTime}></CampCalender>
                 </div>
             </div>
@@ -44,4 +45,4 @@ const CampDetails = () => {
     );
 };
 
-export default CampDetails;
+export default UpcomingCampDetails;
