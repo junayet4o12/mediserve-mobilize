@@ -65,10 +65,10 @@ const ManageRegistgeredCampTable = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log(camp);
-                axiosSecure.put(`/updateRegistrationcamp/${camp?._id}`)
+                axiosSecure.put(`/updateRegistrationcamp/${camp?._id}`, { transactionId: camp?.transactionId })
                     .then(res => {
                         console.log(res?.data);
-                        if (res?.data?.modifiedCount > 0) {
+                        if (res?.data?.updateregister?.modifiedCount > 0 && res?.data?.updatepayment?.modifiedCount > 0) {
                             refetch()
                             Swal.fire({
                                 icon: "success",

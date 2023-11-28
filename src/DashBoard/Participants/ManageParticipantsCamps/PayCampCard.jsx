@@ -83,7 +83,9 @@ const PayCampCard = ({ handleClose, open,camp,  refetch }) => {
                     registeredCampdetails: {
                         camp
                     },
-                    transactionId: paymentIntent?.id
+                    transactionId: paymentIntent?.id,
+                    confirmationStatus: 'pending',
+                    paymentStatus: 'paid'
                 }
                 console.log(camp?.campInfo?.campId);
                  const res =  await axiosSecure.post(`/payments/${camp?._id}`, payment)

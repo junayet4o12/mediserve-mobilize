@@ -2,7 +2,7 @@
 
 import { NavLink, Outlet } from "react-router-dom";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { AddHomeRounded,  PaymentOutlined } from "@mui/icons-material";
+import {   PaymentOutlined } from "@mui/icons-material";
 import RateReviewSharpIcon from '@mui/icons-material/RateReviewSharp';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
@@ -11,6 +11,7 @@ import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
 import { GiArchiveRegister } from "react-icons/gi";
 import { ImProfile } from "react-icons/im";
 import { FaRegIdCard } from "react-icons/fa";
+import { FaHistory } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -59,17 +60,10 @@ const DashBoard = () => {
                                 <NavLink to={'/dashboard/registered-camps'}> <FaRegIdCard></FaRegIdCard> Manage your registered Camp</NavLink>
                             </li>
                             <li>
-                                <NavLink to={'/dashboard/payment'}> <PaymentOutlined></PaymentOutlined> Payment</NavLink>
+                                <NavLink to={'/dashboard/payment-history'}> <FaHistory></FaHistory>Payment History</NavLink>
                             </li>
-                            <li>
-                                <NavLink to={'/dashboard/cart'}> <AddShoppingCartIcon></AddShoppingCartIcon> My Carts ()</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/dashboard/addreview'}> <RateReviewSharpIcon></RateReviewSharpIcon> Add Review</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/dashboard/mybooking'}> <LibraryBooksIcon></LibraryBooksIcon> My Booking</NavLink>
-                            </li>
+                           
+                           
                         </>
                     }
 
