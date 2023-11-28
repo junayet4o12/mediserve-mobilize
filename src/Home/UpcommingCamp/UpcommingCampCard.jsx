@@ -6,13 +6,14 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Box,  CardActionArea } from '@mui/material';
+import { Box,  Button,  CardActionArea, CardActions } from '@mui/material';
 // import './PopularCamp.css'
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { Link } from 'react-router-dom';
 
 const UpcommingCampCard = ({ camp }) => {
-    const { description, image, campName, campFees, DateAndTime, venueLocation,  targetAudience } = camp
+    const { _id,description, image, campName, campFees, DateAndTime, venueLocation,  targetAudience } = camp
 
     const timeForm = (time) => {
         return new Date(time)
@@ -74,6 +75,13 @@ const UpcommingCampCard = ({ camp }) => {
                         </Typography>
                         
                     </CardContent>
+                    <CardActions>
+                    <Link to={`/upcoming-camp-details/${_id}`}>
+                        <Button className='detailsbtn' size="small" color="primary">
+                            Details
+                        </Button>
+                    </Link>
+                </CardActions>
                 </CardActionArea>
                
             </Card>

@@ -29,13 +29,14 @@ const Register = () => {
     const imgHostingApi = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
-    
+    const [err, seterr] = useState('')
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const onSubmit = async (data) => {
+        seterr('')
         console.log(data)
         const image = { image: data?.image[0] }
         // console.log(image);
-        
+
         console.log(image);
         const res = await axios.post(imgHostingApi, image, {
             headers: {
@@ -43,6 +44,7 @@ const Register = () => {
             }
         })
         const imgurl = res?.data?.data?.display_url
+        console.log(imgurl);
         createUser(data.email, data.password)
             .then(res => {
                 console.log(res.user);
@@ -58,7 +60,7 @@ const Register = () => {
                             email: data.email,
                             contactNumber: '',
                             age: '',
-                            
+
 
                         }
                         axiosPublic.post('/users', userInfo)
@@ -76,11 +78,19 @@ const Register = () => {
                             })
 
                     })
-                    .catch(err => console.log(err))
+                    .catch(err => {
+                        console.log(err)
+                    })
+            })
+            .catch(err => {
+                console.log(err)
+                seterr(err?.message)
             })
     }
     const handlegooglelogin = () => {
+        seterr('')
         loginwithgoogle()
+        navigate('/')
     }
     return (
         <div className="bg-blue-50">
@@ -135,7 +145,7 @@ const Register = () => {
                                 <p className="px-2 pb-1 text-sm">Give a unique pass</p>
                                 <div className="relative w-full sm:w-[450px]">
                                     <input
-                                        
+
                                         type={showpass ? 'password' : 'text'} name="password" {...register("password", {
                                             required: true,
                                             minLength: 8,
@@ -148,7 +158,7 @@ const Register = () => {
                                     {errors?.password?.type === 'minLength' && <span className='text-red-500'>Password must be minimum 8 charecters</span>}
                                     {errors?.password?.type === 'maxLength' && <span className='text-red-500'>Password must be maximum 20 charecters</span>}
                                     {errors?.password?.type === 'pattern' && <span className='text-red-500'>Password must contain at least one digit, one lowercase letter, and one uppercase letter.</span>}
-
+                                    <p className='text-red-500 text-sm'>{err}</p>
                                     <div>
 
                                     </div>
@@ -159,11 +169,11 @@ const Register = () => {
                                 </div>
                             </div>
                             <div className='w-full flex flex-col  justify-center items-center gap-2'>
-                                <button type='submit' className='btn bg-gradient-to-r  w-full  sm:w-[450px]  text-white font-bold rounded-lg border-none bg-[#36A2C1] hover:bg-[#29859e]'><MdLogin></MdLogin> Register</button>
+                                <button type='submit' className='btn bg-gradient-to-r  w-full  sm:w-[450px]  text-white font-bold rounded-lg border-none bg-[#36A2C1] hover:bg-[#29859e] login'><MdLogin></MdLogin> Register</button>
                                 <p>Or</p>
                                 <p
                                     onClick={handlegooglelogin}
-                                    className='btn border border-black btn-sm text-black btn-circle font-bold text-xl hover:bg-black hover:text-white'><BiLogoGoogle></BiLogoGoogle></p>
+                                    className='btn   bg-[#36a3c1] text-white  font-bold text-sm hover:bg-[#2b859e] border-none hover:text-white login'>Log in with <span className="text-lg"><BiLogoGoogle></BiLogoGoogle></span></p>
                             </div>
                         </div>
 

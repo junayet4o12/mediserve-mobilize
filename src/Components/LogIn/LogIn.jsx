@@ -20,12 +20,14 @@ const LogIn = () => {
     const { loginUser } = useContext(AuthContext)
     const loginwithgoogle = useGoogleLogin()
     const [showpass, setshowpass] = useState(true);
+    const [err, seterr] = useState('')
     const navigate = useNavigate();
     const location = useLocation();
     // data.email, data.password
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const onSubmit = async (data) => {
         console.log(data)
+        seterr('')
         const email = data?.email;
         const password = data?.password;
         console.log(password, email);
@@ -49,16 +51,19 @@ const LogIn = () => {
               `
                     }
                 });
-                navigate( '/', { replace: true })
+                navigate('/', { replace: true })
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                seterr(err?.message)
+            })
 
     }
     const handlegooglelogin = () => {
-        
+        seterr('')
         loginwithgoogle(location?.state?.from?.pathname)
             .then(() => {
-                
+
             })
     }
     return (
@@ -91,7 +96,7 @@ const LogIn = () => {
                                 <p className="px-2 pb-1 text-sm">Write your email</p>
                                 <div className="relative w-full sm:w-[450px]">
                                     <input required name="email" {...register("email", { required: true })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " type="email" placeholder="email" />
-                                    {errors.email && <span className='text-red-500'>Email is required</span>}
+                                    {errors.email && <span className='text-red-500 text-sm'>Email is required</span>}
                                     <p className='text-xl absolute top-3.5 left-3 '><HiOutlineMail></HiOutlineMail></p>
                                 </div>
                             </div>
@@ -105,8 +110,8 @@ const LogIn = () => {
                                         })} className="w-full  sm:w-[450px]  bg-gray-200 p-3 px-10 rounded-lg " placeholder="password" />
                                     <p className='text-xl absolute top-3 left-3 '><RiLockPasswordLine></RiLockPasswordLine></p>
                                     <p onClick={() => (setshowpass(!showpass))} className={`absolute top-2 right-0 mr-2 cursor-pointer text-lg  p-1`}>{showpass ? <AiOutlineEye></AiOutlineEye> : <AiOutlineEyeInvisible></AiOutlineEyeInvisible>}</p>
-                                    {errors?.password?.type === 'required' && <span className='text-red-500'>Password invalid</span>}
-
+                                    {errors?.password?.type === 'required' && <span className='text-red-500 text-sm'>Password invalid</span>}
+                                    <span className='text-red-500 text-sm font-medium'>{err}</span>
 
                                     <div>
 
@@ -118,11 +123,11 @@ const LogIn = () => {
                                 </div>
                             </div>
                             <div className='w-full flex flex-col  justify-center items-center gap-2'>
-                                <button type='submit' className='btn bg-gradient-to-r  w-full  sm:w-[450px]  text-white font-bold rounded-lg border-none bg-[#36A2C1] hover:bg-[#29859e]'><MdLogin></MdLogin> Log In</button>
+                                <button type='submit' className='btn bg-gradient-to-r  w-full  sm:w-[450px]  text-white font-bold rounded-lg border-none bg-[#36A2C1] hover:bg-[#29859e] login'><MdLogin></MdLogin> Log In</button>
                                 <p>Or</p>
                                 <p
                                     onClick={handlegooglelogin}
-                                    className='btn   bg-[#36a3c1] text-white  font-bold text-sm hover:bg-[#2b859e] border-none hover:text-white'>Log in with <span className="text-lg"><BiLogoGoogle></BiLogoGoogle></span></p>
+                                    className='btn   bg-[#36a3c1] text-white  font-bold text-sm hover:bg-[#2b859e] border-none hover:text-white login'>Log in with <span className="text-lg"><BiLogoGoogle></BiLogoGoogle></span></p>
                             </div>
                         </div>
 

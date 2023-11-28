@@ -23,6 +23,7 @@ import Feedback from "../DashBoard/Participants/Feedback/Feedback";
 import ProfessionalsProfile from "../DashBoard/Professionals/ProfessionalsProfile/ProfessionalsProfile";
 import ProfessionalRouts from "../Components/Routs/ProfessionalRouts";
 import Error from "../Components/Four0Four/Error";
+import AddUpcomingCamp from "../DashBoard/Organizer/AddUpcommingCamp/AddUpcomingCamp";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -35,6 +36,10 @@ const MyRouts = createBrowserRouter([
             },
             {
                 path: '/camp-details/:campId',
+                element: <CampDetails></CampDetails>
+            },
+            {
+                path: '/upcoming-camp-details/:campId',
                 element: <CampDetails></CampDetails>
             },
             {
@@ -74,6 +79,10 @@ const MyRouts = createBrowserRouter([
                     {
                         path: 'manage-registered-camps',
                         element: <OrganizerRouts><ManageRegisteredCamp></ManageRegisteredCamp></OrganizerRouts>
+                    },
+                    {
+                        path: 'add-upcoming-camp',
+                        element: <OrganizerRouts><AddUpcomingCamp></AddUpcomingCamp></OrganizerRouts>
                     }
                     // organizer routs end
                     ,

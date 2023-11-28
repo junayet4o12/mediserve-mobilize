@@ -93,7 +93,6 @@ const DashBoardSearch = () => {
             name: 'Go to professional Profile'
         },
     ]
-    console.log(isOrganizer);
     let allsearchesData = []
     if (isProfessional) {
         allsearchesData = [...newSearchingData, ...otherRouts, ...prefessionalRouts]
@@ -119,7 +118,7 @@ const DashBoardSearch = () => {
         // item.campName.toLowerCase().includes(searchTerm.toLowerCase())
     }
     return (
-        <div>
+        <div className="pb-8">
             <div className="w-[95%] sm:w-[65%]    p-2  text-lg font-bold">Please search routs to navigate Easily</div>
             <div className="flex flex-wrap justify-start gap-x-5 gap-y-3 items-center">
                 <div className="w-[95%] sm:w-[65%]   shadow-xl">

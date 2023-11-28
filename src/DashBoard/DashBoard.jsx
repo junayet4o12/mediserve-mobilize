@@ -1,8 +1,7 @@
 // import React from 'react';
 
 import { NavLink, Outlet } from "react-router-dom";
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
+import { MdOutlineUpcoming } from "react-icons/md";
 import { VscFeedback } from "react-icons/vsc";
 import { MdOutlineAddBusiness } from "react-icons/md";
 import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
@@ -20,7 +19,7 @@ import DashBoardSearch from "./DashBoardSearch/DashBoardSearch";
 const DashBoard = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure()
-    const [isProfessional, isProfessionalPanding] =useProfessional()
+    const [isProfessional, isProfessionalPanding] = useProfessional()
     const { data: organiserdata = {}, isLoading } = useQuery({
         queryKey: ['organizersData', user],
         enabled: !!user?.email && !!localStorage.getItem('token'),
@@ -46,30 +45,39 @@ const DashBoard = () => {
                         isOrganizer ?
                             <>
                                 {
-                                    isProfessional ? <>
-                                        <li>
-                                            <NavLink to={'/dashboard/professional-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span>professional Profile</NavLink>
-                                        </li>
-                                    </> : <>
-                                        <li>
-                                            <NavLink to={'/dashboard/organizer-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span>Organizer Profile</NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink to={'/dashboard/add-a-camp'}> < MdOutlineAddBusiness></MdOutlineAddBusiness> Add Camps</NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink to={'/dashboard/manage-camps'}><ManageHistoryIcon></ManageHistoryIcon> Manage Camps</NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink to={'/dashboard/manage-registered-camps'}> <GiArchiveRegister></GiArchiveRegister> Manage Registered Camp</NavLink>
-                                        </li>
+                                    isProfessional ?
+                                        <>
+                                        {/* professionalrouts  */}
+                                            <li>
+                                                <NavLink to={'/dashboard/professional-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span>professional Profile</NavLink>
+                                            </li>
+                                        </>
+                                        :
+                                        <>
+                                        {/* organizerrouts  */}
+                                            <li>
+                                                <NavLink to={'/dashboard/organizer-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span>Organizer Profile</NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink to={'/dashboard/add-a-camp'}> < MdOutlineAddBusiness></MdOutlineAddBusiness> Add Camps</NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink to={'/dashboard/manage-camps'}><ManageHistoryIcon></ManageHistoryIcon> Manage Camps</NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink to={'/dashboard/manage-registered-camps'}> <GiArchiveRegister></GiArchiveRegister> Manage Registered Camp</NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink to={'/dashboard/add-upcoming-camp'}> <span className="text-lg"><MdOutlineUpcoming></MdOutlineUpcoming></span> Add Upcomming Camp</NavLink>
+                                            </li>
 
 
-                                    </>
+                                        </>
                                 }
                             </>
                             :
                             <>
+                            {/* participants routs  */}
                                 <li>
                                     <NavLink to={'/dashboard/participant-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span> Participant Profile</NavLink>
                                 </li>
@@ -82,6 +90,7 @@ const DashBoard = () => {
                                 <li>
                                     <NavLink to={'/dashboard/feedback-and-ratings'}> <VscFeedback></VscFeedback>Give Feedback</NavLink>
                                 </li>
+
 
 
                             </>
