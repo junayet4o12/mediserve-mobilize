@@ -14,9 +14,11 @@ import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Components/Loading";
+import useProfessional from "../hooks/useProfessional";
 const DashBoard = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure()
+    const [isProfessional, isProfessionalPanding] =useProfessional()
     const { data: organiserdata = {}, isLoading } = useQuery({
         queryKey: ['organizersData', user],
         enabled: !!user?.email && !!localStorage.getItem('token'),
@@ -25,11 +27,11 @@ const DashBoard = () => {
             return res?.data
         }
     })
-    if (isLoading) {
+    if (isLoading || isProfessionalPanding) {
         return <Loading></Loading>
     }
     const isOrganizer = organiserdata?.organizerRole
-    const isProfessional = true;
+    // const isProfessional = true;
     return (
         <div className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 sm:gap-4 bg-blue-50 relative">
             {/* dashboard sidebar */}

@@ -5,7 +5,8 @@
         "contactNumber": "01632884012",
         "age": "20",
         "country": "Bangladesh",
-        "organizerRole": true
+        "organizerRole": true,
+        "professionalRole": true
     },
     {
         "name": "Junayet",
@@ -32,6 +33,20 @@
     {
         "email": "maruf558090@gmail.com",
         "name": "Maruf Alom me too",
+        "contactNumber": "01818738903",
+        "age": "20",
+        "country": "BD"
+    },
+    {
+        "name": "Leo Messi",
+        "email": "messi@gmail.com",
+        "contactNumber": "01010101011",
+        "age": "36",
+        "country": "Argentina"
+    },
+    {
+        "name": "Mama",
+        "email": "mama@mami.com",
         "contactNumber": "",
         "age": ""
     }
