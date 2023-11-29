@@ -68,7 +68,15 @@ const ManageUpcomingCamps = () => {
             selector: row => <p className="font-medium">{row?.professionals}</p>
         },
 
+        {
+            name: 'Professionals Details',
+            cell: row => <div className="flex  gap-2 ">
+                <Link to={`/dashboard/upcomingprofessionaldetails/${row?.queryNumber}`}>
+                    <button title="See Professionals details" className="btn btn-neutral bg-red-400 border-none text-white text-lg font-bold login"><SettingsAccessibilityTwoToneIcon></SettingsAccessibilityTwoToneIcon></button>
+                </Link>
 
+            </div>
+        },
         {
             name: 'Participants Details',
             cell: row => <div className="flex  gap-2 ">
@@ -79,14 +87,15 @@ const ManageUpcomingCamps = () => {
             </div>
         },
         {
-            name: 'Professionals Details',
+            name: 'Participants Details',
             cell: row => <div className="flex  gap-2 ">
-                <Link to={`/dashboard/upcomingprofessionaldetails/${row?.queryNumber}`}>
-                    <button title="See Professionals details" className="btn btn-neutral bg-red-400 border-none text-white text-lg font-bold login"><SettingsAccessibilityTwoToneIcon></SettingsAccessibilityTwoToneIcon></button>
+                <Link to={`/dashboard/upcomingparticipantsDetails/${row?.queryNumber}`}>
+                    <button title="See participants details" className="btn btn-neutral bg-blue-400 border-none text-white text-lg font-bold updatebtn"><BiSolidUserDetail></BiSolidUserDetail></button>
                 </Link>
 
             </div>
         },
+
     ]
     return (
         <div>

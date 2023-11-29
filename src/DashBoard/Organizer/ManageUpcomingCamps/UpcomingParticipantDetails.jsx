@@ -22,11 +22,30 @@ const UpcomingParticipantDetails = () => {
         }
 
     })
-    if (userupcominisLoading) {
+    const { data: professionalupcomingCamp, isLoading: professionalupcomingisLoading, refetch: professionalupcomingrefetch } = useQuery({
+        queryKey: [`professionalupcomingCampcheck ${query}`, user?.email],
+        enabled: !!user?.email && !!localStorage.getItem('token'),
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/professionallist/${query}`)
+            return res?.data
+        }
+
+    })
+    if (userupcominisLoading || professionalupcomingisLoading) {
         return <Loading></Loading>
     }
+    const isConfirm = professionalupcomingCamp.find(camping => camping?.confirmation === true)
+    console.log(isConfirm);
     console.log(userupcomingCamp);
     const handleRegister = (camp) => {
+        if(!isConfirm){
+            return Swal.fire({
+                title: 'Error!',
+                text: 'Please Select a Professional First',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              })
+        }
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",

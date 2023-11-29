@@ -56,7 +56,7 @@ const MyRouts = createBrowserRouter([
             },
             {
                 path: '/availablecamps',
-                element: <AvailableCamps></AvailableCamps>
+                element: <PrivateRouts><AvailableCamps></AvailableCamps> </PrivateRouts>
             },
             // dashboard started 
             {

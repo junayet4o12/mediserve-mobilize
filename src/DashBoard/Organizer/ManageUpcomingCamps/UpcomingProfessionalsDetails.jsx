@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "../../../Components/Loading";
 import DataTable from "react-data-table-component";
 import Title from "../../../Components/Title/Title";
+import Swal from "sweetalert2";
 
 const UpcomingProfessionalsDetails = () => {
     const { user } = useAuth()
@@ -25,20 +26,47 @@ const UpcomingProfessionalsDetails = () => {
     if (professionalupcomingisLoading) {
         return <Loading></Loading>
     }
-    const timeForm = (time) => {
-        return new Date(time)
+    const isConfirm = professionalupcomingCamp.find(camping => camping?.confirmation === true)
+    console.log(isConfirm);
+    const handleAccept = (camp) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Accept!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log(camp);
+                axiosSecure.put(`/professionallistupdate/${camp?._id}`, {
+                    professionalName: camp?.professionalName,
+                    campid: camp?.campId
+                })
+                    .then(res => {
+                        console.log(res?.data);
+                        if (res?.data?.updateparticipants?.modifiedCount > 0 && res?.data?.updateparticipants2?.modifiedCount > 0) {
+                            professionalupcomingrefetch()
+                            Swal.fire({
+                                title: "Accepted!",
+                                text: "The Professional has accepted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+            }
+        });
     }
     console.log(professionalupcomingCamp);
     const columns = [
 
 
-        {
-            name: 'Id',
-            selector: row => <p className="font-medium">{professionalupcomingCamp.indexOf(row) + 1}</p>
-        },
+
         {
             name: 'Professional Name',
-            selector: row => <p className="font-medium">{row?.professionalName}</p>
+            selector: row => <p className="font-medium"><span className="font-medium mr-3">{professionalupcomingCamp.indexOf(row) + 1}</span>{row?.professionalName}</p>
         },
         {
             name: 'Specialization',
@@ -51,6 +79,14 @@ const UpcomingProfessionalsDetails = () => {
         {
             name: 'Email address',
             selector: row => <p className="font-medium">{row?.contactInformation?.email}</p>
+        },
+        {
+            name: 'Confirmation',
+            selector: row => <p className="font-medium">{isConfirm ? (row?.confirmation? 'Confirmed': 'Rejected') : 'Pending'}</p>
+        },
+        {
+            name: 'Accept Request',
+            cell: row => <button disabled={isConfirm} onClick={() => handleAccept(row)} className="btn my-2 bg-blue-500 text-sm font-bold text-white login">{isConfirm ? (row?.confirmation? 'Accepted': 'Rejected') : 'Accept'}</button>
         }
 
 
