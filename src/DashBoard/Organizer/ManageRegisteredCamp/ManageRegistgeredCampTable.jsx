@@ -4,12 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loading from "../../../Components/Loading";
-import { Link } from "react-router-dom";
-import { GrUpdate } from "react-icons/gr";
 import { RiChatDeleteFill } from "react-icons/ri";
 import DataTable from "react-data-table-component";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const ManageRegistgeredCampTable = () => {
     const { user } = useAuth();
@@ -41,7 +38,13 @@ const ManageRegistgeredCampTable = () => {
                 axiosSecure.put(`/campedit/${row?.campInfo?.campId}`, { registerid: row?._id, transactionId: row?.transactionId })
                     .then(res => {
                         console.log(res?.data);
-                        if (res?.data?.decParticipants?.modifiedCount > 0 && res?.data?.deleteRegister?.deletedCount > 0 && res?.data?.deletePayment?.deletedCount > 0) {
+                        if ((res?.data?.decParticipants?.modifiedCount > 0 || res?.data?.decupcomeParticipants?.modifiedCount > 0) && res?.data?.deleteRegister?.deletedCount > 0 && res?.data?.deletePayment?.deletedCount > 0) {
+                            if (res?.data?.decupcomeParticipants?.modifiedCount > 0) {
+                                axiosSecure.delete(`/deleteupregister/${row?.oldId}`)
+                                    .then(res => {
+                                        console.log(res?.data);
+                                    })
+                            }
                             refetch()
                             Swal.fire({
                                 title: "Deleted!",

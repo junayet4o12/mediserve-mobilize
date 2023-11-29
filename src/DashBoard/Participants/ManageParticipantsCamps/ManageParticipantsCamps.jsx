@@ -31,7 +31,7 @@ const ManageParticipantsCamps = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    const handleDelete = (id1, id2) => {
+    const handleDelete = (id1, id2, id3) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -42,7 +42,7 @@ const ManageParticipantsCamps = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log('registered Camp Id', id1, 'campid', id2);
+                console.log('registered Camp Id', id1, 'campid', id2, 'old id', id3);
                 axiosSecure.delete(`/deleteregisteredcamp/${id1}`)
                     .then(res => {
                         console.log(res?.data);
@@ -50,7 +50,14 @@ const ManageParticipantsCamps = () => {
                             axiosSecure.put(`/campsdec/${id2}`)
                                 .then(res => {
                                     console.log(res?.data);
-                                    if (res?.data?.modifiedCount > 0) {
+                                    if (res?.data?.result?.modifiedCount > 0 || res?.data?.upcomeresult?.modifiedCount>0) {
+                                        if(res?.data?.upcomeresult?.modifiedCount>0){
+                                            axiosSecure.delete(`/deleteupregister/${id3}`)
+                                            .then(res=> {
+                                                console.log(res?.data);
+                                            })
+
+                                        }
                                         refetch()
                                         Swal.fire({
                                             title: "Deleted!",
@@ -123,7 +130,7 @@ const ManageParticipantsCamps = () => {
             cell: row => <div className="flex  gap-4 justify-center items-center ">
 
 
-                <button onClick={() => handleDelete(row?._id, row?.campInfo?.campId)} disabled={row?.paymentStatus === 'paid'} className=" text-base font-bold btn   bg-[#bc0f0f]   cancelbtn shadow-none text-white" title="Cancel Registration ">Cancel</button>
+                <button onClick={() => handleDelete(row?._id, row?.campInfo?.campId, row?.oldId || row?.campInfo?.campId)} disabled={row?.paymentStatus === 'paid'} className=" text-base font-bold btn   bg-[#bc0f0f]   cancelbtn shadow-none text-white" title="Cancel Registration ">Cancel</button>
 
             </div>
         }

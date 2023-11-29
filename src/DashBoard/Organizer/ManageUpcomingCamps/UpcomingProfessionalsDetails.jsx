@@ -6,34 +6,35 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../../../Components/Loading";
 import DataTable from "react-data-table-component";
+import Title from "../../../Components/Title/Title";
 
 const UpcomingProfessionalsDetails = () => {
-    const {user} = useAuth()
+    const { user } = useAuth()
     const { query } = useParams();
     console.log(query);
     const axiosSecure = useAxiosSecure()
-     const {data: professionalupcomingCamp, isLoading: professionalupcomingisLoading, refetch: professionalupcomingrefetch} = useQuery({
+    const { data: professionalupcomingCamp, isLoading: professionalupcomingisLoading, refetch: professionalupcomingrefetch } = useQuery({
         queryKey: [`professionalupcomingCamp ${query}`, user?.email],
         enabled: !!user?.email && !!localStorage.getItem('token'),
-        queryFn: async ()=> {
+        queryFn: async () => {
             const res = await axiosSecure.get(`/professionallist/${query}`)
             return res?.data
         }
 
-     })
-     if(professionalupcomingisLoading){
+    })
+    if (professionalupcomingisLoading) {
         return <Loading></Loading>
-     }
-     const timeForm = (time) => {
+    }
+    const timeForm = (time) => {
         return new Date(time)
     }
-     console.log(professionalupcomingCamp);
-     const columns = [
+    console.log(professionalupcomingCamp);
+    const columns = [
 
-        
+
         {
             name: 'Id',
-            selector: row => <p className="font-medium">{professionalupcomingCamp.indexOf(row)+1}</p>
+            selector: row => <p className="font-medium">{professionalupcomingCamp.indexOf(row) + 1}</p>
         },
         {
             name: 'Professional Name',
@@ -51,12 +52,13 @@ const UpcomingProfessionalsDetails = () => {
             name: 'Email address',
             selector: row => <p className="font-medium">{row?.contactInformation?.email}</p>
         }
-        
-       
+
+
     ]
     return (
         <div>
-             <DataTable
+            <Title title={'Professionals Details'} desc={`For Upcoming camp.`}></Title>
+            <DataTable
                 columns={columns}
                 data={professionalupcomingCamp}
                 selectableRowsHighlight

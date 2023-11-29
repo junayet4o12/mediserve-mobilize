@@ -1,34 +1,25 @@
 [
     {
-        "email": "muhammadjunayetmaruf@gmail.com",
-        "name": "Muhammad Junayet Alam",
-        "contactNumber": "01632884012",
-        "age": "20",
-        "country": "Bangladesh",
-        "organizerRole": true,
-        "professionalRole": true
-    },
-    {
-        "name": "Junayet",
-        "email": "junayet@yahoo.com",
-        "contactNumber": "",
-        "age": "",
-        "organizerRole": true
-    },
-    {
-        "name": "Jihad",
-        "email": "jihad@gmail.com",
-        "contactNumber": "",
-        "age": "",
-        "organizerRole": true
-    },
-    {
         "name": "saikat khan",
         "email": "saikat@gmail.com",
         "contactNumber": "01616161644",
         "age": "25",
         "country": "bangladesh",
         "organizerRole": true
+    },
+    {
+        "name": "Mama",
+        "email": "mama@mami.com",
+        "contactNumber": "",
+        "age": ""
+    },
+    {
+        "name": "Junayet",
+        "email": "junayet@yahoo.com",
+        "contactNumber": "01955048594",
+        "age": "20",
+        "organizerRole": true,
+        "country": "Bangladesh"
     },
     {
         "email": "maruf558090@gmail.com",
@@ -38,6 +29,13 @@
         "country": "BD"
     },
     {
+        "name": "Jihad",
+        "email": "jihad@gmail.com",
+        "contactNumber": "",
+        "age": "",
+        "organizerRole": true
+    },
+    {
         "name": "Leo Messi",
         "email": "messi@gmail.com",
         "contactNumber": "01010101011",
@@ -45,9 +43,28 @@
         "country": "Argentina"
     },
     {
-        "name": "Mama",
-        "email": "mama@mami.com",
+        "email": "muhammadjunayetmaruf@gmail.com",
+        "name": "Muhammad Junayet Alam",
+        "contactNumber": "01632884012",
+        "age": "20",
+        "country": "Bangladesh",
+        "organizerRole": true,
+        "professionalRole": true,
+        "medicalSpeciality": "Rheumatology"
+    },
+    {
+        "name": "professional",
+        "email": "professional@gmail.com",
         "contactNumber": "",
-        "age": ""
+        "age": "",
+        "organizerRole": true,
+        "professionalRole": true
+    },
+    {
+        "name": "organizer",
+        "email": "organizer@gmail.com",
+        "contactNumber": "",
+        "age": "",
+        "organizerRole": true
     }
 ]

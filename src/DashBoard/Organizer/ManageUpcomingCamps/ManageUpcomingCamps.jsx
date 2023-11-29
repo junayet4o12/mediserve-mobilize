@@ -5,9 +5,6 @@ import Title from "../../../Components/Title/Title";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loading from "../../../Components/Loading";
-import ParticipantCampTable from "./ParticipantCampTable";
-import { GrUpdate } from "react-icons/gr";
-import { RiChatDeleteFill } from "react-icons/ri";
 import SettingsAccessibilityTwoToneIcon from '@mui/icons-material/SettingsAccessibilityTwoTone';
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
@@ -25,24 +22,7 @@ const ManageUpcomingCamps = () => {
 
     })
 
-    //  const {data: professionalupcomingCamp, isLoading: professionalupcomingisLoading, refetch: professionalupcomingrefetch} = useQuery({
-    //     queryKey: ['professionalupcomingCamp', user?.email],
-    //     enabled: !!user?.email && !!localStorage.getItem('token'),
-    //     queryFn: async ()=> {
-    //         const res = await axiosSecure.get(`/professionallist/${user?.email}`)
-    //         return res?.data
-    //     }
 
-    //  })
-    //  const {data: userupcomingCamp, isLoading: userupcominisLoading, refetch: userupcomingrefetch} = useQuery({
-    //     queryKey: ['userupcomingCamp', user?.email],
-    //     enabled: !!user?.email && !!localStorage.getItem('token'),
-    //     queryFn: async ()=> {
-    //         const res = await axiosSecure.get(`/participantlist/${user?.email}`)
-    //         return res?.data
-    //     }
-
-    //  })
     if (upcomingisLoading) {
         return <Loading></Loading>
     }
@@ -69,7 +49,7 @@ const ManageUpcomingCamps = () => {
             name: 'Target Audience',
             selector: row => <p className="font-medium">{row?.targetAudience}</p>
         },
-       
+
         {
             name: 'Venue',
             selector: row => <p className="font-medium">{row?.venueLocation?.placeName}</p>
@@ -79,18 +59,23 @@ const ManageUpcomingCamps = () => {
             selector: row => <p className="font-medium">{row?.participators}</p>
         },
         {
+            name: 'Interester Participant',
+            selector: row => <p className="font-medium">{row?.interestedParticipators || 0}</p>
+        },
+
+        {
             name: 'Interested Professionals',
             selector: row => <p className="font-medium">{row?.professionals}</p>
         },
 
-        
+
         {
             name: 'Participants Details',
             cell: row => <div className="flex  gap-2 ">
                 <Link to={`/dashboard/upcomingparticipantsDetails/${row?.queryNumber}`}>
                     <button title="See participants details" className="btn btn-neutral bg-blue-400 border-none text-white text-lg font-bold updatebtn"><BiSolidUserDetail></BiSolidUserDetail></button>
                 </Link>
-                
+
             </div>
         },
         {
@@ -99,7 +84,7 @@ const ManageUpcomingCamps = () => {
                 <Link to={`/dashboard/upcomingprofessionaldetails/${row?.queryNumber}`}>
                     <button title="See Professionals details" className="btn btn-neutral bg-red-400 border-none text-white text-lg font-bold login"><SettingsAccessibilityTwoToneIcon></SettingsAccessibilityTwoToneIcon></button>
                 </Link>
-                
+
             </div>
         },
     ]
