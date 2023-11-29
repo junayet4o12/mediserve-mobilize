@@ -9,6 +9,8 @@ import SettingsAccessibilityTwoToneIcon from '@mui/icons-material/SettingsAccess
 import { Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import { BiSolidUserDetail } from "react-icons/bi";
+import { MdPublish } from "react-icons/md";
+import Swal from "sweetalert2";
 const ManageUpcomingCamps = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure();
@@ -29,6 +31,63 @@ const ManageUpcomingCamps = () => {
     console.log(upcomingCamp);
     const timeForm = (time) => {
         return new Date(time)
+    }
+    const handlePublish = (row) => {
+        if (!(row?.professionals > 0 && row?.interestedParticipators > 2)) {
+            return Swal.fire({
+                title: 'Error!',
+                text: 'Interested Professionals count must be atleast 1 and interested participatos count atleast 3',
+                icon: 'error',
+                confirmButtonText: 'Ok, Got it'
+            })
+        }
+        axiosSecure.get(`/participantlist/${row?.queryNumber}`)
+            .then(res => {
+                console.log(res?.data.length);
+                const data = res?.data;
+                const amountOfRegister = data?.filter(datum => datum?.register === true)
+                console.log(amountOfRegister);
+
+                if (data.length !== amountOfRegister.length) {
+                    return Swal.fire({
+                        title: 'Error!',
+                        text: 'Please Register All the participant request',
+                        icon: 'error',
+                        confirmButtonText: 'Ok, Got it'
+                    })
+                }
+                else {
+                    console.log(row);
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, Move to Camp!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            axiosSecure.post('/campsfromupcoming', row)
+                                .then(res => {
+                                    console.log(res?.data)
+                                    if (res?.data?.result?.insertedId && (res?.data?.deleteupcoming?.deletedCount > 0) && res?.data?.result2?.insertedId) {
+                                        upcomingrefetch()
+                                        Swal.fire({
+                                            icon: "success",
+                                            title: "Upcoming Camp has moved to camp section",
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        });
+                                    }
+                                })
+                        }
+                    });
+
+
+                }
+            })
+
     }
     const columns = [
 
@@ -89,9 +148,9 @@ const ManageUpcomingCamps = () => {
         {
             name: 'Participants Details',
             cell: row => <div className="flex  gap-2 ">
-                <Link to={`/dashboard/upcomingparticipantsDetails/${row?.queryNumber}`}>
-                    <button title="See participants details" className="btn btn-neutral bg-blue-400 border-none text-white text-lg font-bold updatebtn"><BiSolidUserDetail></BiSolidUserDetail></button>
-                </Link>
+
+                <button onClick={() => handlePublish(row)} title="publish button will be enable after interester participant count minimum 3 and professional count minimum 1" className="btn btn-neutral bg-green-400 border-none text-white text-xl font-bold login"><MdPublish></MdPublish></button>
+
 
             </div>
         },
