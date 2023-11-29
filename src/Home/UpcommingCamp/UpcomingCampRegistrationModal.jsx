@@ -117,7 +117,7 @@ const UpcomingCampRegistrationModal = ({ camp, id, handleClose, open }) => {
                 confirmButtonText: 'Ok'
             })
         }
-        
+
         seterror('')
         const form = e.target;
         const gender = selectedGender;
@@ -157,16 +157,18 @@ const UpcomingCampRegistrationModal = ({ camp, id, handleClose, open }) => {
                 headeche,
                 weak
             },
+            organizerEmail: camp?.organizerEmail,
+            campId: id,
+            campName: camp?.campName,
+            queryNumber: camp?.queryNumber,
             campInfo: {
-                campId: id,
-                campName: camp?.campName,
                 campFee: camp?.campFees,
                 campSpecializedService: camp?.specializedService,
                 campHealthcareExpert: camp?.healthcareExpert,
                 campTargetAudience: camp?.targetAudience,
                 campvenueLocation: camp?.venueLocation,
                 campImage: camp?.image,
-                organizerEmail: camp?.organizerEmail,
+
                 DateAndTime: camp?.DateAndTime
             },
             registerEmail: user?.email,
@@ -183,7 +185,7 @@ const UpcomingCampRegistrationModal = ({ camp, id, handleClose, open }) => {
 
             .then(res => {
                 console.log(res.data);
-                if (res?.data?.insertedId) {
+                if (res?.data?.result?.insertedId && res?.data?.upcomingupdate?.modifiedCount>0) {
 
                     console.log(res?.data);
 

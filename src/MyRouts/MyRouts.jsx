@@ -25,6 +25,9 @@ import ProfessionalRouts from "../Components/Routs/ProfessionalRouts";
 import Error from "../Components/Four0Four/Error";
 import AddUpcomingCamp from "../DashBoard/Organizer/AddUpcommingCamp/AddUpcomingCamp";
 import UpcomingCampDetails from '../Home/UpcommingCamp/UpcomingCampDetails'
+import ManageUpcomingCamps from "../DashBoard/Organizer/ManageUpcomingCamps/ManageUpcomingCamps";
+import UpcomingParticipantDetails from "../DashBoard/Organizer/ManageUpcomingCamps/UpcomingParticipantDetails";
+import UpcomingProfessionalsDetails from "../DashBoard/Organizer/ManageUpcomingCamps/UpcomingProfessionalsDetails";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -84,6 +87,18 @@ const MyRouts = createBrowserRouter([
                     {
                         path: 'add-upcoming-camp',
                         element: <OrganizerRouts><AddUpcomingCamp></AddUpcomingCamp></OrganizerRouts>
+                    },
+                    {
+                        path: 'manage-upcoming-camps',
+                        element: <ManageUpcomingCamps></ManageUpcomingCamps>
+                    },
+                    {
+                        path: '/dashboard/upcomingparticipantsDetails/:query',
+                        element: <UpcomingParticipantDetails></UpcomingParticipantDetails>
+                    },
+                    {
+                        path: '/dashboard/upcomingprofessionaldetails/:query',
+                        element: <UpcomingProfessionalsDetails></UpcomingProfessionalsDetails>
                     }
                     // organizer routs end
                     ,

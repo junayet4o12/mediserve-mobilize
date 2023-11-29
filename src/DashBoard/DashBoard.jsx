@@ -9,6 +9,7 @@ import { GiArchiveRegister } from "react-icons/gi";
 import { ImProfile } from "react-icons/im";
 import { FaRegIdCard } from "react-icons/fa";
 import { FaHistory } from "react-icons/fa";
+import { MdManageSearch } from "react-icons/md";
 import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -59,7 +60,7 @@ const DashBoard = () => {
                                                 <NavLink to={'/dashboard/organizer-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span>Organizer Profile</NavLink>
                                             </li>
                                             <li>
-                                                <NavLink to={'/dashboard/add-a-camp'}> < MdOutlineAddBusiness></MdOutlineAddBusiness> Add Camps</NavLink>
+                                                <NavLink to={'/dashboard/add-a-camp'}> <span className="text-xl">< MdOutlineAddBusiness></MdOutlineAddBusiness></span> Add Camps</NavLink>
                                             </li>
                                             <li>
                                                 <NavLink to={'/dashboard/manage-camps'}><ManageHistoryIcon></ManageHistoryIcon> Manage Camps</NavLink>
@@ -69,6 +70,9 @@ const DashBoard = () => {
                                             </li>
                                             <li>
                                                 <NavLink to={'/dashboard/add-upcoming-camp'}> <span className="text-lg"><MdOutlineUpcoming></MdOutlineUpcoming></span> Add Upcomming Camp</NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink to={'/dashboard/manage-upcoming-camps'}> <span className="text-lg"><MdManageSearch></MdManageSearch></span> Manage Upcoming Camp</NavLink>
                                             </li>
 
 

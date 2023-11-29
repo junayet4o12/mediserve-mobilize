@@ -66,17 +66,18 @@ const UpcomingCampProfessionalModal = ({ camp, id, handleClose, open }) => {
                 number,
                 email
             },
-
+            organizerEmail: camp?.organizerEmail,
+            campId: id,
+            campName: camp?.campName,
+            queryNumber: camp?.queryNumber,
             campInfo: {
-                campId: id,
-                campName: camp?.campName,
                 campFee: camp?.campFees,
                 campSpecializedService: camp?.specializedService,
                 campHealthcareExpert: camp?.healthcareExpert,
                 campTargetAudience: camp?.targetAudience,
                 campvenueLocation: camp?.venueLocation,
                 campImage: camp?.image,
-                organizerEmail: camp?.organizerEmail,
+
                 DateAndTime: camp?.DateAndTime
             },
             professionalEmail: user?.email,
@@ -92,7 +93,8 @@ const UpcomingCampProfessionalModal = ({ camp, id, handleClose, open }) => {
         axiosSecure.post('/professionallist', registerInformation)
             .then(res => {
                 console.log(res?.data);
-                if (res?.data?.insertedId) {
+                // {result,upcomingupdate}
+                if (res?.data?.result?.insertedId && res?.data?.upcomingupdate?.modifiedCount>0) {
                     setwrittenName('')
                     setwrittenemail('')
                     setwrittencontactnum('')

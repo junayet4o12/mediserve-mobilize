@@ -62,6 +62,8 @@ const AddUpcomingCamp = () => {
                     healthcareExpert: data?.healthcareExpert,
                     targetAudience: data?.targetAudience,
                     participators: 0,
+                    professionals: 0,
+                    queryNumber: Date.parse(new Date()).toString(),
                     benefits: [
                         data?.benefits1,
                         data?.benefits2 || 'Not Given',
