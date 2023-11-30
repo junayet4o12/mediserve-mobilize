@@ -30,6 +30,7 @@ import UpcomingParticipantDetails from "../DashBoard/Organizer/ManageUpcomingCam
 import UpcomingProfessionalsDetails from "../DashBoard/Organizer/ManageUpcomingCamps/UpcomingProfessionalsDetails";
 import UpdateUpcomingCamp from "../DashBoard/Organizer/ManageUpcomingCamps/Update/UpdateUpcomingCamp";
 import ProfessionalAcceptedCamp from "../DashBoard/Professionals/ProfessionalAcceptedCamp/ProfessionalAcceptedCamp";
+import ContactUs from "../Components/ContactUs/ContactUs";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -55,6 +56,10 @@ const MyRouts = createBrowserRouter([
             {
                 path: '/login',
                 element: <LogIn></LogIn>
+            },
+            {
+                path: '/contactus',
+                element: <ContactUs></ContactUs>
             },
             {
                 path: '/availablecamps',

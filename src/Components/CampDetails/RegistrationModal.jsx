@@ -473,8 +473,8 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
                         <p className="text-base font-medium mb-4" id="child-modal-description">
                             You can check your infromation twice
                         </p>
-                        <Button sx={{ background: 'blue', color: 'white', mr: '10px', p: '10px', fontWeight: 'bold', mb: '10px' }} onClick={handleConfirm}>Confirm !!</Button>
-                        <Button onClick={() => setopenchild(false)} sx={{ background: 'red', color: 'white', mr: '10px', p: '10px', fontWeight: 'bold', mb: '10px' }} >Check info</Button>
+                        <Button className="login" sx={{ background: 'blue', color: 'white', mr: '10px', p: '10px', fontWeight: 'bold', mb: '10px', '&:hover': { background: '#003366' }, }} onClick={handleConfirm}>Confirm !!</Button>
+                        <Button className="login" onClick={() => setopenchild(false)} sx={{ background: 'red', color: 'white', mr: '10px', p: '10px', fontWeight: 'bold', mb: '10px', '&:hover': { background: '#E53E3E' }, }} >Check info</Button>
                     </div>
                 </Box>
             </Modal>
