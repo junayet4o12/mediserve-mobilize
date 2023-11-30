@@ -27,7 +27,7 @@ const AvailableCamps = () => {
                 <title>Mediserve Mobilize | Available Camp</title>
             </Helmet>
             <Title title={'Available Camps'} desc={'Explore Our Health Camps'}></Title>
-            <div className='flex flex-wrap  justify-center   gap-10'>
+            <div className='flex flex-wrap  justify-center   gap-10 overflow-hidden'>
                 {
                     availableCamp.map((camp, idx)=><AvailableCampsCard idx={idx} key={camp?._id} camp={camp}></AvailableCampsCard>)
                 }

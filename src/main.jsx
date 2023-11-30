@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             component={<p className="arrow-button"><FaArrowUp></FaArrowUp></p>}
             style={{background: 'black', borderRadius: '100%',  color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '20'}}
              />
-    <AnimatedCursor
+    {/* <AnimatedCursor
             
             showSystemCursor={true}
                 innerSize={0}
@@ -37,7 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 innerScale={1}
                 outerScale={3}
                 trailingSpeed={5}
-            />
+            /> */}
         <React.StrictMode>
           <AuthProviders>
             <RouterProvider router={MyRouts} />

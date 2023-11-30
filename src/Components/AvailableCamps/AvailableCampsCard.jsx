@@ -69,7 +69,7 @@ const AvailableCampsCard = ({ camp, idx }) => {
 
     const endTime = timeForm(DateAndTime?.endTime).toLocaleTimeString("en-US", { hour: 'numeric', minute: 'numeric', hour12: true });
     return (
-        <div className='overflow-hidden'>
+        <div>
             <motion.div initial={{ x: ((idx + 1) % 2 ? 100 : -100) }}
                 whileInView={{ x: 0 }}
                 transition={{ duration: 0.7 }} className='overflow-hidden'>

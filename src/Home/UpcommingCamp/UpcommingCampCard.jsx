@@ -11,8 +11,8 @@ import { Box,  Button,  CardActionArea, CardActions } from '@mui/material';
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
-
-const UpcommingCampCard = ({ camp }) => {
+import { motion } from "framer-motion"
+const UpcommingCampCard = ({ camp, idx }) => {
     const { _id,description, image, campName, campFees, DateAndTime, venueLocation,  targetAudience } = camp
 
     const timeForm = (time) => {
@@ -26,7 +26,9 @@ const UpcommingCampCard = ({ camp }) => {
     const endTime = timeForm(DateAndTime?.endTime).toLocaleTimeString("en-US", { hour: 'numeric', minute: 'numeric', hour12: true });
 
     return (
-        <div>
+        <motion.div initial={{ x: ((idx + 1) % 2 ? 100 : -100) }}
+        whileInView={{ x: 0 }}
+        transition={{ duration: 0.7 }} >
             <Card sx={{ maxWidth: 345 }}>
                 <CardActionArea>
                     <Box sx={{ position: 'relative', height: '230px', overflow: 'hidden' }}>
@@ -85,7 +87,7 @@ const UpcommingCampCard = ({ camp }) => {
                 </CardActionArea>
                
             </Card>
-        </div>
+        </motion.div>
     );
 };
 

@@ -38,9 +38,9 @@ const PopularCamp = () => {
                     sorted ? 'See Most participants camp' : 'See Popular Camp'
                 }</button>
             </div>
-            <div className='flex flex-wrap justify-center items-center gap-10'>
+            <div className='flex flex-wrap justify-center items-center gap-10 overflow-hidden'>
                 {
-                    (!sorted ? popularCamp : popularCamps).map(camp => <CampCard key={camp?._id} camp={camp}></CampCard>)
+                    (!sorted ? popularCamp : popularCamps).map((camp, idx) => <CampCard idx={idx} key={camp?._id} camp={camp}></CampCard>)
                 }
             </div>
             <div className='py-7 text-center'>

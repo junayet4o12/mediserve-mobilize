@@ -18,9 +18,9 @@ const UpcommingCamp = () => {
     return (
         <div className="bg-blue-50 py-10">
             <Title title={'Upcomming Camp'} desc={'Discover Our Upcoming Health Camps'}></Title>
-            <div className='flex flex-wrap justify-center items-center gap-10'>
+            <div className='flex flex-wrap justify-center items-center gap-10 overflow-hidden'>
                 {
-                    upcommingCamp.map(camp=><UpcommingCampCard key={camp?._id} camp={camp}></UpcommingCampCard>)
+                    upcommingCamp.map((camp, idx)=><UpcommingCampCard idx={idx} key={camp?._id} camp={camp}></UpcommingCampCard>)
                 }
             </div>
         </div>
