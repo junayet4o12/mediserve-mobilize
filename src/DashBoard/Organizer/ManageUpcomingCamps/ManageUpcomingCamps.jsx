@@ -12,6 +12,7 @@ import { BiSolidUserDetail } from "react-icons/bi";
 import { MdPublish } from "react-icons/md";
 import Swal from "sweetalert2";
 import { GrUpdate } from "react-icons/gr";
+import { TbHttpDelete } from "react-icons/tb";
 const ManageUpcomingCamps = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure();
@@ -90,6 +91,37 @@ const ManageUpcomingCamps = () => {
             })
 
     }
+
+    const handleDelete = (camp) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.put(`/deleteupcoming/${camp?._id}`, camp)
+                    .then(res => {
+                        console.log(res?.data);
+                        // {result, result2, result3, result4, result5}
+                        if (res?.data?.result?.deletedCount > 0 || res?.data?.result2?.deletedCount > 0 || res?.data?.result3?.deletedCount > 0 || res?.data?.result4?.deletedCount > 0 || res?.data?.result5?.deletedCount > 0) {
+                            console.log(camp);
+                            upcomingrefetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your camp has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+
+            }
+        });
+    }
     const columns = [
 
         {
@@ -162,6 +194,17 @@ const ManageUpcomingCamps = () => {
                 <Link to={`/dashboard/update-upcoming-camp/${row?._id}`}>
                     <button title="Update Upcoming Camp" className="btn btn-neutral bg-green-400 border-none text-white text-xl font-bold login"><GrUpdate></GrUpdate></button>
                 </Link>
+
+
+            </div>
+        },
+        {
+            name: 'Delete Camp',
+            cell: row => <div className="flex  gap-2 ">
+
+
+                <button onClick={() => handleDelete(row)} title="Delete Upcoming Camp" className="btn btn-neutral bg-red-400 border-none text-white text-2xl font-bold logout"><TbHttpDelete></TbHttpDelete></button>
+
 
 
             </div>

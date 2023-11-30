@@ -80,6 +80,7 @@ const PayCampCard = ({ handleClose, open,camp,  refetch }) => {
                     price: price,
                     date: new Date(),
                     registeredCampId: camp?._id,
+                    queryNumber: camp?.queryNumber || 'notgiven',
                     registeredCampdetails: {
                         camp
                     },
