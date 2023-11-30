@@ -13,7 +13,6 @@ const FeedbackModal = ({ handleClose, camp, open }) => {
     const { user } = useAuth()
     const [value, setValue] = useState(0);
     const [err, seterr] = useState('')
-    // console.log(camp);
     const imgHostingKey = import.meta.env.VITE_IMG_HOSTING_KEY;
     const imgHostingApi = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
@@ -25,13 +24,11 @@ const FeedbackModal = ({ handleClose, camp, open }) => {
         const form = e.target;
 
         const rating = parseFloat(form?.rating?.value);
-        // console.log(rating);
         if (!rating) {
             return seterr('Please Give rating');
         }
         const feedback = form?.feedback.value;
         const image = { image: form.testimonial.files[0] };
-        // console.log(rating, image, feedback);
         const res = await axios.post(imgHostingApi, image, {
             headers: {
                 'content-type': 'multipart/form-data'
@@ -65,7 +62,6 @@ const FeedbackModal = ({ handleClose, camp, open }) => {
                     });
                 }
             })
-        console.log(feedbackData);
 
 
     }
@@ -97,7 +93,6 @@ const FeedbackModal = ({ handleClose, camp, open }) => {
                                 name="rating"
                                 value={value}
                                 onChange={(event, newValue) => {
-                                    console.log(newValue);
                                     setValue(newValue);
                                 }}
                             />

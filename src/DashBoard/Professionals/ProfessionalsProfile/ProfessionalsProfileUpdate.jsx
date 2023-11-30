@@ -29,7 +29,6 @@ const ProfessionalsProfileUpdate = ({ handleClose, open, profile, refetch }) => 
             country,
             medicalSpeciality
         }
-        console.log(prfileData);
         updateProfile(auth.currentUser, {
             displayName: name,
 

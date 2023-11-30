@@ -42,7 +42,6 @@ const ManageParticipantsCamps = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log('registered Camp Id', id1, 'campid', id2, 'old id', id3);
                 axiosSecure.delete(`/deleteregisteredcamp/${id1}`)
                     .then(res => {
                         console.log(res?.data);

@@ -13,7 +13,6 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "../../../Components/Loading";
 
 const PayCampCard = ({ handleClose, open,camp,  refetch }) => {
-    console.log(camp?.campInfo?.campFee);
     const { user } = useAuth()
     const [error, seterror] = useState('');
     const [transitionid, settransitionid] = useState('')
@@ -88,7 +87,6 @@ const PayCampCard = ({ handleClose, open,camp,  refetch }) => {
                     confirmationStatus: 'pending',
                     paymentStatus: 'paid'
                 }
-                console.log(camp?.campInfo?.campId);
                  const res =  await axiosSecure.post(`/payments/${camp?._id}`, payment)
                  console.log(res?.data);
                  if(res?.data?.payment?.insertedId && res?.data?.updateCamp?.modifiedCount>0){

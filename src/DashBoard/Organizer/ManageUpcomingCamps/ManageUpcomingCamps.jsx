@@ -31,7 +31,6 @@ const ManageUpcomingCamps = () => {
     if (upcomingisLoading) {
         return <Loading></Loading>
     }
-    console.log(upcomingCamp);
     const timeForm = (time) => {
         return new Date(time)
     }
@@ -49,7 +48,6 @@ const ManageUpcomingCamps = () => {
                 console.log(res?.data.length);
                 const data = res?.data;
                 const amountOfRegister = data?.filter(datum => datum?.register === true)
-                console.log(amountOfRegister);
 
                 if (data.length !== amountOfRegister.length) {
                     return Swal.fire({
@@ -60,7 +58,6 @@ const ManageUpcomingCamps = () => {
                     })
                 }
                 else {
-                    console.log(row);
                     Swal.fire({
                         title: "Are you sure?",
                         text: "You won't be able to revert this!",
@@ -109,7 +106,6 @@ const ManageUpcomingCamps = () => {
                         console.log(res?.data);
                         // {result, result2, result3, result4, result5}
                         if (res?.data?.result?.deletedCount > 0 || res?.data?.result2?.deletedCount > 0 || res?.data?.result3?.deletedCount > 0 || res?.data?.result4?.deletedCount > 0 || res?.data?.result5?.deletedCount > 0) {
-                            console.log(camp);
                             upcomingrefetch()
                             Swal.fire({
                                 title: "Deleted!",
@@ -180,7 +176,7 @@ const ManageUpcomingCamps = () => {
             </div>
         },
         {
-            name: 'Participants Details',
+            name: 'Publish Camp',
             cell: row => <div className="flex  gap-2 ">
 
                 <button onClick={() => handlePublish(row)} title="publish button will be enable after interester participant count minimum 3 and professional count minimum 1" className="btn btn-neutral bg-orange-500 border-none text-white text-xl font-bold logout"><MdPublish></MdPublish></button>

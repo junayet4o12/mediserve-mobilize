@@ -24,7 +24,6 @@ const OrganizerProfile = () => {
             return res?.data
         }
     })
-    console.log(organizerProfile);
     return (
         <div>
             <Helmet>

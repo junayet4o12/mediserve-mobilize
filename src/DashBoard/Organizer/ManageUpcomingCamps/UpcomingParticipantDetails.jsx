@@ -12,7 +12,6 @@ import { Helmet } from "react-helmet-async";
 const UpcomingParticipantDetails = () => {
     const { user } = useAuth()
     const { query } = useParams();
-    console.log(query);
     const axiosSecure = useAxiosSecure()
     const { data: userupcomingCamp, isLoading: userupcominisLoading, refetch: userupcomingrefetch } = useQuery({
         queryKey: [`userupcomingCamp ${query}`, user?.email],
@@ -36,8 +35,6 @@ const UpcomingParticipantDetails = () => {
         return <Loading></Loading>
     }
     const isConfirm = professionalupcomingCamp.find(camping => camping?.confirmation === true)
-    console.log(isConfirm);
-    console.log(userupcomingCamp);
     const handleRegister = (camp) => {
         if(!isConfirm){
             return Swal.fire({
@@ -58,7 +55,6 @@ const UpcomingParticipantDetails = () => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                console.log(camp);
                 const newCamp = {
                     oldId: camp?._id,
                     registerName: camp?.registerName,
@@ -84,7 +80,6 @@ const UpcomingParticipantDetails = () => {
                     registerEmail: camp?.registerEmail,
                     userName: camp?.userName
                 }
-                console.log(newCamp);
                 axiosSecure.post('/registrationcamps', newCamp)
                     .then(res => {
                         console.log(res?.data);

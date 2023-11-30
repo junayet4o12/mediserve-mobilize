@@ -85,12 +85,24 @@ const DashBoardSearch = () => {
             routs: '/dashboard/manage-registered-camps',
             name: 'Go to manage registered camps'
         },
+        {
+            routs: '/dashboard/add-upcoming-camp',
+            name: 'Go to add upcoming camps'
+        },
+        {
+            routs: '/dashboard/manage-upcoming-camps',
+            name: 'Go to manage upcoming camps'
+        },
 
     ]
     const prefessionalRouts = [
         {
             routs: '/dashboard/professional-profile',
             name: 'Go to professional Profile'
+        },
+        {
+            routs: '/dashboard/accepted-camps',
+            name: 'Accepted Camps'
         },
     ]
     let allsearchesData = []

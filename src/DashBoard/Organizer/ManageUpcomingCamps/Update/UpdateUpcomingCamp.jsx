@@ -97,7 +97,6 @@ import campbg from '../../../../assets/addCamp.jpg'
                 if (result.isConfirmed) {
                     const image = { image: data?.image[0] }
                     const imgurl = await loadingfromimgbb(image)
-                    console.log(imgurl);
                     const campDetails = {
                         campName: data?.campName,
                         description: data?.description,
@@ -124,7 +123,6 @@ import campbg from '../../../../assets/addCamp.jpg'
                             data?.benefits5 || 'Not Given'
                         ],
                     }
-                    console.log(campDetails);
                     axiosSecure.put(`/updateupcommingcamps/${singleCamp._id}`, campDetails)
                         .then(res => {
                             console.log(res?.data);

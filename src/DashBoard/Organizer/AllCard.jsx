@@ -23,7 +23,6 @@ const AllCard = () => {
     if (isLoading ) {
         return <Loading></Loading>
     }
-    console.log(yourcamps);
     const columns = [
 
         {
@@ -44,7 +43,6 @@ const AllCard = () => {
         },
     ]
     
-    // console.log(users);
     return (
         <div>
             <div className="mt-10">

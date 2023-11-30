@@ -33,18 +33,14 @@ const Register = () => {
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const onSubmit = async (data) => {
         seterr('')
-        console.log(data)
         const image = { image: data?.image[0] }
-        // console.log(image);
 
-        console.log(image);
         const res = await axios.post(imgHostingApi, image, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         })
         const imgurl = res?.data?.data?.display_url
-        console.log(imgurl);
         createUser(data.email, data.password)
             .then(res => {
                 console.log(res.user);

@@ -18,7 +18,6 @@ const ParticipantRegisteredTable = ({ profile }) => {
             return res?.data
         }
     })
-    console.log(yourRegisterdCamps, user?.email);
 
     if (isLoading ) {
         return <Loading></Loading>

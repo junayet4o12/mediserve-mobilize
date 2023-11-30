@@ -67,7 +67,6 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
         e.preventDefault()
         const value = e.target.value
         setdevision(e.target.value)
-        console.log(e.target.value);
         if (value == 'dhaka') {
             setdistricts(dhaka)
         }
@@ -92,7 +91,6 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
         if (value == 'sylhet') {
             setdistricts(sylhet)
         }
-        // console.log(districts);
     }
     const handledistrict = e => {
         setselecteddistricts(e.target.value)
@@ -183,7 +181,6 @@ const RegistrationModal = ({ camp, id, handleClose, open }) => {
 
     }
     const handleConfirm = () => {
-        // console.log(registerInformation);
         setopenchild(false)
         axiosSecure.post('/registrationcamps', registerInformation)
 

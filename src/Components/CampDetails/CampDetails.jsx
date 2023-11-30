@@ -20,7 +20,6 @@ const CampDetails = () => {
             return res?.data
         }
     })
-    console.log(singleCamp);
     if (isLoading ) {
         return <Loading></Loading>
     }

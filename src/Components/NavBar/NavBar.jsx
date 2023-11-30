@@ -14,9 +14,9 @@ import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css'
 import logo from '../../assets/LOGO.png'
 import { AuthContext } from '../../firebase/authProvider/AuthProviders';
+import { MenuItem, Typography } from '@mui/material';
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext)
-    console.log(user);
     const [anchorElNav, setAnchorElNav] = useState(null);
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -29,24 +29,39 @@ const NavBar = () => {
     const handleLogOut = () => {
         logOut()
     }
+    const [anchorElUser, setAnchorElUser] = useState(null);
 
+
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
+
+
+
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
     const navli = <>
-        <NavLink  to={'/'}>
+        <NavLink to={'/'}>
             <Button className='navlink' sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold' }}>
                 Home
             </Button>
         </NavLink>
-        <NavLink  to={'/availablecamps'}>
-            <Button className='navlink' sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold' }}>
-                Available Camps
-            </Button>
-        </NavLink>
-        <NavLink  to={'/dashboard'}>
-            <Button className='navlink' sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold' }}>
-                Dashboard
-            </Button>
-        </NavLink>
-        <NavLink  to={'/contactus'}>
+        {
+            user?.email ? <>
+            <NavLink to={'/availablecamps'}>
+                <Button className='navlink' sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold' }}>
+                    Available Camps
+                </Button>
+            </NavLink>
+            <NavLink to={'/dashboard'}>
+                <Button className='navlink' sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold' }}>
+                    Dashboard
+                </Button>
+            </NavLink>
+        </> : ''
+        }
+        <NavLink to={'/contactus'}>
             <Button className='navlink' sx={{ my: 2, color: 'black', display: 'block', fontWeight: 'bold' }}>
                 Contact Us
             </Button>
@@ -111,12 +126,43 @@ const NavBar = () => {
                                     <>
 
                                         <Tooltip title="Open settings">
-                                            <IconButton sx={{ p: 0 }}>
+                                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                                 <Avatar alt="Remy Sharp" src={user?.photoURL} />
                                             </IconButton>
-                                            <Button onClick={handleLogOut} sx={{ background: '#ba1738', color: 'white', fontWeight: 'bold', padding: '10px', mx: '10px', px: '10px' }} className='logout'>Log Out</Button>
                                         </Tooltip>
+                                        <Menu
+                                            sx={{ mt: '45px' }}
+                                            id="menu-appbar"
+                                            anchorEl={anchorElUser}
+                                            anchorOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            keepMounted
+                                            transformOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}
+                                            open={Boolean(anchorElUser)}
+                                            onClose={handleCloseUserMenu}
+                                        >
 
+                                            <MenuItem sx={{ display: 'flex', flexDirection: 'column', gap: '5px', justifyContent: 'start', alignItems: 'start' }} onClick={handleCloseUserMenu}>
+                                                <Typography onClick={handleLogOut} >Log Out</Typography>
+
+
+                                            </MenuItem>
+                                            <MenuItem sx={{ display: 'flex', flexDirection: 'column', gap: '5px', justifyContent: 'start', alignItems: 'start' }} onClick={handleCloseUserMenu}>
+                                                <Link to={'/dashboard'}>
+
+                                                    <Typography >DashBoard</Typography>
+                                                </Link>
+
+
+                                            </MenuItem>
+
+
+                                        </Menu>
                                     </>
                             }
 

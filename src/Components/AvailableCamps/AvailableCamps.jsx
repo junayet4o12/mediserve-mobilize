@@ -25,7 +25,7 @@ const AvailableCamps = () => {
             <Title title={'Available Camps'} desc={'Explore Our Health Camps'}></Title>
             <div className='flex flex-wrap  justify-center   gap-10'>
                 {
-                    availableCamp.map(camp=><AvailableCampsCard key={camp?._id} camp={camp}></AvailableCampsCard>)
+                    availableCamp.map((camp, idx)=><AvailableCampsCard idx={idx} key={camp?._id} camp={camp}></AvailableCampsCard>)
                 }
             </div>
         </div>

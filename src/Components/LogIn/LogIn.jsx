@@ -26,11 +26,9 @@ const LogIn = () => {
     // data.email, data.password
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const onSubmit = async (data) => {
-        console.log(data)
         seterr('')
         const email = data?.email;
         const password = data?.password;
-        console.log(password, email);
         loginUser(email, password)
             .then(res => {
                 console.log(res);

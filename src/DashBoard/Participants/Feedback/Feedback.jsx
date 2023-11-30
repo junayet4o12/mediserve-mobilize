@@ -28,13 +28,11 @@ const Feedback = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    // console.log(paymenthistory);
     const timeForm = (time) => {
         return new Date(time)
     }
     const handlereview = (campdetails) => {
         setcamp(campdetails)
-        console.log(campdetails?.registeredCampdetails?.camp?.campObjectId);
         handleOpen()
     }
     const columns = [

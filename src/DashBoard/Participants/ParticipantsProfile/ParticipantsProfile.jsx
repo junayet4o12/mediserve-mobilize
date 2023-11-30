@@ -24,7 +24,6 @@ const ParticipantsProfile = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
    
-    console.log(userProfile);
     return (
         <div>
             <Helmet>

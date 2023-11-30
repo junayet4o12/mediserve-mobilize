@@ -26,7 +26,6 @@ const UpdateProfile = ({ handleClose, open,  profile, refetch }) => {
             age,
             country
         }
-        console.log(prfileData);
         updateProfile(auth.currentUser, {
             displayName: name,
 

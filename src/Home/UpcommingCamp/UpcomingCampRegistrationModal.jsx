@@ -64,7 +64,6 @@ const UpcomingCampRegistrationModal = ({ camp, id, handleClose, open }) => {
         e.preventDefault()
         const value = e.target.value
         setdevision(e.target.value)
-        console.log(e.target.value);
         if (value == 'dhaka') {
             setdistricts(dhaka)
         }

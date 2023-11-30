@@ -88,7 +88,6 @@ const UpcomingCampProfessionalModal = ({ camp, id, handleClose, open }) => {
 
     }
     const handleConfirm = () => {
-        // console.log(registerInformation);
         setopenchild(false)
         axiosSecure.post('/professionallist', registerInformation)
             .then(res => {
@@ -109,7 +108,6 @@ const UpcomingCampProfessionalModal = ({ camp, id, handleClose, open }) => {
                     });
                 }
             })
-        console.log(registerInformation);
 
 
 
@@ -154,7 +152,7 @@ const UpcomingCampProfessionalModal = ({ camp, id, handleClose, open }) => {
                                 <label className="label">
                                     <span className="label-text">Your Email Address</span>
                                 </label>
-                                <input onChange={handleemail} value={writtenemail} required name="email" type="email" placeholder="Eamil" className="input input-bordered w-full sm:w-[320px]" />
+                                <input onChange={handleemail} value={writtenemail} required name="email" type="email" placeholder="Email" className="input input-bordered w-full sm:w-[320px]" />
                             </div>
                             <div className="form-control  w-full sm:w-[320px]">
                                 <label className="label">

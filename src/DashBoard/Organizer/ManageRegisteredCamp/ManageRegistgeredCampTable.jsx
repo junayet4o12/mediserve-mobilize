@@ -34,7 +34,6 @@ const ManageRegistgeredCampTable = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log(row);
                 axiosSecure.put(`/campedit/${row?.campInfo?.campId}`, { registerid: row?._id, transactionId: row?.transactionId })
                     .then(res => {
                         console.log(res?.data);
@@ -67,7 +66,6 @@ const ManageRegistgeredCampTable = () => {
             confirmButtonText: "Yes, Confirm!"
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log(camp);
                 axiosSecure.put(`/updateRegistrationcamp/${camp?._id}`, { transactionId: camp?.transactionId })
                     .then(res => {
                         console.log(res?.data);

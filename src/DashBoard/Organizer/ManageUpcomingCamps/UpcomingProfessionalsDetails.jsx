@@ -13,7 +13,6 @@ import { Helmet } from "react-helmet-async";
 const UpcomingProfessionalsDetails = () => {
     const { user } = useAuth()
     const { query } = useParams();
-    console.log(query);
     const axiosSecure = useAxiosSecure()
     const { data: professionalupcomingCamp, isLoading: professionalupcomingisLoading, refetch: professionalupcomingrefetch } = useQuery({
         queryKey: [`professionalupcomingCamp ${query}`, user?.email],
@@ -28,7 +27,6 @@ const UpcomingProfessionalsDetails = () => {
         return <Loading></Loading>
     }
     const isConfirm = professionalupcomingCamp.find(camping => camping?.confirmation === true)
-    console.log(isConfirm);
     const handleAccept = (camp) => {
         Swal.fire({
             title: "Are you sure?",
@@ -40,7 +38,6 @@ const UpcomingProfessionalsDetails = () => {
             confirmButtonText: "Yes, Accept!"
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log(camp);
                 axiosSecure.put(`/professionallistupdate/${camp?._id}`, {
                     professionalName: camp?.professionalName,
                     campid: camp?.campId
@@ -60,7 +57,6 @@ const UpcomingProfessionalsDetails = () => {
             }
         });
     }
-    console.log(professionalupcomingCamp);
     const columns = [
 
 

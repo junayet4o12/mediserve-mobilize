@@ -43,7 +43,6 @@ const ProfessionalAcceptedCamp = () => {
             })
 
     }
-    console.log(acceptedCamps);
     const columns = [
 
         {

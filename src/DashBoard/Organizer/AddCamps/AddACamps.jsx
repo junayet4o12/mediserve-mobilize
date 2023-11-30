@@ -21,7 +21,6 @@ const AddACamps = () => {
         setTargetAudience(event.target.value);
     };
     const onSubmit = async (data) => {
-        console.log(data)
 
         Swal.fire({
             title: "Are you sure?",
@@ -34,15 +33,12 @@ const AddACamps = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 const image = { image: data?.image[0] }
-                // console.log(image);
-                console.log(image);
                 const res = await axios.post(imgHostingApi, image, {
                     headers: {
                         'content-type': 'multipart/form-data'
                     }
                 })
                 const imgurl = res?.data?.data?.display_url
-                console.log(imgurl);
                 const campDetails = {
                     campName: data?.campName,
                     description: data?.description,
@@ -71,7 +67,6 @@ const AddACamps = () => {
                     ],
                     organizerEmail: user?.email
                 }
-                console.log(campDetails);
                 axiosSecure.post('/camps', campDetails)
                     .then(res => {
                         console.log(res?.data);

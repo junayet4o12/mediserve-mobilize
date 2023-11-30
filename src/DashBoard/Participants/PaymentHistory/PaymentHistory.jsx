@@ -11,7 +11,6 @@ import { Helmet } from "react-helmet-async";
 const PaymentHistory = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure()
-    console.log(user?.email);
     const { data: paymenthistory = [], isLoading } = useQuery({
         queryKey: ['paymenHistory', user],
         enabled: !!user?.email && !!localStorage.getItem('token'),
@@ -23,7 +22,6 @@ const PaymentHistory = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
-    console.log(paymenthistory);
     const timeForm = (time) => {
         return new Date(time)
     }

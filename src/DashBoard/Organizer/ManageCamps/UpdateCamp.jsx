@@ -96,7 +96,6 @@ const UpdateCamp = () => {
             if (result.isConfirmed) {
                 const image = { image: data?.image[0] }
                 const imgurl = await loadimgfromimgbb(image)
-                console.log(imgurl);
                 const campDetails = {
                     campName: data?.campName,
                     description: data?.description,
@@ -123,7 +122,6 @@ const UpdateCamp = () => {
                         data?.benefits5 || 'Not Given'
                     ],
                 }
-                console.log(campDetails);
                 axiosSecure.put(`/fullcamp/${singleCamp._id}`, campDetails)
                     .then(res => {
                         console.log(res?.data);

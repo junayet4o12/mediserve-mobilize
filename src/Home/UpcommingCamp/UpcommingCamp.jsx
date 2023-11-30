@@ -15,7 +15,6 @@ const UpcommingCamp = () => {
             return res?.data
         }
     })
-    console.log(upcommingCamp);
     return (
         <div className="bg-blue-50 py-10">
             <Title title={'Upcomming Camp'} desc={'Discover Our Upcoming Health Camps'}></Title>

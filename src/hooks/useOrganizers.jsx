@@ -12,7 +12,6 @@ const useOrganizers = () => {
         enabled: !!user?.email && !!localStorage.getItem('token'),
         queryFn: async () => {
             const res = await axiosSecure.get(`/user/organizer/${user?.email}`);
-            console.log(res?.data?.organizer);
 
             return res?.data?.organizer
         }
