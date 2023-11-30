@@ -28,6 +28,7 @@ import UpcomingCampDetails from '../Home/UpcommingCamp/UpcomingCampDetails'
 import ManageUpcomingCamps from "../DashBoard/Organizer/ManageUpcomingCamps/ManageUpcomingCamps";
 import UpcomingParticipantDetails from "../DashBoard/Organizer/ManageUpcomingCamps/UpcomingParticipantDetails";
 import UpcomingProfessionalsDetails from "../DashBoard/Organizer/ManageUpcomingCamps/UpcomingProfessionalsDetails";
+import UpdateUpcomingCamp from "../DashBoard/Organizer/ManageUpcomingCamps/Update/UpdateUpcomingCamp";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -99,7 +100,12 @@ const MyRouts = createBrowserRouter([
                     {
                         path: '/dashboard/upcomingprofessionaldetails/:query',
                         element: <UpcomingProfessionalsDetails></UpcomingProfessionalsDetails>
+                    },
+                    {
+                        path: '/dashboard/update-upcoming-camp/:campId',
+                        element: <UpdateUpcomingCamp></UpdateUpcomingCamp>
                     }
+
                     // organizer routs end
                     ,
                     // participant routs Start 

@@ -5,7 +5,7 @@ import { auth } from "../firebase/firebaseconfig";
  
 // import React from 'react';
 const axiosSecure = axios.create({
-    baseURL: 'https://mediserve-mobilize-backend.vercel.app'
+    baseURL: 'http://localhost:3000/'
 })
 const useAxiosSecure = () => {
     const navigate = useNavigate()

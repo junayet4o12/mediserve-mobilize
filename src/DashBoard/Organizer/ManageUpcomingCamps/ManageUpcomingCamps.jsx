@@ -11,6 +11,7 @@ import DataTable from "react-data-table-component";
 import { BiSolidUserDetail } from "react-icons/bi";
 import { MdPublish } from "react-icons/md";
 import Swal from "sweetalert2";
+import { GrUpdate } from "react-icons/gr";
 const ManageUpcomingCamps = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure();
@@ -149,7 +150,18 @@ const ManageUpcomingCamps = () => {
             name: 'Participants Details',
             cell: row => <div className="flex  gap-2 ">
 
-                <button onClick={() => handlePublish(row)} title="publish button will be enable after interester participant count minimum 3 and professional count minimum 1" className="btn btn-neutral bg-green-400 border-none text-white text-xl font-bold login"><MdPublish></MdPublish></button>
+                <button onClick={() => handlePublish(row)} title="publish button will be enable after interester participant count minimum 3 and professional count minimum 1" className="btn btn-neutral bg-orange-500 border-none text-white text-xl font-bold logout"><MdPublish></MdPublish></button>
+
+
+            </div>
+        },
+        {
+            name: 'Update Camp',
+            cell: row => <div className="flex  gap-2 ">
+
+                <Link to={`/dashboard/update-upcoming-camp/${row?._id}`}>
+                    <button title="Update Upcoming Camp" className="btn btn-neutral bg-green-400 border-none text-white text-xl font-bold login"><GrUpdate></GrUpdate></button>
+                </Link>
 
 
             </div>
