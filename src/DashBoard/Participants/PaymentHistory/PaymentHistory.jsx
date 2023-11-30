@@ -79,6 +79,7 @@ const PaymentHistory = () => {
             <Title title={'Payment History'} desc={'See Your Payments History'}></Title>
             <div>
                 <DataTable
+                pagination
                     columns={columns}
                     data={paymenthistory}
                     selectableRowsHighlight

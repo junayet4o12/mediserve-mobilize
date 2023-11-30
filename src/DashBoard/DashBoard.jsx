@@ -10,6 +10,7 @@ import { ImProfile } from "react-icons/im";
 import { FaRegIdCard } from "react-icons/fa";
 import { FaHistory } from "react-icons/fa";
 import { MdManageSearch } from "react-icons/md";
+import { FaRegThumbsUp } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -51,6 +52,9 @@ const DashBoard = () => {
                                         {/* professionalrouts  */}
                                             <li>
                                                 <NavLink to={'/dashboard/professional-profile'}> <span className="text-lg"><ImProfile></ImProfile> </span>professional Profile</NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink to={'/dashboard/accepted-camps'}> <span className="text-lg"><FaRegThumbsUp></FaRegThumbsUp> </span>Accepted Camp</NavLink>
                                             </li>
                                         </>
                                         :

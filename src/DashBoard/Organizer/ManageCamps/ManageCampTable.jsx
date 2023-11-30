@@ -88,6 +88,7 @@ const ManageCampTable = ({ yourcamps,refetch }) => {
         <div>
             <div className="mt-10">
                 <DataTable
+                pagination
                     columns={columns}
                     data={yourcamps}
                     selectableRowsHighlight

@@ -137,6 +137,7 @@ const ManageRegistgeredCampTable = () => {
     return (
         <div>
             <DataTable
+            pagination
                 columns={columns}
                 data={registeredCamp}
                 selectableRowsHighlight

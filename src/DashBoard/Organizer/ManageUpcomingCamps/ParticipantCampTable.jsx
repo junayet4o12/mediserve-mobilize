@@ -56,6 +56,7 @@ const ParticipantCampTable = ({camps, refetch}) => {
     return (
         <div>
              <DataTable
+             pagination
                     columns={columns}
                     data={camps}
                     selectableRowsHighlight

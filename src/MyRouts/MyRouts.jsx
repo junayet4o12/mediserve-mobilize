@@ -29,6 +29,7 @@ import ManageUpcomingCamps from "../DashBoard/Organizer/ManageUpcomingCamps/Mana
 import UpcomingParticipantDetails from "../DashBoard/Organizer/ManageUpcomingCamps/UpcomingParticipantDetails";
 import UpcomingProfessionalsDetails from "../DashBoard/Organizer/ManageUpcomingCamps/UpcomingProfessionalsDetails";
 import UpdateUpcomingCamp from "../DashBoard/Organizer/ManageUpcomingCamps/Update/UpdateUpcomingCamp";
+import ProfessionalAcceptedCamp from "../DashBoard/Professionals/ProfessionalAcceptedCamp/ProfessionalAcceptedCamp";
 const MyRouts = createBrowserRouter([
     {
         path: "/",
@@ -131,6 +132,10 @@ const MyRouts = createBrowserRouter([
                     {
                         path: 'professional-profile',
                         element: <ProfessionalRouts><ProfessionalsProfile></ProfessionalsProfile></ProfessionalRouts>
+                    },
+                    {
+                        path: 'accepted-camps',
+                        element: <ProfessionalAcceptedCamp></ProfessionalAcceptedCamp>
                     }
                     // Professionals  routs end
 

@@ -54,7 +54,7 @@ const AllCard = () => {
                     data={yourcamps}
                     selectableRowsHighlight
                     highlightOnHover
-
+                    pagination
                     customStyles={{
 
 

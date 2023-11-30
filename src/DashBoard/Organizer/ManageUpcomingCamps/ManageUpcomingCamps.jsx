@@ -13,6 +13,7 @@ import { MdPublish } from "react-icons/md";
 import Swal from "sweetalert2";
 import { GrUpdate } from "react-icons/gr";
 import { TbHttpDelete } from "react-icons/tb";
+import { Helmet } from "react-helmet-async";
 const ManageUpcomingCamps = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure();
@@ -213,9 +214,13 @@ const ManageUpcomingCamps = () => {
     ]
     return (
         <div>
+            <Helmet>
+                <title>Mediserve Mobilize | Manage Upcoming Camp</title>
+            </Helmet>
             <Title title={'Your Upcoming camp'} desc={'Manage Your upcoming camp'}></Title>
             <div>
                 <DataTable
+                pagination
                     columns={columns}
                     data={upcomingCamp}
                     selectableRowsHighlight

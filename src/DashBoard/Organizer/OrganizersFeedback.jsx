@@ -50,7 +50,7 @@ const OrganizersFeedback = () => {
                     data={yourfeedback}
                     selectableRowsHighlight
                     highlightOnHover
-
+                    pagination
                     customStyles={{
 
 

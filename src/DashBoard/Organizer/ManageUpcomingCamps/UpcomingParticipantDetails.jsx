@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import DataTable from "react-data-table-component";
 import Title from '../../../Components/Title/Title'
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const UpcomingParticipantDetails = () => {
     const { user } = useAuth()
     const { query } = useParams();
@@ -152,8 +153,12 @@ const UpcomingParticipantDetails = () => {
     ]
     return (
         <div>
+            <Helmet>
+                <title>Mediserve Mobilize | Upcoming ParticipantDetails</title>
+            </Helmet>
             <Title title={'Participants Details'} desc={`For Upcoming camp.`}></Title>
             <DataTable
+            pagination
                 columns={columns}
                 data={userupcomingCamp}
                 selectableRowsHighlight

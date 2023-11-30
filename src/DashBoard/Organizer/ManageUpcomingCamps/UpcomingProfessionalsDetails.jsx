@@ -8,6 +8,7 @@ import Loading from "../../../Components/Loading";
 import DataTable from "react-data-table-component";
 import Title from "../../../Components/Title/Title";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const UpcomingProfessionalsDetails = () => {
     const { user } = useAuth()
@@ -93,8 +94,12 @@ const UpcomingProfessionalsDetails = () => {
     ]
     return (
         <div>
+            <Helmet>
+                <title>Mediserve Mobilize | Upcoming Professional Details</title>
+            </Helmet>
             <Title title={'Professionals Details'} desc={`For Upcoming camp.`}></Title>
             <DataTable
+            pagination
                 columns={columns}
                 data={professionalupcomingCamp}
                 selectableRowsHighlight

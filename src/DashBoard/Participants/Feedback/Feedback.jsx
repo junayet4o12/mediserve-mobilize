@@ -89,6 +89,7 @@ const Feedback = () => {
             <Title title={'Feedback'} desc={'Give feedback to your paid camp'}></Title>
             <div>
                 <DataTable
+                pagination
                     columns={columns}
                     data={paymenthistory}
                     selectableRowsHighlight

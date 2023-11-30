@@ -143,6 +143,7 @@ const ManageParticipantsCamps = () => {
             <div className="mt-10">
                 <Title title={'Manage Camps'} desc={'Registered By You'}></Title>
                 <DataTable
+                pagination
                     columns={columns}
                     data={yourRegisterdCamps}
                     selectableRowsHighlight

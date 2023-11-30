@@ -47,6 +47,7 @@ const ParticipantRegisteredTable = ({ profile }) => {
             <div className="mt-10">
                 <Title title={'Camps'} desc={'Attended by you'}></Title>
                 <DataTable
+                pagination
                     columns={columns}
                     data={ yourRegisterdCamps}
                     selectableRowsHighlight
