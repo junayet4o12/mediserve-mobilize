@@ -104,7 +104,7 @@ const AddUpcomingCamp = () => {
         "Community members interested in health education"
     ]
     return (
-        <div className='bg-cover bg-no-repeat  bg-center ' style={{ background: `url(${campbg})` }}>
+        <div className='' style={{ background: `url(${campbg})`, backgroundSize: 'cover', backgroundRepeat:'no-repeat', backgroundAttachment : 'fixed' }}>
             <div className='w-full   bg-[#00000069] py-10'>
             <Helmet>
                 <title>Mediserve Mobilize |  Add UpcomingCamp</title>
